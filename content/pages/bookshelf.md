@@ -54,7 +54,6 @@ Slug: bookshelf
 
 9. 52 Things You Should Know about Geophysics. by Agile Libre 
 
-
 - - -
 
 ## Computer Science Books
@@ -91,7 +90,9 @@ Slug: bookshelf
 
 16. The Quick Python Book. (second edition) by Vernol Ceder
 
-17. 
+17. Design Patterns. by Erich Gamma, etc. 
+
+18. Thinking in C++. by Bruce Eckel
 - - -
 
 ## Math/Statistics Books
