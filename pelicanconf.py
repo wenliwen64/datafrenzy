@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 
 AUTHOR = 'Liwen Wen'
 SITENAME = 'DataFrenzy'
-SITEURL = 'http://localhost:8000'# if left empty, it will be not possible to go back to homepage by clicking the 'Home' button
+SITEURL = 'http://localhost:18000'# if left empty, it will be not possible to go back to homepage by clicking the 'Home' button
 
 PATH = 'content'
 
