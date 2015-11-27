@@ -7,7 +7,7 @@ Authors: Liwen Wen
 
 [TOC]
 
-This article is based on the classic paper by Art&Sergei 1998. `/Users/lwen/gdrive/cve_papers/art_sergei.pdf` 
+This article is based on the classic papers by Art&Sergei 1998. `/Users/lwen/gdrive/cve_papers/art_sergei.pdf` and Voloshin&Zhang 1995 `/Users/lwen/gdrive/cve_papers/voloshin_zhang.pdf`  
 
 ## What is flow?
 ----
@@ -36,14 +36,25 @@ The first order and second order coefficients are refered to as "directed flow" 
 
    3. Corrected the estimated coefficients by event plane resolution; (The finite particle number used to estimate the event plane introduces fluctuations("resolution") into the calculation which can be corrected by some tricks(by dividing the coefficient by event plane resolution), I will discuss this later.)
 
-Notes: the resolution correction always makes the coefficients bigger since only along the real event plane direction the projection is the largest; another reason why this is of great importance is the corrected value can be used to compare with full phase-space theoretical prediction. 
+Notes: 
 
+   1. The resolution correction always makes the coefficients bigger since only along the real event plane direction the projection is the largest; another reason why this is of great importance is the corrected value can be used to compare with full phase-space theoretical prediction. 
+
+   2. Another reason why we can write the azimuthal distribution this way is generically:
+   
+$$\frac{Ed^3N}{d^3p} = \frac{d^2N}{2\pi p_tdp_td\phi}(1 + \sum_{n=1}^{+\infty}[x_ncos(n\phi) +y_nsin(n\phi)])$$
+$$\frac{Ed^3N}{d^3p} = \frac{d^2N}{2\pi p_tdp_td\phi}(1 + \sum_{n=1}^{+\infty}\sqrt{x_n^2+y_n^2}[\frac{x_n}{\sqrt{x_n^2+y_n^2}}cos(n\phi)+\frac{y_n}{\sqrt{x_n^2+y_n^2}}sin(n\phi)])$$
+
+if we assume $\sqrt{x_n^2+y_n^2} = v_n$ and $cos(n\Phi_n) = \frac{x_n}{\sqrt{x_n^2+y_n^2}}$ and $sin(n\Phi_n) = \frac{y_n}{\sqrt{x_n^2+y_n^2}}$, then:
+
+$$\frac{Ed^3N}{d^3p} = \frac{d^2N}{2\pi p_tdp_td\phi}(1 + \sum_{n=1}^{+\infty}v_ncos(n(\phi-\Phi_n)))$$
+    
 ### How to obtain the reaction plane orientation($\Phi_r$)?
 
-So basically we use the anisotropic flow itself to estimate the event plane. In other words, it can be determined independently for each harmonic of the anisotropic flow.   
+So basically we use the anisotropic flow itself to estimate the event plane. In other words, it can be determined independently for each harmonic of the anisotropic flow. Apparently we can only evaluate the $x_n$ and $y_n$ in above formulas to get the tan value of $n\Phi_n$
 
-$$Q_n cos(n\Phi_n) = X_n = \sum_{i}w_i cos(n\phi_i),$$
-$$Q_n sin(n\Phi_n) = Y_n = \sum_{i}w_i sin(n\phi_i),$$
+$$Q_n cos(n\Phi_n) = X_n = \sum_{i}w_i cos(n\phi_i),$$(which is equally to evaluate the $x_n$ value)
+$$Q_n sin(n\Phi_n) = Y_n = \sum_{i}w_i sin(n\phi_i),$$(which is equally to evaluate the $y_n$ value)
 
 So $X_n$ and $Y_n$ composes a event flow vector $\vec{Q_n}$. We can solve the $\Phi_n$ by:
 
@@ -53,7 +64,10 @@ Some comments on above equations:
 
    1. $w_i$ are weights, usually we use transverse momentum, the criterion is to make the resolution the best;
 
-   2. Usually the weights for the odd and even harmonic planes are different(if particle azimuthal angle shifted by $\pi$, the distribution should remain the same! You can draw the two ions' peripheral collision, if you rotate $\pi$ you cannot tell the difference from original one. This is called reflection symmetry, so e.g. $cos(3(\phi-\Phi_3)) = - cos(-3(\phi-\Phi_3))$ ) 
+   2. To put it simple, for odd harmonics in principle you should add all of the particles' $cosn\phi$ or $sinn\phi$ together
+   2. Usually the weights for the odd and even harmonic planes are different(if particle azimuthal angle shifted by $\pi$, the distribution for forward and backward hemisphere($\eta\geq0$ and $\eta\leq0$)should remain the same, so you should add them together instead of subtraction! You can draw the two ions' peripheral collision, if you rotate $\pi$ you cannot tell the difference from original one. This is called reflection symmetry, so e.g. $cos(3(\phi-\Phi_3)) = - cos(-3(\phi-\Phi_3))$ ) 
+
+   ![](http://i.imgur.com/DMXzMEI.png)
 
    3. $\Phi_n$ is in the range $0\leq\Phi_n\leq2\pi/n$
 
@@ -83,6 +97,14 @@ From this equation, we can easily evaluate the $v_n$ by measuring $<cos[km(\phi-
 
 The correction formula can be written as:
 
+$$<cosn(\phi-\Phi_{ep})> = <cosn(\phi-\Phi_r)\cdot cosn(\Phi_r-\Phi_{ep}) > - <sinn(\phi-\Phi_r)\cdot sinn(\Phi_r - \Phi_{ep})> $$ 
+
+The averaged sin terms are zero, so we reach:
+
+$$<cosn(\phi-\Phi_{ep})> = <cosn(\phi-\Phi_r)> \cdot <cosn(\Phi_r-\Phi_{ep})>$$
+
+so let us denote observed $v_n$ as $<cosn(\phi-\Phi_{ep})>$ and real $v_n$ as $<cosn(\phi-\Phi_r)>$
+
 $$v_n = v_n^{obs}/<cos[km(\Phi_m - \Phi_r)]>$$
 
 How to calculate the denominator? We better know the pdf of $m(\Phi_m-\Phi_r)$:
@@ -99,6 +121,18 @@ which is inversely proportional to the square-root of **N**;
 
 So pratically, we need to get sub-event plane resolution using:
 
-$$<cos[k(\phi_{east} - \phi_{west})]> = <cos[k(\phi_{east} - \phi_r)]>\dot<cos[k(\phi_{west}-\phi_r)]>$$
+$$<cos[k(\phi_{east} - \phi_{west})]> = <cos[k(\phi_{east} - \phi_r)]>\cdot<cos[k(\phi_{west}-\phi_r)]>$$
 
 Then map out the full event plane resolution by some tricks.
+
+## TODO
+ 
+1. Eccentricity definition:
+
+$$e=\frac{r_a - r_p}{r_a + r_p}$$
+
+2. Why reaction plane angle is zero to 2pi? Any difference between 45 degree and 45+180 degree? Probably just the target and beam nucleus difference? 
+
+3. Why only m order event plane can be used to calculate $v_{km}$
+
+The temporary answer could be for example, 2nd order ep can only cover $[0, \pi]$ so if you want to study the 3rd order flow, you have to calculate $<cos3(\phi-\Phi_2)>_{event, particles}$, so if you fold the $[2\pi/3, \pi]$ back to $[0, 2\pi/3]$ we can find $[0, \pi/3]$ is overlaped, this must introduce more biases, since if you use first order or third order, it will uniformally distributed over zero to $2\pi/3$ 
