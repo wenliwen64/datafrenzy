@@ -125,6 +125,10 @@ $$<cos[k(\phi_{east} - \phi_{west})]> = <cos[k(\phi_{east} - \phi_r)]>\cdot<cos[
 
 Then map out the full event plane resolution by some tricks.
 
+The analytical form of the event plane resolution is:
+
+$$<cos(km(\Phi_m -\Phi_r))> = \frac{\sqrt{\pi}}{2\sqrt{2}}\chi_m exp(-\chi_m^2/4)\times[I_{(k-1)/2}(\chi_m^2/4)+I_{(k+1)/2}(\chi_m^2/4)]$$
+
 ## TODO
  
 1. Eccentricity definition:
