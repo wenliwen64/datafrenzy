@@ -76,7 +76,7 @@ Slug: bookshelf
 
 9. Accelerated C++. by Koenig & Moo
 
-10. Learn Python the Hard way. by Shqw
+10. Learn Python the Hard way. by Shaw
 
 11. PHP/MySQL. by Murach 
 
@@ -84,7 +84,7 @@ Slug: bookshelf
 
 13. JaveScripts Tutorial. by Johnanth etc. 
 
-14. Effective C++. by Meyer
+14. Effective C++. by Meyer(in office)
 
 15. Matlab: An Introduction with Applications. by Amos Gilat
 
