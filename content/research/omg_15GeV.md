@@ -61,8 +61,9 @@ Status: draft
 ----
 * Location: `rcf$/star/u/lwen1990/ucla/Code_Omega`
 * How to Compile: 
-      1. `$starver SL14i`
-      2. `$cons EXTRA_CPPFLAGS=-fpermissive`
+      1. `$starver SL14i`;
+      2. `$cons EXTRA_CPPFLAGS=-fpermissive`;
+      3. back the original version of `StRoot` to `StRoot.bak`, current `StRoot` is used to generate rotational background with different angles;  
 * How to Run:
       1. `$cd batchjobs`
       2. `$./submit_15GeV_strangeness.sh 0901 01 15GeV omg` which will generate data/hists files under `realoutput` directory and the name is like `0901_15GeV_omg_data`. The `01` is the test number.
