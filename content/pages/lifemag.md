@@ -18,6 +18,8 @@ Status: hidden
 
 6. How to write a solver(analysis pipline and kaggle solver)
 
+7. How to exercise my database skills(SQL)? 
+
 # Skills to develop:
 ---
 ## Coding: 
@@ -25,6 +27,12 @@ Status: hidden
    1. Data analysis in python.pandas?? (work through Python for data analysis exercise, 45 mins every day)
 
    2. C++ development knowledge?(work through the thinking in C++ exercise, 45 mins every day)
+
+   3. Develop Algorithms understanding, and start coding leet code.
+
+   4. Develop my own bash shell script cheatsheet.(shell_script_cheatsheet.md)  
+
+   5. Develop a database server for chiral effects data points. 
 
 ## Machine Learning:
   
