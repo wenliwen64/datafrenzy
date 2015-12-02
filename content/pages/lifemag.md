@@ -20,6 +20,8 @@ Status: hidden
 
 7. How to exercise my database skills(SQL)? 
 
+8. Figure out how SU(3) is related to QCD, etc. 
+
 # Skills to develop:
 ---
 ## Coding: 
@@ -41,3 +43,7 @@ Status: hidden
    2. Review and reformat the previous notes on Introduction to Machine Learning. (Fridays, 1 hr)
 
    3. Long term goal is to read through the Elements of Statistical Learning / Pattern Reconigtion, take notes() 
+
+# Books to read:
+---
+1. Quick view: Data Science from scratch

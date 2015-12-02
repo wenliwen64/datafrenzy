@@ -93,6 +93,10 @@ Slug: bookshelf
 17. Design Patterns. by Erich Gamma, etc. 
 
 18. Thinking in C++. by Bruce Eckel
+
+19. SQL: the visual quickstart Guide. by Fehily `gdrive/books` 
+
+20. Write Idiomatic Python3. by Jeff([cheatsheet]({filename}/mis/python_cheatsheet.md)) `gdrive/books`
 - - -
 
 ## Math/Statistics Books
