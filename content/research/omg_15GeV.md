@@ -139,3 +139,6 @@ TODO: to convert the omg_mid_analysis.C to a "non-parametric" function so that w
 ## TODO List
 * Elaborate how to get overview root file
 * rcf codes have been moved to `/star/u/lwen1990/gpfs`, I have to rewrite some path variable in some codes.
+* The 5 data sets of rotational backgrounds on rcf:
+   1. 1130 -> $2\pi/5$
+   2. 1201 -> $2\cdot2\pi/5$ 

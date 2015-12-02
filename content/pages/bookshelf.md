@@ -113,6 +113,16 @@ Slug: bookshelf
 
 - - -
 
+## Data Science
+ 
+1. Data Sciecne from Scratch. by Joel Grus
+
+`gdrive/books`
+
+2. Python for Data Analysis. 
+
+`gdrive/books`
+- - -
 ## Some Notes & Good Stuff
 
 1. [Manuel's ROOT tips and tricks]({{site.url}}/bookshelf/notes/ManuelRootTips.pdf) ([Manuel's rootlogon.C]({{site.url}}/bookshelf/notes/rootlogon.C))
