@@ -82,6 +82,9 @@ Status: draft
        3. To run data analysis: `root[1].x omg_mid_analysis.C++("0819_all_omg_list","0820_2015_omg")` or `root[1].x omg_mid_analysis.C++("0819_all_antiomg_list","0820_2015_antiomg")`;
        4. To run overview: `root[1].x plot_overview.C++`;
 
+Or:
+       1. `$root -l run_mid_analysis.C`(this is a quick runner, quite conviniently!) 
+
 * Results:
 TODO: to convert the omg_mid_analysis.C to a "non-parametric" function so that we can compile it in ALic, and write a runner to load it and run it. 
 
