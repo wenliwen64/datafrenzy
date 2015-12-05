@@ -10,5 +10,5 @@ Authors: Liwen Wen
 * [Omega yields in AuAu 14.5 GeV Collisions]({filename}/research/omg_15GeV.md)
 * [Phi yields in AuAu 14.5 GeV Collisions]({filename}/research/phi_15GeV.md)
 
-### 
+### Chiral Effects 
 * [Pion $\gamma$ correlation in heavy ion collisions]({filename}/research/pipi_gamma.md)

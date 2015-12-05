@@ -2,7 +2,6 @@ Title: Task Management
 Date: 2015-12-01 19:26
 Slug: task-magnagement
 Authors: Liwen Wen
-Status: hidden
 
 # Questions to Answer: 
 ---

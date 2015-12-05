@@ -2,7 +2,6 @@ Title: Python Cheatsheet
 Date: 2015-12-01 23:34
 Slug: python-cheatsheet
 Authors: Liwen Wen
-Status: draft
 
 [TOC]
 
@@ -22,9 +21,9 @@ This cheatsheet is based on the book Writing Idiomatic Python. by Jeff Knupp.
 
 * for loop(???format function):
 
-    :::python
-    for index, element in enumerate(my_contaniter):
-        print('{} {}'.format(index, element))
+        :::python
+        for index, element in enumerate(my_contaniter):
+            print('{} {}'.format(index, element))
 
 7. Mutable objects: list, dict, set and most class instances
 
@@ -50,15 +49,13 @@ This cheatsheet is based on the book Writing Idiomatic Python. by Jeff Knupp.
 
 5. How to format strings in python:
 
-   i. use `+` operator to concatenate strings and variables.
+    i. use `+` operator to concatenate strings and variables.
    
-   ii. 'old-style' string
+    ii. 'old-style' string
 
-   iii. ''.join(string_list) 
+    iii. `''.join(string_list)` 
 
-   The best way to do is to use `output = 'Name: {user.name}, Age: {user.age}, Sex: {user.sex}'.format(user=user)`
-
-   This [link](https://docs.python.org/2/library/string.html#formatspec) is very helpful.
+    The best way to do is to use `output = 'Name: {user.name}, Age: {user.age}, Sex: {user.sex}'.format(user=user)`. This [link](https://docs.python.org/2/library/string.html#formatspec) is very helpful.
 
 6. `some_list = [element + 5 for element in some_other_list if is_prime(element)]`
 
@@ -78,6 +75,42 @@ This cheatsheet is based on the book Writing Idiomatic Python. by Jeff Knupp.
 
 15. `users_first_names = {user.first_name for user in users}`
 
+16. How to define a variable arguments function: 
+
+        :::python 
+        In [0]: def foo(*args, **kwargs):
+          ...:      for a in args:
+          ...:          print a;
+        
+        In [1]: foo(1, 2, 3)
+        1
+        2
+        3
+        In [7]: def bar(*args, **kwargs):
+                    for a in kwargs:
+                        print(kwargs[a])
+           ...:      
+        In [8]: bar(1,2,3)
+
+        In [9]: bar(num1=1,num2=2,num3=3)
+        1
+        2
+        3
+
+17. P48 example very impressive
+
+18. `(user, name, _, _) = get_user_info(user)` is better than `(user, name, temp, temp2) = get_user_info(user)`
+
+19. tuple can be used to accept upacked list. `(name, age, sex) = list_from_comma_separated_file` 
+
+20. `return (mean, median, variance)` to return multiple values from one fucntion. 
+
+21. Reread class part. Very helpful but hard at this point of time(https://www.jeffknupp.com/blog/2013/04/07/improve-your-python-yield-and-generators-explained/)
+
+22. `for uppercase_name in (name.upper() for name in usernames)` is better than `for uppercase_name in [name.upper() for name in usernames]`
+
 16. P86 
 
 17. P  
+
+
