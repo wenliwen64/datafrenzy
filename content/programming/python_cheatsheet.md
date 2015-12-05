@@ -5,7 +5,7 @@ Authors: Liwen Wen
 
 [TOC]
 
-This cheatsheet is based on the book Writing Idiomatic Python. by Jeff Knupp.
+This cheatsheet is mainly based on the book Writing Idiomatic Python. by Jeff Knupp.
 
 # Control Structure
 
@@ -109,8 +109,27 @@ This cheatsheet is based on the book Writing Idiomatic Python. by Jeff Knupp.
 
 22. `for uppercase_name in (name.upper() for name in usernames)` is better than `for uppercase_name in [name.upper() for name in usernames]`
 
-16. P86 
+# Organize Your Code
+- - -
 
-17. P  
+1. Use capital letters when declaring global constant values. 
 
+2. Format your code according to PEP8. `$sudo easy_install pep8` and `$pep8 myfirstpythonprogram.py`!
 
+3. `from foo import *` << `from foo import (a, b ,c, d)` < `import foo`
+
+4. Make use of `__init__.py` to initialize your package. If you have a package contating large amount of modules but only a few of them are meant to be used by clients, you should use `__init__.py`: like `import gzimo.clinet as Gzimo`, so client can write like `import Gzimo` instead of nested expressions.
+
+5. Use `if __name__ == '__main__'` to make a script executable.
+
+6. Under `if __name__ == '__main__'` you should write `sys.exit(main())`
+
+7. Use `sys.argv` to parse command line parameters
+
+8. Use `os.path` to deal with directory paths.
+
+9. Use automated test tool like the standard library providing `unittest` should suffice
+
+10. Use `self.assertEqual(a, b)` instead of `self.assertTrue(a == b)`
+
+5. 
