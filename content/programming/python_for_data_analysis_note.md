@@ -61,3 +61,51 @@ This note is based on Python For Data Analysis written by Wes McKinney
         data = df[i, 'Age'] # Wrong, illegal.
         data = df.loc[i, 'Age'] # Correct
 
+7. To distinguish axis in pandas, you should consider below examples:
+  
+        :::python
+        In [0]: df = pd.DataFrame({'col1': [1, 2, 3], 'col2': [4, 5, 6], 'col3': [7, 8, 9]})
+     
+        In [1]: np.mean(df, axis=0)
+	Out[0]:
+	col1    2
+	col2    5
+	col3    8
+	dtype: float64
+     
+        In[2]: df.mean(axis=1) 
+	Out[9]: 
+	0    4
+	1    5
+	2    6
+	dtype: float64
+
+        In[3]: df.drop('col3', axis=1) 
+	Out[11]: 
+	   col1  col2
+	0     1     4
+	1     2     5
+	2     3     6
+
+    So basically, you can understand this way: if `axis = 0`, you apply the
+    actions to each column(it will not succeed if the action is not legal),
+    if `axis = 1`, then the action will be applied on each row. 
+
+8. Let's still take 7th item as an example:
+
+        :::python
+        In [20]: df[df['col1'] == 1]
+        Out[20]: 
+        col1  col2  col3
+        0     1     4     7
+
+    So `df['col1'] == 1` is like a `pandas.Series` of booleans:
+    
+        :::python
+        n [21]: df['col1'] == 1
+        Out[21]: 
+        0     True
+        1    False
+        2    False
+        Name: col1, dtype: bool
+
