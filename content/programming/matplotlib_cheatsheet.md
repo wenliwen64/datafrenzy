@@ -13,4 +13,12 @@ Authors: Liwen Wen
 
 1. Chaco: build interactive applications
 
-2. 
+2. For those familiar with ROOT, fig is like `TCanvas` object and axis is like `TH1D`
+
+        :::python
+	fig = plt.figure()
+        fig, axes = plt.subplots(2, 2) 
+        for axis in axes:
+            axis.hist(np.random(50), nbins=20, color='black', alpha=.3)
+
+
