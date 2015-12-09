@@ -6,6 +6,7 @@ Slug: bookshelf
 [TOC]
 
 ## Physics Books
+- - - 
 
 1. Introduction to Solid State Physics. by Kittle ([pdf]({{site.url}}/bookshelf/books/ISSP.pdf))
 
@@ -32,9 +33,9 @@ Slug: bookshelf
 11. Data Analysis In High Energy Physics. By Roger Barlow, etc.
 
     `/Users/lwen/Documents/Books/DataAnalysisInHighEnergyPhysics`
-- - -
 
 ## Geophysics Books
+- - -
 
 1. Seismic Data Analysis. by Yilmaz 
 
@@ -54,9 +55,8 @@ Slug: bookshelf
 
 9. 52 Things You Should Know about Geophysics. by Agile Libre 
 
-- - -
-
 ## Computer Science Books
+- - -
 
 1. Data Structure And Algorithms Using C++.  
 
@@ -97,9 +97,9 @@ Slug: bookshelf
 19. SQL: the visual quickstart Guide. by Fehily `gdrive/books` 
 
 20. Write Idiomatic Python3. by Jeff([cheatsheet]({filename}/mis/python_cheatsheet.md)) `gdrive/books`
-- - -
 
 ## Math/Statistics Books
+- - -
 
 1. Practical Math Manual (in Chinese). by Qixiao Ye & Yonghuan Shen
 
@@ -115,19 +115,16 @@ Slug: bookshelf
 
     `/Users/lwen/Documents/Books/QuantumnTheory_Groups_Representations.pdf`
 
-- - -
 
 ## Data Science
- 
-1. Data Sciecne from Scratch. by Joel Grus
-
-`gdrive/books`
-
-2. Python for Data Analysis. 
-
-`gdrive/books`
 - - -
+ 
+1. Data Sciecne from Scratch. by Joel Grus `gdrive/books`
+
+2. Python for Data Analysis. by Wes Kinnedy `gdrive/books`
+
 ## Some Notes & Good Stuff
+- - -
 
 1. [Manuel's ROOT tips and tricks]({{site.url}}/bookshelf/notes/ManuelRootTips.pdf) ([Manuel's rootlogon.C]({{site.url}}/bookshelf/notes/rootlogon.C))
 

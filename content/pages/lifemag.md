@@ -24,6 +24,7 @@ Authors: Liwen Wen
 # Skills to develop:
 ---
 ## Coding: 
+---
 
    1. Data analysis in python.pandas?? (work through Python for data analysis exercise, 45 mins every day)
 
@@ -35,7 +36,10 @@ Authors: Liwen Wen
 
    5. Develop a database server for chiral effects data points. 
 
+   6. How to do parallel computing in sckit-learn? Multithreaded?
+
 ## Machine Learning:
+---
   
    1. Reading book in physics machine learning, and write notes about the examples. (odd weekday, 45 mins before bed) 
 
