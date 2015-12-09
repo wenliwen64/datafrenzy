@@ -48,6 +48,11 @@ This note is based on Python For Data Analysis written by Wes McKinney
         df.apply(f, axis = 0) # axis = 0(column-wise, 1 is row-wise) is default, you can omit it in your practice 
         df['animals'] = df['food'].map(lambda x: meat_to_animal[x.lower()])
 
+        # Another example is 
+        df_train_age['Sex'] = df_train_age['Sex'].map({'female': 0, 'male': 1}).astype(int)
+	# Better than below
+        # df_train_age.loc[df_train_age['Sex'] == 'femal', 'Sex'] = 0
+
 5. Confusion about the axis definition:
     
         :::python
@@ -108,4 +113,11 @@ This note is based on Python For Data Analysis written by Wes McKinney
         1    False
         2    False
         Name: col1, dtype: bool
+
+9. Binary logical operations:
+
+        :::python
+        df_train_age = df_final[~np.logical_or(df_final['Age'].isnull(), df_final['Fare'].isnull())].copy()
+	# Not  below
+        df_train_age = df_final[~(df_final['Age'].isnull() or df_final['Fare'].isnull())].copy()
 
