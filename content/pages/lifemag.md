@@ -53,6 +53,8 @@ Authors: Liwen Wen
 
    6. `sklearn.GridSearchCV(clf, param_grid, nfold = 20); grid_search.fit; grid_search.grid_scores_` can be used for grid search. But, random search may result in same result(60 times).: The moral of the story is: if the close-to-optimal region of hyperparameters occupies at least 5% of the grid surface, then random search with 60 trials will find that region with high probability. 
 
+   7. Learn to use `os` module
+
 # Books to read:
 ---
 1. Quick view: Data Science from scratch
