@@ -47,6 +47,13 @@ Authors: Liwen Wen
 
    3. Long term goal is to read through the Elements of Statistical Learning / Pattern Reconigtion, take notes() 
 
+   4. Learn to use KDE,
+
+   5. `itemgetter()`
+
+   6. `sklearn.GridSearchCV(clf, param_grid, nfold = 20); grid_search.fit; grid_search.grid_scores_` can be used for grid search. But, random search may result in same result(60 times).: The moral of the story is: if the close-to-optimal region of hyperparameters occupies at least 5% of the grid surface, then random search with 60 trials will find that region with high probability. 
+
 # Books to read:
 ---
 1. Quick view: Data Science from scratch
+

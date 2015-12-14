@@ -24,3 +24,5 @@ happy?
 1. decouple learning and prediting processes for trainning data set;
 
 2. retreive best parameter combination from RandomSearchCV for later use;
+
+3. One-Hot-Coding?
