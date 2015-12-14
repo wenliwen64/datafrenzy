@@ -19,3 +19,8 @@ This is the content of my super blog post.
 happy?
 ## Results
 ## Discussion
+## TODO List:
+
+1. decouple learning and prediting processes for trainning data set;
+
+2. retreive best parameter combination from RandomSearchCV for later use;
