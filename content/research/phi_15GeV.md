@@ -64,3 +64,10 @@ Notes: There is no mid-stream analysis code for Phi particle. All you need to do
      1. [Raw Spectra]({filename}/plots/omg_rawspectra.pdf) ([data]({filename}/data/omg_rawspectra.txt))
      2. [Corrected Spectra]({filename}/plots/omg_finalCorrSpectra.pdf) ([data]({filename}/data/omg_finalCorrSpectra.txt))
      3. [Comparison]({filename}/plots/compare11GeV_omg.pdf) ([data]({filename}/data/compare11GeV_omg.txt))
+
+### Comparison between Xiaoping's and my results on Phi Spectra
+---
+* Location: `StPhiDownMaker::compare11GeVRawSpectra010()` 
+* Main File: `home-linux$~/Downloads/uncorrectedphi/11.5/010.txt`
+
+* Result: [plot]()
