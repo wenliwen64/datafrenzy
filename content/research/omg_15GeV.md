@@ -20,9 +20,9 @@ Status: draft
 ----
 * Triggers Used:  
 
-## Codes
-
-### Upstream Embedding
+## Embedding Analysis
+----
+### Upstream 
 ----
 * Raw Data Files Location: 
 
@@ -37,7 +37,7 @@ Status: draft
 * How to Run It:
     1. `pdsf$./qsub_script_omg.sh`
 
-### Mid-Downstream Embedding
+### Mid-Downstream 
 ----
 ####Omega
 ----
@@ -55,7 +55,9 @@ Status: draft
 * How to Run it: `$./run_cuts_many_omgbar.sh exp/flat` 
 * Output: `mcomgbar_exp.manyeff.histo.root` or `mcomgbar_fp.manyeff.histo.root`, these two files will be used as input in downstream analysis in `../../StrAnalyMaker/`
 
-### Upstream Analysis(
+## Data Analysis
+----
+### Upstream 
 ----
 #### Omega(AntiOmega)
 ----
@@ -69,7 +71,7 @@ Status: draft
       2. `$./submit_15GeV_strangeness.sh 0901 01 15GeV omg` which will generate data/hists files under `realoutput` directory and the name is like `0901_15GeV_omg_data`. The `01` is the test number.
       3. If you run command like this, you will gnerate rotational files as well if you activate the relevant function in `reconstruct_v0.C`
 
-### Mid-stream Analysis
+### Mid-stream 
 ----
 
 #### Omega(AntiOmega)
@@ -106,7 +108,7 @@ TODO: to convert the omg_mid_analysis.C to a "non-parametric" function so that w
        3. `root[1].x omg_mid_analysis.C++("0819_all_omgrot_list","0820_2015_omgrot")` or `root[1].x omg_mid_analysis.C++("0819_all_antiomgrot_list","0820_2015_antiomgrot")` (The arguments within parenthese are the for demostration only);
 * Results: root files like `0820_2015_omgrot.mid_analysis.root`;
 
-### Downstream Analysis
+### Downstream 
 ----
 #### Omega
 ----

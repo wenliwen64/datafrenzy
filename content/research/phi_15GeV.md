@@ -28,7 +28,7 @@ Status: draft
 * Location: `/global/homes/l/lwen1990/pwg/embedding/15GeV_embedding/Phi/analysis`
 * Codes Files: `cuts_phi.C`
 * How to Configure Run: change the `kTrue`/`kFalse` value in `run.C` to select exp/flat data
-* How to Run It: `$./run.C`
+* How to Run It: `$root -l run.C`
 * Output: `mcphiexp.histo.root`(`mcphifp.histo.root`) and `weight_phi_exp.txt`(`weight_phi_fp.txt`), the latter will be used as the efficiency input in downstream data analysis.
 * Results: 
     1. [Efficiency]({filename}/plots/final_eff_combined_phi_15GeV.pdf)([fp_data]({filename}/data/weight_phi_fp_15GeV.txt), [exp_data]({filename}/data/weight_phi_exp_15GeV.txt))
