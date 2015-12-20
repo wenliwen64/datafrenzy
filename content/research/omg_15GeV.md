@@ -20,9 +20,9 @@ Status: draft
 ----
 * Triggers Used:  
 
-## Codes
-
-### Upstream Embedding
+## Embedding Analysis
+----
+### Upstream 
 ----
 * Raw Data Files Location: 
 
@@ -37,7 +37,7 @@ Status: draft
 * How to Run It:
     1. `pdsf$./qsub_script_omg.sh`
 
-### Mid-Downstream Embedding
+### Mid-Downstream 
 ----
 ####Omega
 ----
@@ -55,20 +55,23 @@ Status: draft
 * How to Run it: `$./run_cuts_many_omgbar.sh exp/flat` 
 * Output: `mcomgbar_exp.manyeff.histo.root` or `mcomgbar_fp.manyeff.histo.root`, these two files will be used as input in downstream analysis in `../../StrAnalyMaker/`
 
-### Upstream Analysis(
+## Data Analysis
+----
+### Upstream 
 ----
 #### Omega(AntiOmega)
 ----
 * Location: `rcf$/star/u/lwen1990/ucla/Code_Omega`
 * How to Compile: 
-      1. `$starver SL14i`
-      2. `$cons EXTRA_CPPFLAGS=-fpermissive`
+      1. `$starver SL14i`;
+      2. `$cons EXTRA_CPPFLAGS=-fpermissive`;
+      3. back the original version of `StRoot` to `StRoot.bak`, current `StRoot` is used to generate rotational background with different angles;  
 * How to Run:
       1. `$cd batchjobs`
       2. `$./submit_15GeV_strangeness.sh 0901 01 15GeV omg` which will generate data/hists files under `realoutput` directory and the name is like `0901_15GeV_omg_data`. The `01` is the test number.
       3. If you run command like this, you will gnerate rotational files as well if you activate the relevant function in `reconstruct_v0.C`
 
-### Mid-stream Analysis
+### Mid-stream 
 ----
 
 #### Omega(AntiOmega)
@@ -80,6 +83,9 @@ Status: draft
        2. `root[0].L StRefMultCorr.cxx++`;
        3. To run data analysis: `root[1].x omg_mid_analysis.C++("0819_all_omg_list","0820_2015_omg")` or `root[1].x omg_mid_analysis.C++("0819_all_antiomg_list","0820_2015_antiomg")`;
        4. To run overview: `root[1].x plot_overview.C++`;
+
+Or:
+       1. `$root -l run_mid_analysis.C`(this is a quick runner, quite conviniently!) 
 
 * Results:
 TODO: to convert the omg_mid_analysis.C to a "non-parametric" function so that we can compile it in ALic, and write a runner to load it and run it. 
@@ -102,7 +108,7 @@ TODO: to convert the omg_mid_analysis.C to a "non-parametric" function so that w
        3. `root[1].x omg_mid_analysis.C++("0819_all_omgrot_list","0820_2015_omgrot")` or `root[1].x omg_mid_analysis.C++("0819_all_antiomgrot_list","0820_2015_antiomgrot")` (The arguments within parenthese are the for demostration only);
 * Results: root files like `0820_2015_omgrot.mid_analysis.root`;
 
-### Downstream Analysis
+### Downstream 
 ----
 #### Omega
 ----
@@ -138,3 +144,6 @@ TODO: to convert the omg_mid_analysis.C to a "non-parametric" function so that w
 ## TODO List
 * Elaborate how to get overview root file
 * rcf codes have been moved to `/star/u/lwen1990/gpfs`, I have to rewrite some path variable in some codes.
+* The 5 data sets of rotational backgrounds on rcf:
+   1. 1130 -> $2\pi/5$
+   2. 1201 -> $2\cdot2\pi/5$ 

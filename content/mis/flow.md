@@ -48,17 +48,21 @@ $$\frac{Ed^3N}{d^3p} = \frac{d^2N}{2\pi p_tdp_td\phi}(1 + \sum_{n=1}^{+\infty}\s
 if we assume $\sqrt{x_n^2+y_n^2} = v_n$ and $cos(n\Phi_n) = \frac{x_n}{\sqrt{x_n^2+y_n^2}}$ and $sin(n\Phi_n) = \frac{y_n}{\sqrt{x_n^2+y_n^2}}$, then:
 
 $$\frac{Ed^3N}{d^3p} = \frac{d^2N}{2\pi p_tdp_td\phi}(1 + \sum_{n=1}^{+\infty}v_ncos(n(\phi-\Phi_n)))$$
-    
+
+    3. Why the $\Phi_n$ is really representing the reaction plane? why isn't it the plane orthognal to the real reaction plane? The answer is if the $\Phi_n$ is the orthognal then the upper hemisphere will be different from bottom hemisphere which is not allowed.
+
+    4. Ok the logic flow follows: 1. At first, we don't know there is a significant in-plane elliptic flow, but anyway we can write the formula like what we did(including $sin2\phi$ and $cos2\phi$ terms). Then we can find the $\Phi_ep$ by using the vector method. But this method intrinsically guarantees the v2 is positive as we showed above. Basically, what we are reconstructing is participants event plane, not necessarily consistent with real collision geometry. But according to some studies involving spectators distribution, these two(reaction plane and participant plane) are consistent to each other within error. 
+
 ### How to obtain the reaction plane orientation($\Phi_r$)?
 
 So basically we use the anisotropic flow itself to estimate the event plane. In other words, it can be determined independently for each harmonic of the anisotropic flow. Apparently we can only evaluate the $x_n$ and $y_n$ in above formulas to get the tan value of $n\Phi_n$
 
-$$Q_n cos(n\Phi_n) = X_n = \sum_{i}w_i cos(n\phi_i),$$(which is equally to evaluate the $x_n$ value)
-$$Q_n sin(n\Phi_n) = Y_n = \sum_{i}w_i sin(n\phi_i),$$(which is equally to evaluate the $y_n$ value)
+$$Q_n cos(n\Phi_n) = X_n = \sum_{i}w_i cos(n\phi_i),$$(which is equal to evaluate the $x_n$ value)
+$$Q_n sin(n\Phi_n) = Y_n = \sum_{i}w_i sin(n\phi_i),$$(which is equal to evaluate the $y_n$ value)
 
 So $X_n$ and $Y_n$ composes a event flow vector $\vec{Q_n}$. We can solve the $\Phi_n$ by:
 
-$$\Phi_n = atan(\frac{\sum_{i}w_i sin(n\phi_i)}{\sum_{i}w_i cos(n\phi_i)}) / n.$$
+$$\Phi_n = atan2(\frac{\sum_{i}w_i sin(n\phi_i)}{\sum_{i}w_i cos(n\phi_i)}) / n.$$
 
 Some comments on above equations:
 
@@ -124,6 +128,10 @@ So pratically, we need to get sub-event plane resolution using:
 $$<cos[k(\phi_{east} - \phi_{west})]> = <cos[k(\phi_{east} - \phi_r)]>\cdot<cos[k(\phi_{west}-\phi_r)]>$$
 
 Then map out the full event plane resolution by some tricks.
+
+The analytical form of the event plane resolution is:
+
+$$<cos(km(\Phi_m -\Phi_r))> = \frac{\sqrt{\pi}}{2\sqrt{2}}\chi_m exp(-\chi_m^2/4)\times[I_{(k-1)/2}(\chi_m^2/4)+I_{(k+1)/2}(\chi_m^2/4)]$$
 
 ## TODO
  

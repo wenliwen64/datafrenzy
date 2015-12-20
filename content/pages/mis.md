@@ -19,4 +19,5 @@ Authors: Liwen Wen
 * 3D view of STAR detector: `/Users/lwen/Documents/STAR_images` 
 
 # Some notes:
+* [Design Patterns Study Notes I]({filename}/mis/design_patterns_i.md)
 * [Logistic classification notes]({filename}/mis/logistic_classification_notes.md)
