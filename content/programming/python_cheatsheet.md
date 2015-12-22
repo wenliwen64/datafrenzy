@@ -11,7 +11,11 @@ This cheatsheet is mainly based on the book Writing Idiomatic Python. by Jeff Kn
 
 1. `if x <= y <= z:` is legal and efficient;
 
-2. `is_generic_name = name in ('Tom', 'Dick', 'Harry')` = `if name == 'Tom' or name == 'Dick' or name == 'Harry'` 
+2. `is_generic_name = name in ('Tom', 'Dick', 'Harry')` = 
+
+        :::python
+        if name == 'Tom' or name == 'Dick' or name == 'Harry':
+            is_generic_name = True
 
 3. `if my_list:` instead of `if my_list == []:`
 
@@ -35,7 +39,7 @@ This cheatsheet is mainly based on the book Writing Idiomatic Python. by Jeff Kn
 
 11. `if not 'happy' in cur_dict: ` == happy is not in the current dictionary.  
 
-12. Why use 'if __name__ == '__main__': ' 
+12. Why use 'if \_\_name\_\_ == '\_\_main\_\_': ' 
 
 # Dealing with data
 
