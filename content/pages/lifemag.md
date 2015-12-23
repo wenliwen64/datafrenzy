@@ -55,7 +55,16 @@ Authors: Liwen Wen
 
    7. Learn to use `os` module
 
+   8. write note on how to install sklearn-neuralnetwork
+
+   9. How to use OneHotEncoder in practice
+
+   10. How to use multi-thread feature of scikit-learn
+
+   11. xgb early stopping
+
 # Books to read:
 ---
 1. Quick view: Data Science from scratch
 
+2. Machine learning in python(\*)
