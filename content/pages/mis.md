@@ -21,3 +21,4 @@ Authors: Liwen Wen
 # Some notes:
 * [Design Patterns Study Notes I]({filename}/mis/design_patterns_i.md)
 * [Logistic classification notes]({filename}/mis/logistic_classification_notes.md)
+* [Anomaly Detection Note]({filename}/mis/anomaly_detection.md)

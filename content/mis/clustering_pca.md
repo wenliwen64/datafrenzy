@@ -1,57 +1,68 @@
-# Clustering
----
-1. Unsupervised learning
-    - unlabeled training set: Training Set := $$\{x^1, x^2, x^3, x^4...\}$$
-          - market segmentationm
-          - social network analysis
-          - organize computing clusters
-          - anstronomical data analysis
-2. K-Means Algorithms(most famous algo of clustering)
-    - cluster centroids(randomly initialized)
-        - if you want to split it into 2 groups(two centroids) and computer the distance from those centroids;
-        - move centroids to means in each group;
-        - Definition:
-            - Input: k(number of clusters); training set {x1, x2, x3, ...}
-            - 1.Randomly initialize K cluster centroids $$\mu_1, \mu_2,...\in\mathbb{R}^n$$ where n is the dimension of each data point(ignore the $$x_0^i = 1$$)
-            - 2.Repeat
-           
-           ```matlab
-           % puseudocode
-           for i = 1:m
-               c(i) =  index(from 1 to K) of centroids closeset to x(i)
-           end
-           for k = 1:K
-               mu(k) = means(points in cluster k)% |x-x|^2
-           end
-           ```
-           - K-means for non-separated clusters(Tshirt size: height/weight, cluster data to determine the population of each size)
-           - Optimization objective:
-               - $$c^i$$ = index of cluster to which example $$x^i$$ is currently assigned
-               - $$\mu_k$$ = cluster centroid k($$\mu_k\in\mathbb{R}^n$$)
-               - $$\mu_{c^i}$$ = cluster centroid of cluster to which example $$x^i$$ has been assigned
-               - Cost function: $$J(c^1, c^2...c^m, \mu_1, \mu_2...\mu_K) = \frac{1}{m}\sum\limits_{i=1}^{m}||x^i - \mu_{c^i}||^2$$ will always decrease with increasing iteration loops.
+Title: Clustering and PCA
+Date: 2015-12-21 17:30
+Slug: clustering-pca
+Authors: Liwen Wen
 
+[TOC]
+
+# Clustering
+- - -
+## Unsupervised learning
+  - unlabeled training set: Training Set := $\{x^1, x^2, x^3, x^4...\}$
+    - market segmentationm
+    - social network analysis
+    - organize computing clusters
+    - anstronomical data analysis
+
+## K-Means Algorithms(most famous algo of clustering)
+  - cluster centroids(randomly initialized)
+    - if you want to split it into 2 groups(two centroids) and computer the distance from those centroids;
+    - move centroids to means in each group;
+    - Definition:
+      - Input: k(number of clusters); training set ${x^1, x^2, x^3, ...}$
+      - Randomly initialize K cluster centroids $\mu_1, \mu_2,...\in\mathbb{R}^n$ where n is the dimension of each data point(ignore the $x_0^i = 1$)
+      - Repeat
+           
+              :::matlab
+              % puseudocode
+              for i = 1:m
+                  c(i) =  index(from 1 to K) of centroids closeset to x(i)
+              end
+              for k = 1:K
+                  mu(k) = means(points in cluster k)% |x-x|^2
+              end
+
+      - K-means for non-separated clusters(Tshirt size: height/weight, cluster data to determine the population of each size)
+        - Optimization objective:
+          - $c^i$ = index of cluster to which example $x^i$ is currently assigned;
+          - $\mu_k$ = cluster centroid k($\mu_k\in\mathbb{R}^n$);
+          - $\mu_{c^i}$ = cluster centroid of cluster to which example $x^i$ has been assigned
+          - Cost function: $J(c^1, c^2...c^m, \mu_1, \mu_2...\mu_K) = \frac{1}{m}\sum\limits_{i=1}^{m}||x^i - \mu_{c^i}||^2$ will always decrease with increasing iteration loops.
                
-2. How to intialize K-means?
-    - Should have K < m
-    - Randomly pick K training examples
-    - Set $$\mu_1, ....\mu_K$$ equal to these K examples, randomize the indices
-    - Local optima issue;
-    - Random initialization:
+## How to intialize K-means?
+  - Should have K < m;
+  - Randomly pick K training examples;
+  - Set $$\mu_1, ....\mu_K$$ equal to these K examples, randomize the indices;
+  - Local optima issue;
+  - Random initialization:
     
-    ```matlab
-       for i = 1: 100
-           randomly initializae K-means
-           run K-means, get c(1), c(2)....., mu(1), mu(2)...,mu(k)
-           compute cost function
-       end
-       pick the clustering that gave you the minimum cost function
-    ```
-3. How to choose the number of Clusters
-    - What is the right value of K?
-        - Elbow method: J vs. K(no. of clusters)->choose the elbow point;sometimes its hard to distinguish the elbow
-        - based on a metric for how well it performs for that later purpose(like tshirt sizes, small, medium, large, OR xs, s, m, l, xl);
-4. UL Motivation I: Data compression
+          :::matlab
+          for i = 1: 100
+              randomly initializae K-means
+              run K-means, get c(1), c(2)..., c(m), mu(1), mu(2)...,mu(k)
+              compute cost function
+          end
+          pick the clustering that gave you the minimum cost function
+
+## How to choose the number of Clusters
+  - What is the right value of K?
+    - Elbow method: J vs. K(no. of clusters) -> choose the elbow point; sometimes its hard to distinguish the elbow point
+    - Based on a metric for how well it performs for that later purpose(like tshirt sizes, small, medium, large, OR xs, s, m, l, xl);
+
+# *P*rincipal *C*omponent *A*nalysis(PCA)
+- - -
+
+## UL Motivation I: Data compression
    - Reduce data from 2D to 1D: x1 and x2 is very linear, project the data points to fitting straight lines(z1):$$x^1\in\mathbb{R}^2 \rightarrow z^1 \in\mathbb{R}...$$, make learning more quickly;
    - Reduce data from 3D to 2D(1000D ->100D): $$x^i\in\mathbb{R}^3$$ project these data to a plane and assign them z1 and z2 from the coordinates from thsi projected plane;
  5. UL Motivation II: Data Visularization
