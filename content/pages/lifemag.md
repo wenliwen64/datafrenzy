@@ -63,6 +63,10 @@ Authors: Liwen Wen
 
    11. xgb early stopping
 
+   12. Pearson correlation
+
+   13. Randomize predictor selection to see the effect*
+
 # Books to read:
 ---
 1. Quick view: Data Science from scratch
