@@ -73,3 +73,37 @@ Authors: Liwen Wen
 
 6. Decision Boundary Plotting:
    - only 2 parameters: $\theta^Tx = 0$
+
+7. Pratical Usage:
+
+   Though it is called "Regression", it is used to classification rather than regression. In scikit-learn implementation, the difference from above is its cost function:
+
+   * L2 regularization:
+
+   $$min_{w, c}\frac{1}{2}w^Tw + C\sum_{i}^{n}log(exp{-y_i(X_i^Tw+c)}+1)$$
+
+   * L1 regularization:
+
+   $$min_{w, c}||w||_1 + C\sum_{i}^{n}log(exp{-y_i(X_i^Tw+c)}+1)$$
+
+Observing this expression, we can find, if the hypothesis function is the same($h(\theta, x) = \frac{1}{1+e^{-\theta^Tx}}$), if $y_i = 1$, the second part is going to be huge if $h=0$, because $h=0$ means $\theta^Tx$ is negatively huge, but zero if $h=1$; if $y_i=-1$: 1. $h=1$-> $\theta^Tx$ is huge, cost is huge; 2. $h=0$, $\theta^Tx$ is negatively huge, so cost is zero.   
+
+Take home messages:
+
+   * Example: `sklearn.linear_model.LogisticRegression(penalty='l2', C=1.0, fit_intercept=True, solver='liblinear', max_iter=100, multi_class='ovr', n_jobs=1)`:
+
+      1. penalty: l1 may fit sparse weights;
+ 
+      2. C: iverse of the regulization term;
+
+      3. fit_intercept: $w_0$, the constant term;
+
+      4. solver: 'liblinear'-l1 and l2 penalty and suits for small dataset, and two class classification; 'lbfgs' or 'newton-cg' can be used for multiple classification but only l2 regularization; 'sag' suits for large dataset(stochastic average gradient descent)
+
+      5. max_iter: used to set the maximum iteration required to get the minimal of cost function;
+
+      6. multi_calss: 'ovr' and 'multinomial', works only for 'lbfgs'.  
+   
+   * The cost function is assumming the labels are -1 and 1, but you dont have to provide your targets by converting them to -1/1. When you are running 'clf.fit(x, y)', this job will be done under the hood. 
+
+   * Stochastic gradient descent can be done by using `sklearn.linear_model.SGDClassifier(loss='log')`, this is suitable for large dataset. Why this is the same, the secret is hidding behind `\theta^Tw`, two label will be converging to two infinities both for svm(`loss='hinge'`) or logistic

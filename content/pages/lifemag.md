@@ -67,6 +67,11 @@ Authors: Liwen Wen
 
    13. Randomize predictor selection to see the effect*
 
+   15. Center and normalize your data
+
+   16. Left-out-one encoding
+
+   17. WHen to use standardlization
 # Books to read:
 ---
 1. Quick view: Data Science from scratch
