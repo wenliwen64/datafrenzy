@@ -5,7 +5,7 @@ Authors: Liwen Wen
 
 [TOC]
 
-# Support Vector Machines
+# Overview
 - - -
 
 1. Hypothesis: 
@@ -27,28 +27,34 @@ Usually we choose Gaussian kernel and use training data points as landmarks to c
 
 2. Loss Function: 
 
-    $$\min\limits_{\theta}C\sum\limits_{i=1}^{m}[y^i\text{cost1}(\theta^Tf)+(1-y^i)\text{cost0}(\theta^Tf)] + \frac{1}{2}\sum\limits_{i=1}^{m}\theta_i^2$$
+  $$\min\limits_{\theta}C\sum\limits_{i=1}^{m}[y^i\text{cost1}(\theta^Tf)+(1-y^i)\text{cost0}(\theta^Tf)] + \frac{1}{2}\sum\limits_{i=1}^{m}\theta_i^2$$
 
 3. Poly kernel： $k(x, l) = (x^Tl+constant)^degree$ so two parameters.
 
 4. More kernels: String kernel(string classification), chi-square kernel, chi-square kernel, histogram intersection kernel chi-square kernel, histogram intersection kernel...
 
 # SVC(Support Vector Classifier) in scikit-learn
+- - -
 
-Example:
+* Usage Example: `clf = SVC(C=1, kernel='rbf', gamma='auto')`
 
-Takehome message:
+* Take-home message:
 
-    1. Tune gamma(if 'rbf' kernel is set);
+  1. Tune gamma(if 'rbf' kernel($\text{exp}(-\gamma||x-x^{\prime}||^2)$) is set);
 
-    2. Tune C(regularization);
+  2. Tune C(regularization);
 
-    3. Preprocessing your data to [0, 1] or [-1, 1] or {$\mu$: 0, $\sigma$: 1} 
+  3. Preprocessing your data to [0, 1] or [-1, 1] or {$\mu$: 0, $\sigma$: 1} 
 
-    4. 'class_weight'(SVC only): used for unbalanced data(way more positives than negatives)
+  4. 'class_weight'(SVC only): used for unbalanced data(way more positives than negatives)
 2. Large Margin Classifier(SVM)(C is very large, emphasize the first term in cost function, may overfit for outlier)
 
-    5. Before passing your data to SVC, make sure your array is C-ordered contiguous by `nparray.types`
+  5. Before passing your data to SVC, make sure your array is C-ordered contiguous by `nparray.types`
+
+  6. For the return values by the `clf.predict`, it is ordered by the integer labels so the first one is the label with samllest integer, if y is continuous, an error will be raised.
+
+  7. deccision_function: default is 'ovr' = one-vs-rest.
+
     - how to represent the decision boundary on two features plots(linearly separatable)
 
     ![](http://i.imgur.com/k172HG8.png)

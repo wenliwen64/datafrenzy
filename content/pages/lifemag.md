@@ -72,6 +72,13 @@ Authors: Liwen Wen
    16. Left-out-one encoding
 
    17. WHen to use standardlization
+
+   18. Keras/Theano/Lasagne/FM algorithm/
+
+   19. Regularized greedy tree.(Tong Zhang's)
+
+   20. Two talks on data science: Owen Zhang's Linkedin and Jeon-yoon Lee's Kaggler.com
+ 
 # Books to read:
 ---
 1. Quick view: Data Science from scratch
