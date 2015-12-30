@@ -79,6 +79,7 @@ Authors: Liwen Wen
 
    20. Two talks on data science: Owen Zhang's Linkedin and Jeon-yoon Lee's Kaggler.com
  
+   21. Feature importance selection
 # Books to read:
 ---
 1. Quick view: Data Science from scratch
