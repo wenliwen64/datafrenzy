@@ -22,3 +22,6 @@ Authors: Liwen Wen
 * [Design Patterns Study Notes I]({filename}/mis/design_patterns_i.md)
 * [Logistic classification notes]({filename}/mis/logistic_classification_notes.md)
 * [Anomaly Detection Note]({filename}/mis/anomaly_detection.md)
+
+# Book notes:
+* [The Hunting of the Quark]({filename}/mis/quark_hunting_notes.md)

@@ -121,3 +121,4 @@ This note is based on Python For Data Analysis written by Wes McKinney
 	# Not  below
         df_train_age = df_final[~(df_final['Age'].isnull() or df_final['Fare'].isnull())].copy()
 
+10. `df.values` will return a numpy array([[row]]). If followed by a `tolist()` method, you will get a nested list
