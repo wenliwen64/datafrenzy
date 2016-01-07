@@ -7,8 +7,23 @@ Authors: Liwen Wen
 [TOC]
 
 # Data 
+---
+0. Raw Data Location: `/media/Disk_Chen/Data/200GeV_run11/data_minbias5_new/*.flow.nt.root`
+1. Generated Data Location: `lwen@giant:/home/lwen/Analysis/pi_pi_gamma/Cen*/*root`
 
-Please check repository:https://github.com/wenliwen64/pipi_gamma
+# Code
+---
+
+Please check repository: https://github.com/wenliwen64/pipi_gamma.git
+
+# Running Instruction
+---
+
+i. `$cd pipi_gamma/StLPVPlotMaker`
+
+ii. `$root -l run.C`
+
+Notes: You can change the centrality number in `run.C: maker->Init(n_cen, n_jobs)`
 
 # Toy Monte Carlo Model
 
