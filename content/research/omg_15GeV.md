@@ -12,13 +12,13 @@ Status: draft
 ### Production Detatils
 ----
 * Trigger Set: [production_15GeV_2014](http://www.star.bnl.gov/public/comp/prod/prodsum/production_15GeV_2014.P14id.html) 
-* Collision: AuAu 14.5GeV 
-* Year of Data Taken: year2014
+* Collision System and Energy: AuAu 14.5GeV 
+* Year of Data Taken: 2014
 * Production Tag: P14ii
 
 ### Event Cuts 
 ----
-* Triggers Used:  
+* Triggers Used:
 
 ## Embedding Analysis
 ----
@@ -43,9 +43,12 @@ Status: draft
 ----
 * Location: `/Users/lwen/Documents/Omg_Phi_15GeV/Omega/embedding/analysis`
 * Input Files: `mc_exp_omg_15GeV.picodst.root` and `mc_fp_omg_15GeV.picodst.root`, which are hadd files of the `StRoot` output on pdsf
-* Codes Files: `cuts_omg_manyptbinseff.C`
+* Code Files: `cuts_omg_manyptbinseff.C`
 * How to Run It: `$./run_cuts_many_omg.sh exp/flat` or `$./run_cuts_many_omgbar.sh exp/flat`
 * Output: `mcomg_exp.manyeff.histo.root` or `mcomg_fp.manyeff.histo.root`, these two files will be used as input in downstream analysis in `../../StrAnalyMaker/`
+* Results: 
+    * [Omg Eff. Comparison]({filename}/plots/omg_efferr_comparison.pdf)
+    * [AntiOmg Eff. Comparison]({filename}/plots/antiomg_efferr_comparison.pdf)
 
 ####AntiOmega
 ----
@@ -73,7 +76,6 @@ Status: draft
 
 ### Mid-stream 
 ----
-
 #### Omega(AntiOmega)
 ----
 * Location: `rcf$/star/u/lwen1990/ucla/Code_Omega/local_analysis_code`
