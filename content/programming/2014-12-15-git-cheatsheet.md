@@ -264,3 +264,7 @@ Usually, we need external library to be included in your working project. Otherw
    6. On another machine, do `git clone git@github.com:wenliwen64/pelican_site.git --recurse`;
 
    7. If you want to make change to the themes you have to fork it on github first. 
+
+## Git conflict resolution
+---
+
