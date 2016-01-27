@@ -21,3 +21,11 @@ Authors: Liwen Wen
    5. Host name is `lnxsrv07.seas.ucla.edu` and account `classlwe` and passcode
 
    6. Drag the file you want to drag
+
+# include guard
+# cyclic declaration
+# delete pointer
+# initialize class pointer
+# copy and swap
+# tips to switch typedef
+# pass by reference
