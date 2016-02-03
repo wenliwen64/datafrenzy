@@ -29,3 +29,5 @@ Authors: Liwen Wen
 # copy and swap
 # tips to switch typedef
 # pass by reference
+# return by reference(*this)
+# testing code for homework2 take a look at it. 
