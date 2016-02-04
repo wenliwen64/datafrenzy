@@ -9,3 +9,5 @@ Authors: Liwen Wen
     * Period1: <=12138024 
     * Period5: 12154021-12165031(Pile-up Protection)
     * Period6: >12165031(?)
+
+* When you cannot compile your previous code(which may work under compiler version 4.7.7), try to use `cons EXTRA_CPPFLAGS=-fpermissive` 
