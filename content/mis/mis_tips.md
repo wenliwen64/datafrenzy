@@ -6,11 +6,14 @@ Authors: Liwen Wen
 [TOC]
 
 ---
-1. How to make job run on server background without specific distribution computing facilities?
+## How to make job run on server background without specific distribution computing facilities?
+- - -
 
 Ans: `ctrl+z` and `$bg`, you are good to go.
 
 ## How to transfer files on rcf to hpss
+- - -
+
 > enter "hsi" in rcas to go hpss
 > "pwd" in hsi it will show ur home in hpss,
 For  transfer  to hpss: from source directory (in rcas) just enter the command
@@ -21,3 +24,7 @@ htar -Pcf  hpsspath/test.tar test(directory path in rcf u want to transfer)
 
 to extract those:
 htar -xf hpsspath/test.tar
+
+## How to make vim not comment all of the code?
+
+Ans: `:set paste` and then enter insert mode in vim.
