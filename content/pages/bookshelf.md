@@ -96,7 +96,7 @@ Slug: bookshelf
 
 19. SQL: the visual quickstart Guide. by Fehily `gdrive/books` 
 
-20. Write Idiomatic Python3. by Jeff([cheatsheet]({filename}/mis/python_cheatsheet.md)) `gdrive/books`
+20. Write Idiomatic Python3. by Jeff([cheatsheet]({filename}/programming/python_cheatsheet.md)) `gdrive/books`
 
 ## Math/Statistics Books
 - - -

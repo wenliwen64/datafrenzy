@@ -2,6 +2,7 @@ Title: Chiral Effects with PID correlations
 Date: 2016-02-03 10:31
 Slug: chiral-effects-with-pid-correlations
 Authors: Liwen Wen
+Status: draft
 
 [TOC]
 
@@ -13,13 +14,13 @@ Authors: Liwen Wen
 
 # Code
 - - -
+## Upstream:
+   * Location: rcf:
 
 # Log
+- - -
+* 2016-02-03: $Lambda$-p correlation
 
-* 2016-02-03
+* 2016-02-04: We need to add new bad run for $Lambda$-p correlation
 
-   * $Lambda$-p correlation
-
-* 2016_02-04
-
-   * We need to add new bad run for $Lambda$-p correlation
+* 2016-02-08: Begin running code to generate data for PEriod 1 on rcf(day132-140, 126-128 undone yet).

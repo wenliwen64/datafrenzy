@@ -12,3 +12,5 @@ Authors: Liwen Wen
 
 ### Chiral Effects 
 * [Pion $\gamma$ correlation in heavy ion collisions]({filename}/research/pipi_gamma.md)
+
+* [Search for CVE using $Lambda$-proton correlation]({filename}/research/lambda_proton.md)

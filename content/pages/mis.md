@@ -7,6 +7,7 @@ Authors: Liwen Wen
 [TOC]
 
 # Some useful tutorials
+- - -
 * `get_file_list.pl` [usage]({filename}/mis/get_file_list.md)
 * `matplotlib` tutorial: `/Users/lwen/Documents/python_examples/AnatomyOfMatplotlib-master`
 * Some python example codes: `/Users/lwen/Documents/python_examples`
@@ -16,13 +17,20 @@ Authors: Liwen Wen
 * [Flow analysis in heavy ion collisions]({filename}/mis/flow.md)
 
 # Interesting stuff:
+- - -
 * 3D view of STAR detector: `/Users/lwen/Documents/STAR_images` 
 
 # Some notes:
+- - -
 * [Design Patterns Study Notes I]({filename}/mis/design_patterns_i.md)
 * [Logistic classification notes]({filename}/mis/logistic_classification_notes.md)
 * [Anomaly Detection Note]({filename}/mis/anomaly_detection.md)
 * [How to use seasnet desktop]({filename}/mis/cs32_mis.md)
 
 # Book notes:
+- - -
 * [The Hunting of the Quark]({filename}/mis/quark_hunting_notes.md)
+
+# Lab Management
+- - -
+* [180A Lab]({filename}/mis/180A.md) 
