@@ -15,7 +15,8 @@ Status: draft
 # Code
 - - -
 ## Upstream:
-   * Location: rcf:
+   * Location: rcf:/star/u/lwen1990/gpfs/v2_Lambda_200GeV/batchjobs/generate_Period1.sh
+   * Note: Every time you update your source code or change your location, you have to update the version number in `Scheduler_new.xml` to make it work as expected. 
 
 # Log
 - - -

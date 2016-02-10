@@ -90,20 +90,24 @@ Observing this expression, we can find, if the hypothesis function is the same($
 
 Take home messages:
 
-   * Example: `sklearn.linear_model.LogisticRegression(penalty='l2', C=1.0, fit_intercept=True, solver='liblinear', max_iter=100, multi_class='ovr', n_jobs=1)`:
+* Example: 
 
-      1. penalty: l1 may fit sparse weights;
+        :::python
+        sklearn.linear_model.LogisticRegression(penalty='l2', C=1.0, fit_intercept=True, 
+                             solver='liblinear', max_iter=100, multi_class='ovr', n_jobs=1)
+
+	1. penalty: l1 may fit sparse weights;
  
-      2. C: iverse of the regulization term;
+	2. C: iverse of the regulization term;
 
-      3. fit_intercept: $w_0$, the constant term;
+	3. fit_intercept: $w_0$, the constant term;
 
-      4. solver: 'liblinear'-l1 and l2 penalty and suits for small dataset, and two class classification; 'lbfgs' or 'newton-cg' can be used for multiple classification but only l2 regularization; 'sag' suits for large dataset(stochastic average gradient descent)
+	4. solver: 'liblinear'-l1 and l2 penalty and suits for small dataset, and two class classification; 'lbfgs' or 'newton-cg' can be used for multiple classification but only l2 regularization; 'sag' suits for large dataset(stochastic average gradient descent)
 
-      5. max_iter: used to set the maximum iteration required to get the minimal of cost function;
+	5. max_iter: used to set the maximum iteration required to get the minimal of cost function;
 
-      6. multi_calss: 'ovr' and 'multinomial', works only for 'lbfgs'.  
+	6. multi_calss: 'ovr' and 'multinomial', works only for 'lbfgs'.  
    
-   * The cost function is assumming the labels are -1 and 1, but you dont have to provide your targets by converting them to -1/1. When you are running 'clf.fit(x, y)', this job will be done under the hood. 
+* The cost function is assumming the labels are -1 and 1, but you dont have to provide your targets by converting them to -1/1. When you are running 'clf.fit(x, y)', this job will be done under the hood. 
 
    * Stochastic gradient descent can be done by using `sklearn.linear_model.SGDClassifier(loss='log')`, this is suitable for large dataset. Why this is the same, the secret is hidding behind `\theta^Tw`, two label will be converging to two infinities both for svm(`loss='hinge'`) or logistic
