@@ -22,16 +22,39 @@ Authors: Liwen Wen
 
    6. Drag the file you want to drag
 
-# include guard
-# cyclic declaration
+# Tips:
+
+1. Include guard
+ 
+    We need like:
+
+        :::c++
+        #ifndef MAP_INCLUDED
+        #define MAP_INCLUDED
+        #endif
+
+    to prevent double declaration from happening, this is the first thing coming to my mind why asked why we needed it.
+
+2. cyclic declaration
+
 # delete pointer
+---
 # initialize class pointer
+---
 # copy and swap
+---
 # tips to switch typedef
+---
 # pass by reference
+---
 # return by reference(*this)
+---
 # testing code for homework2 take a look at it. 
+---
 # Constructor, if you don't define ctor for a class, compiler will generate one(no parameter) default constructor for you
+---
 # Virtual function will propagate, but better indicate virtual 
+---
 # "string" , 'char' , double quotes are string, single quotes are char
+---
 # static has three usages: 1. static in function; 2. static in class(class-wise, not instance-wise) 3. static in file

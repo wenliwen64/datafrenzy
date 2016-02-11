@@ -34,3 +34,4 @@ Authors: Liwen Wen
 # Lab Management
 - - -
 * [180A Lab]({filename}/mis/180A.md) 
+* [NuQCD Servers]({filename}/mis/server_maintenance.md)
