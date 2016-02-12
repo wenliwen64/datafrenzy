@@ -16,12 +16,16 @@ Status: draft
 - - -
 ## Upstream:
    * Location: rcf:/star/u/lwen1990/gpfs/v2_Lambda_200GeV/batchjobs/generate_Period1.sh
+
    * Note: Every time you update your source code or change your location, you have to update the version number in `Scheduler_new.xml` to make it work as expected. 
 
+## Downstream:
+   * Location: giant:/home/lwen/Analysis/CVE_project/Period5_Feng/HBT_NotExcluded/Lambda/ 
+   * Efficiency: 
 # Log
 - - -
 * 2016-02-03: $Lambda$-p correlation
 
 * 2016-02-04: We need to add new bad run for $Lambda$-p correlation
 
-* 2016-02-08: Begin running code to generate data for PEriod 1 on rcf(day132-140, 126-128 undone yet).
+* 2016-02-08: Begin running code to generate data for Period 1 on rcf(day132-140, 126-128 undone yet).
