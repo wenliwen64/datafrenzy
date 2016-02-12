@@ -1,7 +1,6 @@
 Title: CS32 Miscellaneous Information
 Date: 2016-01-21 23:41
 Slug: cs32-miscellaneous-information
-Status: draft
 Authors: Liwen Wen
 
 [TOC]
@@ -37,24 +36,71 @@ Authors: Liwen Wen
 
 2. cyclic declaration
 
-# delete pointer
----
-# initialize class pointer
----
-# copy and swap
----
-# tips to switch typedef
----
-# pass by reference
----
-# return by reference(*this)
----
-# testing code for homework2 take a look at it. 
----
-# Constructor, if you don't define ctor for a class, compiler will generate one(no parameter) default constructor for you
----
-# Virtual function will propagate, but better indicate virtual 
----
-# "string" , 'char' , double quotes are string, single quotes are char
----
-# static has three usages: 1. static in function; 2. static in class(class-wise, not instance-wise) 3. static in file
+    The typical scenario is like: class has student data member, but student also has class enrolled data member, so you have to declare one first. 
+
+        :::c++
+        #include "Foo.h"
+        class Foo;
+
+        //You have to #include the header file defining a class when
+        //* you declare a data member of that class type
+        //* you declare a container (e.g. a vector) of objects of that class type
+        //* you create an object of that class type
+        //* you use a member of that class type
+
+        class Blah
+        {
+            //...
+            void g(Foo f, Foo& fr, Foo* fp);  // just need to say   class Foo;
+            //...
+            Foo* m_fp;           // just need to say   class Foo;
+            Foo* m_fpa[10];      // just need to say   class Foo;
+            vector<Foo*> m_fpv;  // just need to say   class Foo;
+
+            Foo m_f;             // must #include Foo.h
+            Foo m_fa[10];        // must #include Foo.h
+            vector<Foo> m_fv;    // must #include Foo.h
+        };
+
+        void Blah::g(Foo f, Foo& fr, Foo* fp)
+        {
+            Foo f2(10, 20);      // must #include Foo.h
+            f.gleep();           // must #include Foo.h
+            fr.gleep();          // must #include Foo.h
+            fp->gleep();         // must #include Foo.h
+        }
+
+3. delete pointer
+
+    usually, delete pointer will free allocated memory, but the pointer is undefined.
+
+        :::c++
+        char* c = new char[5];
+        delete [] c; // delete array;
+
+4. initialize class pointer
+
+5. copy and swap
+   
+        :::c++
+        String& String::operator=(const String& rhs){
+            if(*this != rhs){
+                String tmp(rhs);
+                swap(tmp);
+            }
+            return *this;
+        }
+
+6. tips to switch typedef(TODO)
+
+7. pass by reference
+    
+    Sometime, we dont want to cost space to copy some big object into a fucntion, so we just pass the argument by reference.
+
+8. Constructor: if you don't define ctor for a class, compiler will generate one(no parameter) default constructor for you
+
+9. Virtual function will propagate, but better indicate virtual 
+
+10. "string" , 'char' , double quotes are array of constant characters, single quotes are char, neither of them is string type, 
+
+11. `static` has three usages: 1. static in function; 2. static in class(class-wise, not instance-wise) 3. static in file
