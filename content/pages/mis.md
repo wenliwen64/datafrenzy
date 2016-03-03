@@ -26,6 +26,8 @@ Authors: Liwen Wen
 * [Logistic classification note]({filename}/mis/logistic_classification_notes.md)
 * [Anomaly detection note]({filename}/mis/anomaly_detection.md)
 * [How to use seasnet desktop]({filename}/mis/cs32_mis.md)
+* [Some object oriented programming tips]({filename}/data/oodtips.pdf)
+* [Stringstream writeup]({filename}/data/stringstream.txt)
 
 # Book notes:
 - - -

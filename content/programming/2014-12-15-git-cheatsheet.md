@@ -139,10 +139,10 @@ Me:
 ---
 ### Uncommit things:
 
-*Scenario 1*: You commit something too early and possibly forgoet to add some files, or you mess up your commit message:
+*Scenario 1*: You committed something too early and possibly forgot to add some files, or you messed up your commit message:
 
     :::sh
-    > git commit  -m 'initial commit'
+    > git commit -m 'initial commit'
     > git add forgotten_file
     > git commit --amend
 

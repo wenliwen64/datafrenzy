@@ -104,3 +104,5 @@ Authors: Liwen Wen
 10. "string" , 'char' , double quotes are array of constant characters, single quotes are char, neither of them is string type, 
 
 11. `static` has three usages: 1. static in function; 2. static in class(class-wise, not instance-wise) 3. static in file
+
+12. `Map::insert(const KeyType& key, const ValueType& value)` allows you pass a temporary object to this function. For instance: `map.insert(Coord(40, 20), 43);`. But if you want to pass your temporary object to a non-constant reference, you will get compilation error. Since if you want to pass it to a non-reference, you are implicitly stating that you want to modify the object and return it to its caller. This is completely meaningless.
