@@ -149,3 +149,7 @@ TODO: to convert the omg_mid_analysis.C to a "non-parametric" function so that w
 * The 5 data sets of rotational backgrounds on rcf:
    1. 1130 -> $2\pi/5$
    2. 1201 -> $2\cdot2\pi/5$ 
+
+## Logs
+
+

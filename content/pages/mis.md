@@ -28,6 +28,7 @@ Authors: Liwen Wen
 * [How to use seasnet desktop]({filename}/mis/cs32_mis.md)
 * [Some object oriented programming tips]({filename}/data/oodtips.pdf)
 * [Stringstream writeup]({filename}/data/stringstream.txt)
+* [CS32 Slides from Carey Nachenberg](https://drive.google.com/drive/u/0/folders/0B3ZmSZ7JPYZ6TFI0UWI4Q09sLWc)
 
 # Book notes:
 - - -

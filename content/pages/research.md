@@ -14,3 +14,8 @@ Authors: Liwen Wen
 * [Pion $\gamma$ correlation in heavy ion collisions]({filename}/research/pipi_gamma.md)
 
 * [Search for CVE using $Lambda$-proton correlation]({filename}/research/lambda_proton.md)
+
+
+## Logs:
+
+   *2016-03-20: Prepare the data for feng's comparison code.

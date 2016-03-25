@@ -98,6 +98,12 @@ Slug: bookshelf
 
 20. Write Idiomatic Python3. by Jeff([cheatsheet]({filename}/programming/python_cheatsheet.md)) `gdrive/books`
 
+21. Data abstraction and problem solving with C++. by Frank M. Carrano
+
+22. More Effective C++. by Meyer
+
+23. Effective STL. by Meyer
+
 ## Math/Statistics Books
 - - -
 
@@ -139,3 +145,7 @@ Slug: bookshelf
 6. Group Theory for Physicist Notes:
 
     `/Users/lwen/Documents/Books/grouptheorynotes.pdf`
+
+## Logs:
+
+* 2016-03-22: need a book on 
