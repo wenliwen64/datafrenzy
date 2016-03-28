@@ -22,9 +22,10 @@ Authors: Liwen Wen
 
 # Some notes:
 - - -
+* [Logistic classification]({filename}/mis/logistic_classification_notes.md)
+* [Anomaly detection]({filename}/mis/anomaly_detection.md)
+* [Support vector machine]({filename}/mis/support_vector_machines.md)
 * [Design patterns study note I]({filename}/mis/design_patterns_i.md)
-* [Logistic classification note]({filename}/mis/logistic_classification_notes.md)
-* [Anomaly detection note]({filename}/mis/anomaly_detection.md)
 * [How to use seasnet desktop]({filename}/mis/cs32_mis.md)
 * [Some object oriented programming tips]({filename}/data/oodtips.pdf)
 * [Stringstream writeup]({filename}/data/stringstream.txt)

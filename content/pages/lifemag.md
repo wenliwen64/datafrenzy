@@ -108,14 +108,23 @@ Authors: Liwen Wen
 
 # Courses to take:
 ---
-1. Stochastic Process. Math171(2017 Spring)
+0. CS32: Introduction to Computer ScienceII(project3/4 could be put on resume; webpages needed)
 
-2. CS33(...)
+1. <del>Stochastic Process. Math171(2017 Spring)</del>Stochastic Process Math275C(2016 Spring)
 
-3. Stat231(2017 Fall)
+2. CS33: Introduction to computer system(Open every quarter?)
 
-3. Stat202C: Monte Carlo for Optimization.
+3. Stat231: Machine Learning(2016-1017 Fall)(could be put on resume)
 
-4. U. of Washington Specialization in Data Science. (2017 Spring to Summer, 6 courses)
+3. Stat202C: Monte Carlo for Optimization.(2017 Spring)(could be put on resume)
 
-5. C183: Statistical models in finance
+4. U. of Washington Specialization in Data Science. (2017 Spring to Summer, 6 courses)(could be put on resume)
+
+5. C183: Statistical models in finance(2017 Spring)
+
+# Logs:
+---
+* 2016-03-25: I want to learn(by the end of April): unitest in python for my framework; document my kaggle pipline; Greedy Algorithms([a quick view](https://www.youtube.com/watch?v=cu7TMYj0dBg)); Dynamic Programming...  
+
+* 2016-03-27: Add code to normalize our feature data; how to organize the categorical data in svm application, normalization, like embark location in Titanic(1, 2, 3 for south ampton, ...)?
+
