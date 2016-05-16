@@ -29,3 +29,5 @@ Status: draft
 * 2016-02-04: We need to add new bad run for $Lambda$-p correlation
 
 * 2016-02-08: Begin running code to generate data for Period 1 on rcf(day132-140, 126-128 undone yet).
+
+* 2016-04-08: Check the generated data's leaf `mNoTracks` whether or not corresponds to primary tracks / PtV0s.

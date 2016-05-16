@@ -26,10 +26,11 @@ Authors: Liwen Wen
 * [Anomaly detection]({filename}/mis/anomaly_detection.md)
 * [Support vector machine]({filename}/mis/support_vector_machines.md)
 * [Design patterns study note I]({filename}/mis/design_patterns_i.md)
-* [How to use seasnet desktop]({filename}/mis/cs32_mis.md)
+* [CS32 miscellaneous information]({filename}/mis/cs32_mis.md)
 * [Some object oriented programming tips]({filename}/data/oodtips.pdf)
 * [Stringstream writeup]({filename}/data/stringstream.txt)
 * [CS32 Slides from Carey Nachenberg](https://drive.google.com/drive/u/0/folders/0B3ZmSZ7JPYZ6TFI0UWI4Q09sLWc)
+* [Operating system concept notes]({filename}/mis/operating_system.md)
 
 # Book notes:
 - - -

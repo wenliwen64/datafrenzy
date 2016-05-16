@@ -6,21 +6,21 @@ Authors: Liwen Wen
 [TOC]
 # Questions to Answer: 
 ---
-1. How to handle exceptions in C++ and python? (try catch...)
+1. How to handle exceptions in C++ and python? ([link](https://www.youtube.com/watch?v=P_Kx0i7yXhU&list=PLfVsf4Bjg79Cx42Myce8bIg1nVBVSFKyx))
 
 2. How to design good/reusable software? (design patterns)
 
 3. How to properly use `const` key word in C++? 
 
-      *2016-03-20
+      * 2016-03-20:
     
-      1. In class definition, if you want this function not to change any data member, you should declare this function like `bool function(int i, int j) const;`     
+          1. In class definition, if you want this function not to change any data member, you should declare this function like `bool function(int i, int j) const;`     
  
-      2. In function declaration, `const string&` will enable you to pass in not only a regular string variable but also the string literal. If you dont add `const` before `string`, it implicitly tells the compiler that the value will be changed so temporal object cannot be accepted(changes cannot be strored anywhere).  
+          2. In function declaration, `const string&` will enable you to pass in not only a regular string variable but also the string literal. If you dont add `const` before `string`, it implicitly tells the compiler that the value will be changed so temporal object cannot be accepted(changes cannot be strored anywhere).  
        
-      3. If you want a local variable not to be changed by any way.
+          3. If you want a local variable not to be changed by any way.
 
-4. Flow-related questions.
+4. Flow-related questions.(why 2nd order event plane can only be used for even correlation)
 
 5. Chiral symmetry broken?
 
@@ -56,6 +56,16 @@ Authors: Liwen Wen
       * 2016-03-20: need to look into it soon.
 
    7. Read through XGB python test framework and [this](http://docs.python-guide.org/en/latest/writing/tests/)
+
+   8. Dynamic programming and greedy algorithms?(Take notes and practice)
+
+   9. How to develop unit-test code in Python and C++. Need examples and practice and interview questions.
+
+   10. Know the fundamental concepts in Computer Operating Systems.
+
+       * 2016-04-25: 
+
+   11. 
 
 ## Machine Learning:
 ---
@@ -100,6 +110,10 @@ Authors: Liwen Wen
  
    21. Feature importance selection
 
+   22. VM usage
+
+   23. Visulization.
+
 # Books to read:
 ---
 1. Quick view: Data Science from scratch
@@ -128,3 +142,4 @@ Authors: Liwen Wen
 
 * 2016-03-27: Add code to normalize our feature data; how to organize the categorical data in svm application, normalization, like embark location in Titanic(1, 2, 3 for south ampton, ...)?
 
+* 2016-04-04: Furbished my resume for two versions(quant/SE/DS).

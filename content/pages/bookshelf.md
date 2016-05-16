@@ -104,6 +104,14 @@ Slug: bookshelf
 
 23. Effective STL. by Meyer
 
+24. C++ Design Patterns and Derivatives Pricing. by Mark Joshi 
+
+    `/Users/gdrive/books`
+
+25. Operating systems: design and implementation. by Andrew S. Tanenbaum 
+
+    `/Users/gdrive/books`
+
 ## Math/Statistics Books
 - - -
 
@@ -121,6 +129,21 @@ Slug: bookshelf
 
     `/Users/lwen/Documents/Books/QuantumnTheory_Groups_Representations.pdf`
 
+6. A Course in Probability Theory. by Kai Lai Chung
+
+7. Probability: Theory and Examples(solution manual included). by Durrett `/Users/lwen/Documents/Math275`
+
+8. Probability with Martinggales. by Williams 
+
+    `/Users/.../Math275C`
+
+9. A Probability Path. by Resnick
+
+    `/Users/.../Math275C`
+
+10. Probability and Measure. by Billingsley
+
+    `/Users/.../Math275C`
 
 ## Data Science
 - - -
