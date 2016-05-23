@@ -31,3 +31,5 @@ Status: draft
 * 2016-02-08: Begin running code to generate data for Period 1 on rcf(day132-140, 126-128 undone yet).
 
 * 2016-04-08: Check the generated data's leaf `mNoTracks` whether or not corresponds to primary tracks / PtV0s.
+
+* 2016-05-20: Nasim's publication on Lambda and proton's [v2](https://drupal.star.bnl.gov/STAR/publications/centrality-and-transverse-momentum-dependence-elliptic-flow-multi-strange-hadrons-and-p).

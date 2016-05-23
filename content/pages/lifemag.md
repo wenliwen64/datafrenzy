@@ -57,7 +57,7 @@ Authors: Liwen Wen
 
    7. Read through XGB python test framework and [this](http://docs.python-guide.org/en/latest/writing/tests/)
 
-   8. Dynamic programming and greedy algorithms?(Take notes and practice)
+   8. Dynamic programming and greedy algorithms?(Take notes and practice)(MIT CS6.006 videos 4 lectrues on dynamic programming)
 
    9. How to develop unit-test code in Python and C++. Need examples and practice and interview questions.
 
@@ -120,6 +120,14 @@ Authors: Liwen Wen
 
 2. Machine learning in python(\*)
 
+3. [Heads up design pattern(for interview preparation)](https://drive.google.com/file/d/0B3ZmSZ7JPYZ6RGtCa0hSSnRuVWc/view?usp=sharing)
+
+4. Cracking the code interview
+
+5. [Beauty of coding])(https://drive.google.com/file/d/0B3ZmSZ7JPYZ6anBjM2ZjU0ZLdGs/view?usp=sharing)
+
+6. [Data structure and algorithms in C++](https://drive.google.com/file/d/0B3ZmSZ7JPYZ6LWxTUGY3X0JkVUk/view?usp=sharing)
+
 # Courses to take:
 ---
 0. CS32: Introduction to Computer ScienceII(project3/4 could be put on resume; webpages needed)
@@ -143,3 +151,5 @@ Authors: Liwen Wen
 * 2016-03-27: Add code to normalize our feature data; how to organize the categorical data in svm application, normalization, like embark location in Titanic(1, 2, 3 for south ampton, ...)?
 
 * 2016-04-04: Furbished my resume for two versions(quant/SE/DS).
+
+* 2016-05-20: [blog](http://coolshell.cn/articles/12052.html); Backtracing(videos); On wechat, I saved a bookmark which tells about howto improve your python step by step.

@@ -38,3 +38,15 @@ Authors: Liwen Wen
    2. Favor object composition over class inheritance;
 
    notes: interface: what users see; implementation: all the dirty work you do. 
+
+# Headsup design pattern:
+
+1. Design principle I: identify aspects of your application that vary and separate them from what stays the same.(Pull duck behaviour(quak and fly) out of duck classes, so basically you define interface variables in your base class and instantiate or initialize the specific one in your subclasses, here, `FlyBehaviour` and `QuackBehaviour` are interface not implementation).
+
+2. Design principle II: program to an interface, not an implementation.
+
+3. Design principle III: favor composition more than inheritance. 
+
+4. Page 32 for summary of Chapter 1;
+
+Chapter II: Observer pattern

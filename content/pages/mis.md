@@ -31,6 +31,10 @@ Authors: Liwen Wen
 * [Stringstream writeup]({filename}/data/stringstream.txt)
 * [CS32 Slides from Carey Nachenberg](https://drive.google.com/drive/u/0/folders/0B3ZmSZ7JPYZ6TFI0UWI4Q09sLWc)
 * [Operating system concept notes]({filename}/mis/operating_system.md)
+* [Factorization Machines]({filename}/mis/fm.md)
+* [Algorithms and data structure cheatsheet](http://algs4.cs.princeton.edu/cheatsheet/)
+* [Data structure and algorithms basics](https://gist.github.com/TSiege/cbb0507082bb18ff7e4b)
+* [How to deal with systematic error]({filename}/mis/sys_error.md)
 
 # Book notes:
 - - -
@@ -40,3 +44,7 @@ Authors: Liwen Wen
 - - -
 * [180A Lab]({filename}/mis/180A.md) 
 * [NuQCD Servers]({filename}/mis/server_maintenance.md)
+
+# Life Management
+- - -
+* [Travel Checklist]({filename}/mis/travel_checklist.md
