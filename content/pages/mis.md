@@ -8,13 +8,15 @@ Authors: Liwen Wen
 
 # Some useful tutorials
 - - -
-* `get_file_list.pl` [usage]({filename}/mis/get_file_list.md)
+* `get_file_list.pl` [usage](https://drupal.star.bnl.gov/STAR/comp/sofi/filecatalog/user-manual)
 * `matplotlib` tutorial: `/Users/lwen/Documents/python_examples/AnatomyOfMatplotlib-master`
 * python example code: `/Users/lwen/Documents/python_examples`
 * `sklearn` example code: `/Users/lwen/Documents/sklearn_examples`
 * `ROOT` example code: `/Users/lwen/Documents/ROOT_Test`
 * [How to color output in C++]({filename}/mis/color_output.md)
 * [Flow analysis in heavy ion collisions]({filename}/mis/flow.md)
+* [ROOT tips]({filename}/mis/)
+* [Computer tips]({filename}/mis/mis_tips.md)
 
 # Interesting stuff:
 - - -
@@ -35,6 +37,10 @@ Authors: Liwen Wen
 * [Algorithms and data structure cheatsheet](http://algs4.cs.princeton.edu/cheatsheet/)
 * [Data structure and algorithms basics](https://gist.github.com/TSiege/cbb0507082bb18ff7e4b)
 * [How to deal with systematic error]({filename}/mis/sys_error.md)
+* [StEvent documentation](https://drive.google.com/file/d/0B3ZmSZ7JPYZ6WDQ3TGpxZkw5MDg/view?usp=sharing)
+* [StMcEvent documentation](https://drive.google.com/file/d/0B3ZmSZ7JPYZ6b1dlaDlWcmtmYkk/view?usp=sharing)
+* [StAssociationMaker documentation](https://drive.google.com/file/d/0B3ZmSZ7JPYZ6RnhNX0VWYXlhNDQ/view?usp=sharing)
+* [CPP cheat sheet](https://drive.google.com/file/d/0B3ZmSZ7JPYZ6QnRMeVFKR3JLbEk/view?usp=sharing)
 
 # Book notes:
 - - -

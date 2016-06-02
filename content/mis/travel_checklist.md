@@ -16,14 +16,18 @@ Authors:Liwen Wen
 
 5. Phone charger cable;
 
-6. I-20 and passport;
+6. I-20 and passport and driver license;
 
 7. Mug;
 
 8. Deorderant;
 
-9. Books(for use on airplane);
+9. Books(to read on airplane);
 
-10. Download necessary videos;
+10. Download sufficient videos;
 
 11. Nail cutter;
+
+12. A bag for laundry;
+
+to be continued...
