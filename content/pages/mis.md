@@ -17,6 +17,7 @@ Authors: Liwen Wen
 * [Flow analysis in heavy ion collisions]({filename}/mis/flow.md)
 * [ROOT tips]({filename}/mis/)
 * [Computer tips]({filename}/mis/mis_tips.md)
+* [Bibiliography management with bibtex](https://www.sharelatex.com/learn/Bibliography_management_with_bibtex)
 
 # Interesting stuff:
 - - -
@@ -41,6 +42,8 @@ Authors: Liwen Wen
 * [StMcEvent documentation](https://drive.google.com/file/d/0B3ZmSZ7JPYZ6b1dlaDlWcmtmYkk/view?usp=sharing)
 * [StAssociationMaker documentation](https://drive.google.com/file/d/0B3ZmSZ7JPYZ6RnhNX0VWYXlhNDQ/view?usp=sharing)
 * [CPP cheat sheet](https://drive.google.com/file/d/0B3ZmSZ7JPYZ6QnRMeVFKR3JLbEk/view?usp=sharing)
+* [CPP template notes](https://drive.google.com/file/d/0B3ZmSZ7JPYZ6R0puS1NCZ0E1d0E/view?usp=sharing)
+* [C++/C static keyword]()
 
 # Book notes:
 - - -
@@ -53,4 +56,4 @@ Authors: Liwen Wen
 
 # Life Management
 - - -
-* [Travel Checklist]({filename}/mis/travel_checklist.md
+* [Travel Checklist]({filename}/mis/travel_checklist.md)

@@ -4,8 +4,6 @@ Slug: travel-list
 Authors:Liwen Wen
 ---
 
-[TOC]
-
 1. Slipers;
 
 2. Razor;
@@ -30,4 +28,10 @@ Authors:Liwen Wen
 
 12. A bag for laundry;
 
-to be continued...
+13. Hold for iPhone or GPS;
+
+14. More pants/shorts;
+
+15. Automobile phone charger;
+
+    to be continued...

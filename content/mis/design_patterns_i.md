@@ -50,3 +50,21 @@ Authors: Liwen Wen
 4. Page 32 for summary of Chapter 1;
 
 Chapter II: Observer pattern
+
+Chapter III: Decorating your objects(decoration pattern)
+
+Chapter IV: Factory method pattern and abstract factory pattern(create pizza method for only one object and ingredient factory class for a set of objects)
+
+Chapter V: Command pattern(abstract a command and let cutstomer implement concrete command for execution)
+
+Chapter VI: Adapter pattern(create an adapter object to do the job); Facade pattern(Just like our StMaker class, encapsulate all of other classes' operations)
+
+Chapter VII: Algorithm template 
+
+Chapter VIII: Create state objects' interface;
+
+Chapter IX: Singleton Pattern(how to maintain one instance)
+
+Chapter X: Iterator and composite, about the collectives  
+
+Chapter XI: Proxy pattern.(icon, imageproxy to derive from it and plot thing)

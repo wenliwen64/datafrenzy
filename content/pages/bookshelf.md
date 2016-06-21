@@ -112,6 +112,10 @@ Slug: bookshelf
 
     `/Users/gdrive/books`
 
+26. API Design for C++. by Martin
+
+    `/Users/gdrive/books`
+
 ## Math/Statistics Books
 - - -
 
@@ -131,7 +135,9 @@ Slug: bookshelf
 
 6. A Course in Probability Theory. by Kai Lai Chung
 
-7. Probability: Theory and Examples(solution manual included). by Durrett `/Users/lwen/Documents/Math275`
+7. Probability: Theory and Examples(solution manual included). by Durrett 
+
+    `/Users/lwen/Documents/Math275`
 
 8. Probability with Martinggales. by Williams 
 

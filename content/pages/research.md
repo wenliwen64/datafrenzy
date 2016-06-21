@@ -17,4 +17,6 @@ Authors: Liwen Wen
 
 ## Logs:
 
-   *2016-03-20: Prepare the data for feng's comparison code.
+   * 2016-03-20: Prepare the data for feng's comparison code.
+
+   * 2016-06-13: [Thesis-related .bib file](https://www.sharelatex.com/project/575f025a42a427204a638ed6)

@@ -161,3 +161,5 @@ Status: draft
 * 2016-05-28: Why we cut proton on 2GeV/c for upper limit? For the tpc tracking precision or Jets influence. Why we cut the lower
 
 * 2016-06-02: The issue remaining in protons efficiency study is Centrality 7 has an suspicious `enhancement` in low pt range for TOF matching efficiency. Also I just roughly fit it with small fraction of data. 
+
+* 2016-06-02: 39GeV: 11098-11112
