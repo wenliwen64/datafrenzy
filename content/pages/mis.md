@@ -15,8 +15,8 @@ Authors: Liwen Wen
 * `ROOT` example code: `/Users/lwen/Documents/ROOT_Test`
 * [How to color output in C++]({filename}/mis/color_output.md)
 * [Flow analysis in heavy ion collisions]({filename}/mis/flow.md)
-* [ROOT tips]({filename}/mis/)
-* [Computer tips]({filename}/mis/mis_tips.md)
+* [ROOT tips]({filename}/programming/ROOT_tips.md)
+* [STAR S&C tips]({filename}/programming/mis_tips.md)
 * [Bibiliography management with bibtex](https://www.sharelatex.com/learn/Bibliography_management_with_bibtex)
 
 # Interesting stuff:
@@ -36,6 +36,7 @@ Authors: Liwen Wen
 * [Operating system concept notes]({filename}/mis/operating_system.md)
 * [Factorization Machines]({filename}/mis/fm.md)
 * [Algorithms and data structure cheatsheet](http://algs4.cs.princeton.edu/cheatsheet/)
+* [conda cheatsheet](https://drive.google.com/open?id=0B3ZmSZ7JPYZ6V3ZqZTQ3SHl2aEE)
 * [Data structure and algorithms basics](https://gist.github.com/TSiege/cbb0507082bb18ff7e4b)
 * [How to deal with systematic error]({filename}/mis/sys_error.md)
 * [StEvent documentation](https://drive.google.com/file/d/0B3ZmSZ7JPYZ6WDQ3TGpxZkw5MDg/view?usp=sharing)

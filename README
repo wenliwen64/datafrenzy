@@ -1,0 +1,1 @@
+`source activate pelican` before `make devserver`

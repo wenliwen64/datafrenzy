@@ -1,7 +1,6 @@
 Title: Pipi Gamma
 Date: 2015-11-30 12:29
 Slug: pipi-gamma
-Status: draft
 Authors: Liwen Wen
 
 [TOC]
@@ -53,6 +52,13 @@ Procedures:
 
 # Log
 
-* 2016-02-03
+# Data Points
+----
 
-   *
+## AuAu200GeV MinBias5 Run11 Data
+                     
+1. [Gamma]({filename}/data/gamma_pipi_auau200GeVminb5Run11.txt)
+
+2. [Delta]({filename}/data/delta_pipi_auau200GeVminb5Run11.txt)
+
+3. [Kappa_killer]({filename}/data/kk_pipi_auau200GeVminb5Run11.txt)

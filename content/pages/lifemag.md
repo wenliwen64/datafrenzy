@@ -63,10 +63,6 @@ Authors: Liwen Wen
 
    10. Know the fundamental concepts in Computer Operating Systems.
 
-       * 2016-04-25: 
-
-   11. 
-
 ## Machine Learning:
 ---
   

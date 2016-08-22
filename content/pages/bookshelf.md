@@ -116,6 +116,13 @@ Slug: bookshelf
 
     `/Users/gdrive/books`
 
+27. Python for Unix and Linux System Administration. by Noah Gift etc.
+
+    `/Users/gdrive/books`
+
+28. Python for Finance. 
+
+
 ## Math/Statistics Books
 - - -
 
@@ -150,6 +157,10 @@ Slug: bookshelf
 10. Probability and Measure. by Billingsley
 
     `/Users/.../Math275C`
+
+11. 150 Mostly Asked Questions on Quant Interview
+
+12. Green face book on Qunat Interview. by Xingfeng Zhou 
 
 ## Data Science
 - - -

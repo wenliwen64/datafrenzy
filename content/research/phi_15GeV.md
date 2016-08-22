@@ -60,10 +60,16 @@ Notes: There is no mid-stream analysis code for Phi particle. All you need to do
            * datfile -> real data(Compress all of the Up-stream output histogram data, also including mixing event background)
            * efficiency file -> hard coded in `StPhiDownMaker.cc` 
      2. run command: `$root -l run_spectra.C`
+
 * Reults:
-     1. [Raw Spectra]({filename}/plots/omg_rawspectra.pdf) ([data]({filename}/data/omg_rawspectra.txt))
-     2. [Corrected Spectra]({filename}/plots/omg_finalCorrSpectra.pdf) ([data]({filename}/data/omg_finalCorrSpectra.txt))
-     3. [Comparison]({filename}/plots/compare11GeV_omg.pdf) ([data]({filename}/data/compare11GeV_omg.txt))
+
+     1. [data]({filename}/data/omg_rawspectra.txt)
+
+     1. [Raw Spectra]({filename}/plots/omg_rawspectra.pdf), [data]({filename}/plots/omg_rawspectra.txt)
+
+     2. [Corrected Spectra]({filename}/plots/omg_finalCorrSpectra.pdf), [data]({filename}/data/omg_finalCorrSpectra.txt)
+
+     3. [Comparison]({filename}/plots/compare11GeV_omg.pdf), [data]({filename}/data/compare11GeV_omg.txt)
 
 ### Comparison between Xiaoping's and my results on Phi Spectra
 ---
