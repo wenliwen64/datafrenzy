@@ -1,6 +1,0 @@
-[submodule "pelican-themes"]
-	path = themes
-	url = git@github.com:wenliwen64/pelican-themes.git
-[submodule "pelican-plugins"]
-	path = plugins
-	url = git@github.com:wenliwen64/pelican-plugins.git
