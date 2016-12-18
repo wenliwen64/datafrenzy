@@ -35,8 +35,8 @@ SOCIAL = (
 
 DEFAULT_PAGINATION = 10
 
-THEME = 'pelican-themes/elegant'
-PLUGIN_PATHS = ['pelican-plugins']
+THEME = 'themes/elegant'
+PLUGIN_PATHS = ['plugins']
 
 # elegant theme configuration items
 PLUGINS = ['sitemap', 'extract_toc', 'tipue_search', 'render_math']
