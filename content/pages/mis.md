@@ -45,6 +45,8 @@ Authors: Liwen Wen
 * [CPP cheat sheet](https://drive.google.com/file/d/0B3ZmSZ7JPYZ6QnRMeVFKR3JLbEk/view?usp=sharing)
 * [CPP template notes](https://drive.google.com/file/d/0B3ZmSZ7JPYZ6R0puS1NCZ0E1d0E/view?usp=sharing) or [Carey's notes](https://drive.google.com/drive/folders/0B3ZmSZ7JPYZ6TFI0UWI4Q09sLWc)
 * [C++/C static keyword]()
+* [Stanford Database notes](https://drive.google.com/file/d/0B3ZmSZ7JPYZ6bVgxcVRVcWFReTQ/view?usp=sharing)
+
 
 # Book notes:
 - - -

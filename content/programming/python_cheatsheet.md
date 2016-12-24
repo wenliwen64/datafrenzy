@@ -54,7 +54,7 @@ This cheatsheet is mainly based on the book Writing Idiomatic Python. by Jeff Kn
 5. How to format strings in python:
 
     i. use `+` operator to concatenate strings and variables.
-   
+
     ii. 'old-style' string
 
     iii. `''.join(string_list)` 
@@ -81,25 +81,25 @@ This cheatsheet is mainly based on the book Writing Idiomatic Python. by Jeff Kn
 
 16. How to define a variable arguments function: 
 
-        :::python 
-        In [0]: def foo(*args, **kwargs):
-          ...:      for a in args:
-          ...:          print a;
-        
-        In [1]: foo(1, 2, 3)
-        1
-        2
-        3
-        In [7]: def bar(*args, **kwargs):
-                    for a in kwargs:
-                        print(kwargs[a])
-           ...:      
-        In [8]: bar(1,2,3)
-
-        In [9]: bar(num1=1,num2=2,num3=3)
-        1
-        2
-        3
+       :::python 
+       In [0]: def foo(*args, **kwargs):
+         ...:      for a in args:
+         ...:          print a;
+       
+       In [1]: foo(1, 2, 3)
+       1
+       2
+       3
+       In [7]: def bar(*args, **kwargs):
+                   for a in kwargs:
+                       print(kwargs[a])
+          ...:      
+       In [8]: bar(1,2,3)
+       
+       In [9]: bar(num1=1,num2=2,num3=3)
+       1
+       2
+       3
 
 17. P48 example very impressive
 
@@ -136,4 +136,4 @@ This cheatsheet is mainly based on the book Writing Idiomatic Python. by Jeff Kn
 
 10. Use `self.assertEqual(a, b)` instead of `self.assertTrue(a == b)`
 
-5. 
+11. ​
