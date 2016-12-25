@@ -7,21 +7,21 @@ Authors: Liwen Wen
 
 This cheatsheet is mainly based on the book Writing Idiomatic Python. by Jeff Knupp.
 
-# Control Structure
+### Control Structure
 
-1. `if x <= y <= z:` is legal and efficient;
+* `if x <= y <= z:` is legal and efficient;
 
-2. `is_generic_name = name in ('Tom', 'Dick', 'Harry')` = 
+* `is_generic_name = name in ('Tom', 'Dick', 'Harry')` is equivalent to: 
 
         :::python
         if name == 'Tom' or name == 'Dick' or name == 'Harry':
             is_generic_name = True
 
-3. `if my_list:` instead of `if my_list == []:`
+* `if my_list:` instead of `if my_list == []:`
 
-4. `if position is not None:`
+* `if position is not None:`
 
-5. `value = 1 if foo else 0` just like `x? True:False` in C++ 
+* `value = 1 if foo else 0` just like `x? True:False` in C++ 
 
 * for loop(???format function):
 
@@ -29,111 +29,138 @@ This cheatsheet is mainly based on the book Writing Idiomatic Python. by Jeff Kn
         for index, element in enumerate(my_contaniter):
             print('{} {}'.format(index, element))
 
-7. Mutable objects: list, dict, set and most class instances
+* Mutable objects: list, dict, set and most class instances
 
-8. Immutable objects: string, int, tuple
+* Immutable objects: string, int, tuple
 
-9. Dont use mutable object as the default value for a function argument.`def f(a, L=None)` instead of `def L(a, L=[])` 
+* Dont use mutable object as the default value for a function argument.`def f(a, L=None)` instead of `def L(a, L=[])` 
 
-10. Return expression instead of values to be concise.`return a == b == c`  
+* Return expression instead of values to be concise.`return a == b == c`  
 
-11. `if not 'happy' in cur_dict: ` == happy is not in the current dictionary.  
+* `if not 'happy' in cur_dict: ` is equivalent to happy is not in the current dictionary.  
 
-12. Why use 'if \_\_name\_\_ == '\_\_main\_\_': ' 
+* Why use `if __name__ == '__main__': `
 
-# Dealing with data
+### Dealing with data
 
-1. No reason to use temporary variable to swap varibles' values: `(b, a) = (a, b)`
+* No reason to use temporary variable to swap varibles' values: `(b, a) = (a, b)`
 
-2. Chain string functions: `formatted_book_info = book_info.strip().upper().replace(":", "by")`
+* Chain string functions: `formatted_book_info = book_info.strip().upper().replace(":", "by")`
 
-3. Use `''.join(result_list)`
+* Use `''.join(result_list)`
 
-4. Use `ord` function to convert char to ASCII or vice versa.
+* Use `ord` function to convert char to ASCII or vice versa.
 
-5. How to format strings in python:
+* How to format strings in python:
+      * use `+` operator to concatenate strings and variables.
+      * 'old-style' string
+      * `''.join(string_list)` 
 
-    i. use `+` operator to concatenate strings and variables.
+*  The best way to do is to use `output = 'Name: {user.name}, Age: {user.age}, Sex: {user.sex}'.format(user=user)`. This [link](https://docs.python.org/2/library/string.html#formatspec) is very helpful.
 
-    ii. 'old-style' string
+* `some_list = [element + 5 for element in some_other_list if is_prime(element)]`
 
-    iii. `''.join(string_list)` 
+* Prefer list comprehensions to the built-in `map()` and `filter()` functions
 
-    The best way to do is to use `output = 'Name: {user.name}, Age: {user.age}, Sex: {user.sex}'.format(user=user)`. This [link](https://docs.python.org/2/library/string.html#formatspec) is very helpful.
+* Use `sum()` function which is built-in
 
-6. `some_list = [element + 5 for element in some_other_list if is_prime(element)]`
+* Use `all(list)` or `any(list)` to check if all of the elements or any one element is equal to `True`
 
-7. Prefer list comprehensions to the built-in `map()` and `filter()` functions
+* Use a dict as a substitue for a `switch`...case statement. return long expression is preferred.  
 
-8. Use `sum()` function which is built-in
+* `log_severity = configuration.get('severity', 'Info')`
 
-9. Use `all(list)` or `any(list)` to check if all of the elements or any one element is equal to `True`
+* `user_email = {user.name: user.email for user in users_list if user.email}` 
+* Set operations `A|B, A&B, A-B, A^B`  
+* `return(set(get_list_of_most_active_users()) & set(get_list_of_most_popular_users()))`
 
-10. Use a dict as a substitue for a `switch`...case statement. return long expression is preferred.  
+* `users_first_names = {user.first_name for user in users}`
 
-11. `log_severity = configuration.get('severity', 'Info')`
+* How to define a variable arguments function: 
 
-12. `user_email = {user.name: user.email for user in users_list if user.email}` 
-13. Set operations `A|B, A&B, A-B, A^B`  
-14. `return(set(get_list_of_most_active_users()) & set(get_list_of_most_popular_users()))`
+        :::python 
+        In [0]: def foo(*args, **kwargs):
+          ...:      for a in args:
+          ...:          print a;
+        
+        In [1]: foo(1, 2, 3)
+        1
+        2
+        3
+        In [7]: def bar(*args, **kwargs):
+                    for a in kwargs:
+                        print(kwargs[a])
+           ...:      
+        In [8]: bar(1,2,3)
+        
+        In [9]: bar(num1=1,num2=2,num3=3)
+        1
+        2
+        3
 
-15. `users_first_names = {user.first_name for user in users}`
+* P48 example very impressive
 
-16. How to define a variable arguments function: 
+* `(user, name, _, _) = get_user_info(user)` is better than `(user, name, temp, temp2) = get_user_info(user)`
 
-       :::python 
-       In [0]: def foo(*args, **kwargs):
-         ...:      for a in args:
-         ...:          print a;
-       
-       In [1]: foo(1, 2, 3)
-       1
-       2
-       3
-       In [7]: def bar(*args, **kwargs):
-                   for a in kwargs:
-                       print(kwargs[a])
-          ...:      
-       In [8]: bar(1,2,3)
-       
-       In [9]: bar(num1=1,num2=2,num3=3)
-       1
-       2
-       3
+* tuple can be used to accept upacked list. `(name, age, sex) = list_from_comma_separated_file` 
 
-17. P48 example very impressive
+* `return (mean, median, variance)` to return multiple values from one fucntion. 
 
-18. `(user, name, _, _) = get_user_info(user)` is better than `(user, name, temp, temp2) = get_user_info(user)`
+* Reread class part. Very helpful but hard at this point of time(https://www.jeffknupp.com/blog/2013/04/07/improve-your-python-yield-and-generators-explained/)
 
-19. tuple can be used to accept upacked list. `(name, age, sex) = list_from_comma_separated_file` 
+* `for uppercase_name in (name.upper() for name in usernames)` is better than `for uppercase_name in [name.upper() for name in usernames]`
 
-20. `return (mean, median, variance)` to return multiple values from one fucntion. 
-
-21. Reread class part. Very helpful but hard at this point of time(https://www.jeffknupp.com/blog/2013/04/07/improve-your-python-yield-and-generators-explained/)
-
-22. `for uppercase_name in (name.upper() for name in usernames)` is better than `for uppercase_name in [name.upper() for name in usernames]`
-
-# Organize Your Code
+### Organize Your Code
 - - -
 
-1. Use capital letters when declaring global constant values. 
+* Use capital letters when declaring global constant values. 
 
-2. Format your code according to PEP8. `$sudo easy_install pep8` and `$pep8 myfirstpythonprogram.py`!
+* Format your code according to PEP8. `$sudo easy_install pep8` and `$pep8 myfirstpythonprogram.py`!
 
-3. `from foo import *` << `from foo import (a, b ,c, d)` < `import foo`
+* `from foo import *` << `from foo import (a, b ,c, d)` < `import foo`
 
-4. Make use of `__init__.py` to initialize your package. If you have a package contating large amount of modules but only a few of them are meant to be used by clients, you should use `__init__.py`: like `import gzimo.clinet as Gzimo`, so client can write like `import Gzimo` instead of nested expressions.
+* Make use of `__init__.py` to initialize your package. If you have a package contating large amount of modules but only a few of them are meant to be used by clients, you should use `__init__.py`: like `import gzimo.clinet as Gzimo`, so client can write like `import Gzimo` instead of nested expressions.
 
-5. Use `if __name__ == '__main__'` to make a script executable.
+* Use `if __name__ == '__main__'` to make a script executable.
 
-6. Under `if __name__ == '__main__'` you should write `sys.exit(main())`
+* Under `if __name__ == '__main__'` you should write `sys.exit(main())`
 
-7. Use `sys.argv` to parse command line parameters
+* Use `sys.argv` to parse command line parameters
 
-8. Use `os.path` to deal with directory paths.
+* Use `os.path` to deal with directory paths.
 
-9. Use automated test tool like the standard library providing `unittest` should suffice
+* Use automated test tool like the standard library providing `unittest` should suffice
 
-10. Use `self.assertEqual(a, b)` instead of `self.assertTrue(a == b)`
+* Use `self.assertEqual(a, b)` instead of `self.assertTrue(a == b)`
 
-11. ​
+### Structure of your code
+
+* What a typical project look like structurally? 
+
+        :::python
+        README
+        environment.yml
+        Makefile
+        setup.py
+        src/__init__.py
+        src/core.py
+        src/helpers.py
+        docs/conf.py
+        docs/index.rst
+        tests/test_basic.py
+        tests/test_advanced.py
+
+* What is the use of `environment.yml` ?  `conda env create -f environment.yml`
+
+* What is the use of `Makefile`? An example is:
+
+        :::Makefile
+        test: 
+        	test.py test
+        .PHONY: test
+
+* What is the use of `setup.py`? 
+
+     `python setup.py build && python setup.py install` == `make && make install` 
+
+* What is the use of `__init__.py`? This file will be loaded and executed when any module of this package, some top-level statements will be executed. After this, it will look for the `core.py` to execute the statements in `core.py`. But usually it is left empty.
