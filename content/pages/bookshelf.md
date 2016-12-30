@@ -122,6 +122,7 @@ Slug: bookshelf
 
 28. Python for Finance. 
 
+29. C++ Cookbook by Stephens et.al. (location: google drive/books)
 
 ## Math/Statistics Books
 - - -
@@ -188,4 +189,3 @@ Slug: bookshelf
 
 ## Logs:
 
-* 2016-03-22: need a book on 
