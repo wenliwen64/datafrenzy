@@ -54,6 +54,7 @@ STATIC_PATHS = ['theme/images', 'images', 'plots', 'data', ]
 TAG_SAVE_AS = ''
 CATEGORY_SAVE_AS = ''
 AUTHOR_SAVE_AS = ''
+OUTPUT_PATH = '../pelican_site_output/'
 
 #RECENT_ARTICLES_COUNT (integer)  
 """
@@ -80,3 +81,10 @@ USE_FOLDER_AS_CATEGORY = False
 
 # default metadata
 #DEFAULT_METADATA = {'status':'draft',}
+
+# don't delete our .git submodule dir
+DELETE_OUTPUT_DIRECTORY = False
+
+# use the correct abs url
+SITEURL = 'https://wenliwen64.github.io'
+RELATIVE_URLS = False
