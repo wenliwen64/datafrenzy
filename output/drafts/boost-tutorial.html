@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8"> 
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Liwen Wen" />
+        <meta name="copyright" content="Liwen Wen" />
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content=", Programming, " />
+
+<meta property="og:title" content="Boost Tutorial "/>
+<meta property="og:url" content="http://localhost:18000/drafts/boost-tutorial.html" />
+<meta property="og:description" content="Handy Boost test tools¶ BOOST_WARN BOOST_CHECK(x != y) (testing continues if test fails) BOOST_REQUIRE(x == y) (testing stops if test fails) BOOST_CHECK_CLOSE_FRACTION(x, y, tolerance-limit) ( floating point comparison ) Example:¶ #define BOOST_TEST_MODULE MasterTestSuite #include &lt;boost/test/included/unit_test.hpp&gt; using boost::unit_test; test_suite* init_unit_test_suite(int argc, char* argv[]){ test_suite* ts1 = BOOST_TEST_SUITE …" />
+<meta property="og:site_name" content="DataFrenzy" />
+<meta property="og:article:author" content="Liwen Wen" />
+<meta property="og:article:published_time" content="2016-07-30T14:15:00-07:00" />
+<meta property="" content="2016-07-30T14:15:00-07:00" />
+<meta name="twitter:title" content="Boost Tutorial ">
+<meta name="twitter:description" content="Handy Boost test tools¶ BOOST_WARN BOOST_CHECK(x != y) (testing continues if test fails) BOOST_REQUIRE(x == y) (testing stops if test fails) BOOST_CHECK_CLOSE_FRACTION(x, y, tolerance-limit) ( floating point comparison ) Example:¶ #define BOOST_TEST_MODULE MasterTestSuite #include &lt;boost/test/included/unit_test.hpp&gt; using boost::unit_test; test_suite* init_unit_test_suite(int argc, char* argv[]){ test_suite* ts1 = BOOST_TEST_SUITE …">
+
+        <title>Boost Tutorial  · DataFrenzy
+</title>
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="http://localhost:18000/theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="http://localhost:18000/theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="http://localhost:18000/theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="http://localhost:18000/theme/css/custom.css" media="screen">
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="http://localhost:18000/"><span class=site-name>DataFrenzy</span></a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav pull-right top-menu">
+                            <li ><a href="http://localhost:18000">Home</a></li>
+                            <li ><a href="http://localhost:18000/pages/about.html">About</a></li>
+                            <li ><a href="http://localhost:18000/pages/bookshelf.html">Books Collection</a></li>
+                            <li ><a href="http://localhost:18000/pages/task-magnagement.html">Task Management</a></li>
+                            <li ><a href="http://localhost:18000/pages/mis.html">Miscellaneous</a></li>
+                            <li ><a href="http://localhost:18000/pages/research.html">Research</a></li>
+                            <li ><a href="http://localhost:18000/categories.html">Categories</a></li>
+                            <li ><a href="http://localhost:18000/tags.html">Tags</a></li>
+                            <li ><a href="http://localhost:18000/archives.html">Archives</a></li>
+                            <li><form class="navbar-search" action="http://localhost:18000/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span1"></div>
+                <div class="span10">
+<article>
+<div class="row-fluid">
+    <header class="page-header span10 offset2">
+    <h1><a href="http://localhost:18000/drafts/boost-tutorial.html"> Boost Tutorial  </a></h1>
+    </header>
+</div>
+
+<div class="row-fluid">
+    <div class="span2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div class="toc">
+<ul>
+<li><a href="#handy-boost-test-tools">Handy Boost test tools</a></li>
+<li><a href="#example">Example:</a></li>
+</ul>
+</div>
+        </nav>
+    </div>
+    <div class="span8 article-content">
+
+            
+            
+<h2 id="handy-boost-test-tools">Handy Boost test tools<a class="headerlink" href="#handy-boost-test-tools" title="Permanent link">¶</a></h2>
+<ul>
+<li>BOOST_WARN</li>
+<li>BOOST_CHECK(x != y) (testing continues if test fails)</li>
+<li>BOOST_REQUIRE(x == y) (testing stops if test fails)</li>
+<li>BOOST_CHECK_CLOSE_FRACTION(x, y, tolerance-limit) ( floating point comparison )</li>
+</ul>
+<h2 id="example">Example:<a class="headerlink" href="#example" title="Permanent link">¶</a></h2>
+<div class="highlight"><pre><span></span><span class="cp">#define BOOST_TEST_MODULE MasterTestSuite</span>
+<span class="cp">#include</span> <span class="cpf">&lt;boost/test/included/unit_test.hpp&gt;</span><span class="cp"></span>
+<span class="k">using</span> <span class="n">boost</span><span class="o">::</span><span class="n">unit_test</span><span class="p">;</span>
+<span class="n">test_suite</span><span class="o">*</span>
+<span class="nf">init_unit_test_suite</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="n">argv</span><span class="p">[]){</span>
+    <span class="n">test_suite</span><span class="o">*</span> <span class="n">ts1</span> <span class="o">=</span> <span class="n">BOOST_TEST_SUITE</span><span class="p">(</span><span class="s">"test_suite1"</span><span class="p">);</span>
+    <span class="n">ts1</span><span class="o">-&gt;</span><span class="n">add</span><span class="p">(</span><span class="n">BOOST_TEST_CASE</span><span class="p">(</span><span class="o">&amp;</span><span class="n">test_case1</span><span class="p">));</span>
+    <span class="n">ts1</span><span class="o">-&gt;</span><span class="n">add</span><span class="p">(</span><span class="n">BOOST_TEST_CASE</span><span class="p">(</span><span class="o">&amp;</span><span class="n">test_case2</span><span class="p">));</span>
+
+    <span class="n">test_suite</span><span class="o">*</span> <span class="n">ts2</span> <span class="o">=</span> <span class="n">BOOST_TEST_SUITE</span><span class="p">(</span><span class="s">"test_suite2"</span><span class="p">);</span>
+    <span class="n">ts2</span><span class="o">-&gt;</span><span class="n">add</span><span class="p">(</span><span class="n">BOOST_TEST_CASE</span><span class="p">(</span><span class="o">&amp;</span><span class="n">test_case3</span><span class="p">));</span> <span class="c1">// void function pointer</span>
+    <span class="n">ts2</span><span class="o">-&gt;</span><span class="n">add</span><span class="p">(</span><span class="n">BOOST_TEST_CASE</span><span class="p">(</span><span class="o">&amp;</span><span class="n">test_case4</span><span class="p">));</span>
+
+    <span class="n">framework</span><span class="o">::</span><span class="n">master_test_suite</span><span class="p">().</span><span class="n">add</span><span class="p">(</span><span class="n">ts1</span><span class="p">);</span>
+    <span class="n">framework</span><span class="o">::</span><span class="n">master_test_suite</span><span class="p">().</span><span class="n">add</span><span class="p">(</span><span class="n">ts2</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+            
+            
+            <hr/>
+        </div>
+        <section>
+        <div class="span2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2016-07-30T14:15:00-07:00">Jul 30, 2016</time>
+
+<h4>Last Updated</h4>
+<time datetime="2016-07-30T14:15:00-07:00">Jul 30, 2016</time>
+
+            <h4>Category</h4>
+            <a class="category-link" href="http://localhost:18000/categories.html#programming-ref">Programming</a>
+<h4>Contact</h4>
+    <a href="http://www.weibo.com/u/1872791672" title="My weibo Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-weibo sidebar-social-links"></i></a>
+    <a href="https://www.facebook.com/liwen.wen.581" title="My facebook Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-facebook sidebar-social-links"></i></a>
+    <a href="https://twitter.com/liwenPhys" title="My twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:wenliwen64@gmail.com" title="My email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="span1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">DataFrenzy</span> - Collection of study notes on programming, statistics, data science and beyond...</li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>            <script src="http://code.jquery.com/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+
+    
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>

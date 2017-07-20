@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8"> 
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Liwen Wen" />
+        <meta name="copyright" content="Liwen Wen" />
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content=", misc, " />
+
+<meta property="og:title" content="Flow Analysis in Heavy Ion Collisions "/>
+<meta property="og:url" content="http://localhost:18000/drafts/flow.html" />
+<meta property="og:description" content="This article is based on the classic papers by Art&amp;Sergei 1998. /Users/lwen/gdrive/cve_papers/art_sergei.pdf and Voloshin&amp;Zhang 1995 /Users/lwen/gdrive/cve_papers/voloshin_zhang.pdf What is flow?¶ Collective motion of produced particles in ultrarelativistic heavy ion collisions. It can refer to logitudinal expansion, radial transverse flow …" />
+<meta property="og:site_name" content="DataFrenzy" />
+<meta property="og:article:author" content="Liwen Wen" />
+<meta property="og:article:published_time" content="2015-11-24T12:15:00-08:00" />
+<meta property="" content="2015-11-24T12:15:00-08:00" />
+<meta name="twitter:title" content="Flow Analysis in Heavy Ion Collisions ">
+<meta name="twitter:description" content="This article is based on the classic papers by Art&amp;Sergei 1998. /Users/lwen/gdrive/cve_papers/art_sergei.pdf and Voloshin&amp;Zhang 1995 /Users/lwen/gdrive/cve_papers/voloshin_zhang.pdf What is flow?¶ Collective motion of produced particles in ultrarelativistic heavy ion collisions. It can refer to logitudinal expansion, radial transverse flow …">
+
+        <title>Flow Analysis in Heavy Ion Collisions  · DataFrenzy
+</title>
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="http://localhost:18000/theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="http://localhost:18000/theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="http://localhost:18000/theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="http://localhost:18000/theme/css/custom.css" media="screen">
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="http://localhost:18000/"><span class=site-name>DataFrenzy</span></a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav pull-right top-menu">
+                            <li ><a href="http://localhost:18000">Home</a></li>
+                            <li ><a href="http://localhost:18000/pages/about.html">About</a></li>
+                            <li ><a href="http://localhost:18000/pages/bookshelf.html">Books Collection</a></li>
+                            <li ><a href="http://localhost:18000/pages/task-magnagement.html">Task Management</a></li>
+                            <li ><a href="http://localhost:18000/pages/mis.html">Miscellaneous</a></li>
+                            <li ><a href="http://localhost:18000/pages/research.html">Research</a></li>
+                            <li ><a href="http://localhost:18000/categories.html">Categories</a></li>
+                            <li ><a href="http://localhost:18000/tags.html">Tags</a></li>
+                            <li ><a href="http://localhost:18000/archives.html">Archives</a></li>
+                            <li><form class="navbar-search" action="http://localhost:18000/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span1"></div>
+                <div class="span10">
+<article>
+<div class="row-fluid">
+    <header class="page-header span10 offset2">
+    <h1><a href="http://localhost:18000/drafts/flow.html"> Flow Analysis in Heavy Ion Collisions  </a></h1>
+    </header>
+</div>
+
+<div class="row-fluid">
+    <div class="span2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div class="toc">
+<ul>
+<li><a href="#what-is-flow">What is flow?</a></li>
+<li><a href="#purpose">Purpose</a></li>
+<li><a href="#methodology">Methodology</a><ul>
+<li><a href="#what-we-are-going-to-observe">What we are going to observe?</a></li>
+<li><a href="#how-to-obtain-the-reaction-plane-orientationphi_r">How to obtain the reaction plane orientation(\(\Phi_r\))?</a></li>
+<li><a href="#event-plane-distribution-flattening">Event plane distribution flattening</a></li>
+<li><a href="#particle-distribution-with-respect-to-the-event-plane">Particle distribution with respect to the event plane</a></li>
+<li><a href="#event-plane-resolution">Event plane resolution</a></li>
+</ul>
+</li>
+<li><a href="#todo">TODO</a></li>
+</ul>
+</div>
+        </nav>
+    </div>
+    <div class="span8 article-content">
+
+            
+            
+<p>This article is based on the classic papers by Art&amp;Sergei 1998. <code>/Users/lwen/gdrive/cve_papers/art_sergei.pdf</code> and Voloshin&amp;Zhang 1995 <code>/Users/lwen/gdrive/cve_papers/voloshin_zhang.pdf</code> </p>
+<h2 id="what-is-flow">What is flow?<a class="headerlink" href="#what-is-flow" title="Permanent link">¶</a></h2>
+<hr>
+<p>Collective motion of produced particles in ultrarelativistic heavy ion collisions. It can refer to logitudinal expansion, radial transverse flow, transverse anisotropic transverse flow: directed flow, elliptic flow.  </p>
+<h2 id="purpose">Purpose<a class="headerlink" href="#purpose" title="Permanent link">¶</a></h2>
+<hr>
+<ul>
+<li>relationship between appearance and development.  </li>
+</ul>
+<h2 id="methodology">Methodology<a class="headerlink" href="#methodology" title="Permanent link">¶</a></h2>
+<hr>
+<h3 id="what-we-are-going-to-observe"><em>What we are going to observe?</em><a class="headerlink" href="#what-we-are-going-to-observe" title="Permanent link">¶</a></h3>
+<hr>
+<p>Anisotropic transverse flow from particle azimuthal distribution withn fixed pseudorapidity/rapidity. The anisotropic particle distribution in the transverse plane can be expanded by Fourier series like below:</p>
+<div class="math">$$\frac{Ed^3N}{d^3p} = \frac{d^2N}{2\pi p_tdp_td\phi}(1 + \sum_{n=1}^{+\infty}2v_ncos(n(\phi-\Phi_r))$$</div>
+<p>(<span class="math">\(\Phi_r\)</span> is the real reaction plane orientation)</p>
+<p>The first order and second order coefficients are refered to as "directed flow" and "elliptic flow". Basic steps to study the flow phenomenon in heavy ion collisions are:</p>
+<ol>
+<li>
+<p>Estimate the reaction plane orientation, the estimated one is called event plane;</p>
+</li>
+<li>
+<p>Evaluate the Fourier expansion coefficients with respect to the estimated event plane;</p>
+</li>
+<li>
+<p>Corrected the estimated coefficients by event plane resolution; (The finite particle number used to estimate the event plane introduces fluctuations("resolution") into the calculation which can be corrected by some tricks(by dividing the coefficient by event plane resolution), I will discuss this later.)</p>
+</li>
+</ol>
+<p>Notes: </p>
+<ul>
+<li>
+<p>The resolution correction always makes the coefficients bigger since only along the real event plane direction the projection is the largest; another reason why this is of great importance is the corrected value can be used to compare with full phase-space theoretical prediction. </p>
+</li>
+<li>
+<p>Another reason why we can write the azimuthal distribution this way is generically:</p>
+</li>
+</ul>
+<div class="math">$$\frac{Ed^3N}{d^3p} = \frac{d^2N}{2\pi p_tdp_td\phi}(1 + \sum_{n=1}^{+\infty}[x_ncos(n\phi) +y_nsin(n\phi)])$$</div>
+<div class="math">$$\frac{Ed^3N}{d^3p} = \frac{d^2N}{2\pi p_tdp_td\phi}(1 + \sum_{n=1}^{+\infty}\sqrt{x_n^2+y_n^2}[\frac{x_n}{\sqrt{x_n^2+y_n^2}}cos(n\phi)+\frac{y_n}{\sqrt{x_n^2+y_n^2}}sin(n\phi)])$$</div>
+<p>if we assume <span class="math">\(\sqrt{x_n^2+y_n^2} = v_n\)</span> and <span class="math">\(cos(n\Phi_n) = \frac{x_n}{\sqrt{x_n^2+y_n^2}}\)</span> and <span class="math">\(sin(n\Phi_n) = \frac{y_n}{\sqrt{x_n^2+y_n^2}}\)</span>, then:</p>
+<div class="math">$$\frac{Ed^3N}{d^3p} = \frac{d^2N}{2\pi p_tdp_td\phi}(1 + \sum_{n=1}^{+\infty}v_ncos(n(\phi-\Phi_n)))$$</div>
+<ul>
+<li>
+<p>Why the <span class="math">\(\Phi_n\)</span> is really representing the reaction plane? why isn't it the plane orthognal to the real reaction plane? The answer is if the <span class="math">\(\Phi_n\)</span> is the orthognal then the upper hemisphere will be different from bottom hemisphere which is not allowed.</p>
+</li>
+<li>
+<p>Ok the logic flow follows: 1. At first, we don't know there is a significant in-plane elliptic flow, but anyway we can write the formula like what we did(including <span class="math">\(sin2\phi\)</span> and <span class="math">\(cos2\phi\)</span> terms). Then we can find the <span class="math">\(\Phi_{ep}\)</span> by using the vector method. But this method intrinsically guarantees the v2 is positive as we showed above. Basically, what we are reconstructing is participants event plane, not necessarily consistent with real collision geometry. But according to some studies involving spectators distribution, these two(reaction plane and participant plane) are consistent to each other within error. </p>
+</li>
+</ul>
+<h3 id="how-to-obtain-the-reaction-plane-orientationphi_r"><em>How to obtain the reaction plane orientation(<span class="math">\(\Phi_r\)</span>)?</em><a class="headerlink" href="#how-to-obtain-the-reaction-plane-orientationphi_r" title="Permanent link">¶</a></h3>
+<hr>
+<p>So basically we use the anisotropic flow itself to estimate the event plane. In other words, it can be determined independently for each harmonic of the anisotropic flow. Apparently we can only evaluate the <span class="math">\(x_n\)</span> and <span class="math">\(y_n\)</span> in above formulas to get the tan value of <span class="math">\(n\Phi_n\)</span></p>
+<div class="math">$$Q_n cos(n\Phi_n) = X_n = \sum_{i}w_i cos(n\phi_i),$$</div>
+<p>(which is equal to evaluate the <span class="math">\(x_n\)</span> value)
+</p>
+<div class="math">$$Q_n sin(n\Phi_n) = Y_n = \sum_{i}w_i sin(n\phi_i),$$</div>
+<p>(which is equal to evaluate the <span class="math">\(y_n\)</span> value)</p>
+<p>So <span class="math">\(X_n\)</span> and <span class="math">\(Y_n\)</span> composes a event flow vector <span class="math">\(\vec{Q_n}\)</span>. We can solve the <span class="math">\(\Phi_n\)</span> by:</p>
+<div class="math">$$\Phi_n = atan2(\frac{\sum_{i}w_i sin(n\phi_i)}{\sum_{i}w_i cos(n\phi_i)}) / n.$$</div>
+<p>Some comments on above equations:</p>
+<ol>
+<li>
+<p><span class="math">\(w_i\)</span> are weights, usually we use transverse momentum, the criterion is to make the resolution the best;</p>
+</li>
+<li>
+<p>To put it simple, for odd harmonics in principle you should add all of the particles' <span class="math">\(cosn\phi\)</span> or <span class="math">\(sinn\phi\)</span> together</p>
+</li>
+<li>
+<p>Usually the weights for the odd and even harmonic planes are different(if particle azimuthal angle shifted by <span class="math">\(\pi\)</span>, the distribution for forward and backward hemisphere(<span class="math">\(\eta\geq0\)</span> and <span class="math">\(\eta\leq0\)</span>)should remain the same, so you should add them together instead of subtraction! You can draw the two ions' peripheral collision, if you rotate <span class="math">\(\pi\)</span> you cannot tell the difference from original one. This is called reflection symmetry, so e.g. <span class="math">\(cos(3(\phi-\Phi_3)) = - cos(-3(\phi-\Phi_3))\)</span> ) </p>
+</li>
+<li>
+<p><span class="math">\(\Phi_n\)</span> is in the range <span class="math">\(0\leq\Phi_n\leq2\pi/n\)</span></p>
+</li>
+</ol>
+<p><img alt="" src="http://i.imgur.com/DMXzMEI.png"/></p>
+<h3 id="event-plane-distribution-flattening"><em>Event plane distribution flattening</em><a class="headerlink" href="#event-plane-distribution-flattening" title="Permanent link">¶</a></h3>
+<hr>
+<p>Biases due to the finite acceptance of the detector which cause the particles to be azimuthally anisotropic in laboratory system. Due the laboratory A couple of methods(???):</p>
+<ol>
+<li>
+<p>Recentering;</p>
+</li>
+<li>
+<p>Use the distribution of the particles themselves as a measure of the acceptance;</p>
+</li>
+<li>
+<p>Mixed-events;</p>
+</li>
+<li>
+<p>Fourier expansion of the raw event plane distribution and correct the angle event-by-event;</p>
+</li>
+</ol>
+<h3 id="particle-distribution-with-respect-to-the-event-plane"><em>Particle distribution with respect to the event plane</em><a class="headerlink" href="#particle-distribution-with-respect-to-the-event-plane" title="Permanent link">¶</a></h3>
+<hr>
+<p>To evaluate <span class="math">\(v_n\)</span>, you need to use the event plane orientation which is determined from any harmoic <strong>m</strong> , with <span class="math">\(n\geq m\)</span> and n is multiple of m, why? For example, if m = 2, n = 3, so <span class="math">\(0 \leq \Phi_m \leq 2\pi/3\)</span>, then the <span class="math">\( -4\pi/3\leq2(\phi-\Phi_3) \leq 4\pi\)</span> the range covered is not a multpile of <span class="math">\(2\pi\)</span>, otherwise it may introduce some biases in some azimuthal range. </p>
+<p>For the event plane evaluated from the _m_th harmonic the Fourier expansion is:</p>
+<div class="math">$$\frac{wN}{d(\phi-\Phi_m)} = \frac{&lt;wN&gt;}{2\pi}(1+\sum_{k=1}^{\infty}2v_{km}cos[km(\phi-\Phi_m)])$$</div>
+<p>From this equation, we can easily evaluate the <span class="math">\(v_n\)</span> by measuring <span class="math">\(&lt;cos[km(\phi-\Phi_m)]&gt;\)</span>. One thing to be kept in mind is </p>
+<h3 id="event-plane-resolution"><em>Event plane resolution</em><a class="headerlink" href="#event-plane-resolution" title="Permanent link">¶</a></h3>
+<hr>
+<p>The correction formula can be written as:</p>
+<div class="math">$$&lt;cosn(\phi-\Phi_{ep})&gt; = &lt;cosn(\phi-\Phi_r)\cdot cosn(\Phi_r-\Phi_{ep}) &gt; - &lt;sinn(\phi-\Phi_r)\cdot sinn(\Phi_r - \Phi_{ep})&gt; $$</div>
+<p>The averaged sin terms are zero, so we reach:</p>
+<div class="math">$$&lt;cosn(\phi-\Phi_{ep})&gt; = &lt;cosn(\phi-\Phi_r)&gt; \cdot &lt;cosn(\Phi_r-\Phi_{ep})&gt;$$</div>
+<p>so let us denote observed <span class="math">\(v_n\)</span> as <span class="math">\(&lt;cosn(\phi-\Phi_{ep})&gt;\)</span> and real <span class="math">\(v_n\)</span> as <span class="math">\(&lt;cosn(\phi-\Phi_r)&gt;\)</span></p>
+<div class="math">$$v_n = v_n^{obs}/&lt;cos[km(\Phi_m - \Phi_r)]&gt;$$</div>
+<p>How to calculate the denominator? We better know the pdf of <span class="math">\(m(\Phi_m-\Phi_r)\)</span>:</p>
+<div class="math">$$\frac{dP}{d[m(\Phi_m-\Phi_r)]} = \int\frac{v^{'}_mdv_m^{'}}{2\pi\sigma^2}\times exp(-\frac{v_m^2+v_m^{'2}-2v_mv_m^{'}cos[m(\Phi_m-\Phi_r)]}{2\sigma^2})$$</div>
+<p>So from above, we can find there are two parameters involved in the distribution(<span class="math">\(v_m\)</span>, <span class="math">\(\sigma\)</span>), where: </p>
+<div class="math">$$\sigma^2 = \frac{&lt;w^2&gt;}{2N&lt;w&gt;^2}$$</div>
+<p>which is inversely proportional to the square-root of <strong>N</strong>;</p>
+<p><img alt="" src="http://localhost:18000/drafts/ep_resolution.png"/></p>
+<p>So pratically, we need to get sub-event plane resolution using:</p>
+<div class="math">$$&lt;cos[k(\phi_{east} - \phi_{west})]&gt; = &lt;cos[k(\phi_{east} - \phi_r)]&gt;\cdot&lt;cos[k(\phi_{west}-\phi_r)]&gt;$$</div>
+<p>Then map out the full event plane resolution by some tricks. Basically, you first compute <span class="math">\(&lt;cos[k(\phi_{east} - \phi_{west})]&gt;\)</span>, then take the square root of it to map out the <span class="math">\(v_m/\sigma\)</span>. Use this <span class="math">\(v_m/\sigma \times\sqrt{2}\)</span> to get full event plane resolution.</p>
+<p>The analytical form of the event plane resolution is:</p>
+<div class="math">$$&lt;cos(km(\Phi_m -\Phi_r))&gt; = \frac{\sqrt{\pi}}{2\sqrt{2}}\chi_m exp(-\chi_m^2/4)\times[I_{(k-1)/2}(\chi_m^2/4)+I_{(k+1)/2}(\chi_m^2/4)]$$</div>
+<h2 id="todo">TODO<a class="headerlink" href="#todo" title="Permanent link">¶</a></h2>
+<ol>
+<li>Eccentricity definition:</li>
+</ol>
+<div class="math">$$e=\frac{r_a - r_p}{r_a + r_p}$$</div>
+<ol>
+<li>
+<p>Why reaction plane angle is zero to 2pi? Any difference between 45 degree and 45+180 degree? Probably just the target and beam nucleus difference? </p>
+</li>
+<li>
+<p>Why only m order event plane can be used to calculate <span class="math">\(v_{km}\)</span></p>
+</li>
+</ol>
+<p>The temporary answer could be for example, 2nd order ep can only cover <span class="math">\([0, \pi]\)</span> so if you want to study the 3rd order flow, you have to calculate <span class="math">\(&lt;cos3(\phi-\Phi_2)&gt;_{event, particles}\)</span>, so if you fold the <span class="math">\([2\pi/3, \pi]\)</span> back to <span class="math">\([0, 2\pi/3]\)</span> we can find <span class="math">\([0, \pi/3]\)</span> is overlaped, this must introduce more biases, since if you use first order or third order, it will uniformally distributed over zero to <span class="math">\(2\pi/3\)</span> </p>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script></hr></hr></hr></hr></hr></hr></hr></hr>
+            
+            
+            <hr/>
+        </div>
+        <section>
+        <div class="span2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2015-11-24T12:15:00-08:00">Nov 24, 2015</time>
+
+<h4>Last Updated</h4>
+<time datetime="2015-11-24T12:15:00-08:00">Nov 24, 2015</time>
+
+            <h4>Category</h4>
+            <a class="category-link" href="http://localhost:18000/categories.html#misc-ref">misc</a>
+<h4>Contact</h4>
+    <a href="http://www.weibo.com/u/1872791672" title="My weibo Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-weibo sidebar-social-links"></i></a>
+    <a href="https://www.facebook.com/liwen.wen.581" title="My facebook Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-facebook sidebar-social-links"></i></a>
+    <a href="https://twitter.com/liwenPhys" title="My twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:wenliwen64@gmail.com" title="My email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="span1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">DataFrenzy</span> - Collection of study notes on programming, statistics, data science and beyond...</li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>            <script src="http://code.jquery.com/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+
+    
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>

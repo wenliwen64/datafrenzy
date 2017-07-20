@@ -1,0 +1,119 @@
+The location of analysis codes:
+
+Ks0-ChargedHadron at 39GeV:
+(default):
+Giant:/home/fengzhao/Documents/analysis/Ks0_v2_39GeV
+(exclude HBT):
+Giant:/home/fengzhao/Documents/analysis/Ks0_v2_39GeV_ExcludeHBT
+
+Lambda-ChargedHadron at 39GeV:
+(default): 
+Giant:/home/fengzhao/Documents/analysis/Lambda_v2_39GeV
+(exclude HBT): 
+Giant:/home/fengzhao/Documents/analysis/Lambda_v2_39GeV_ExcludeHBT
+
+Ks0-ChargedHadron at 200GeV:
+Period1:
+(default exclude proton):
+Quarf:/home/fengzhao/Documents/Ks0_v2_200GeV_ExcludeProton/Ks0_v2_200GeV_Period1
+(include proton, maybe this is useless now):
+Quarf:/home/fengzhao/Documents/Ks0_v2_200GeV_Period1
+(exclude proton and HBT):
+Quarf:/home/fengzhao/Documents/Ks0_v2_200GeV_ExcludeProtonHBT/Ks0_v2_200GeV_Period1
+Period5:
+(default exclude proton):
+Giant:/home/fengzhao/Documents/Ks0_v2_200GeV_ExcludeProton/Ks0_v2_200GeV
+(include proton, maybe this is useless now):
+Giant:/home/fengzhao/Documents/Ks0_v2_200GeV
+(exclude proton and HBT):
+Giant:/home/fengzhao/Documents/Ks0_v2_200GeV_ExcludeProtonHBT/Ks0_v2_200GeV
+Period6:
+(default exclude proton):
+Quarf:/home/fengzhao/Documents/Ks0_v2_200GeV_ExcludeProton/Ks0_v2_200GeV_Period6
+(include proton, maybe this is useless now):
+Quarf:/home/fengzhao/Documents/Ks0_v2_200GeV
+(exclude proton and HBT):
+Quarf:/home/fengzhao/Documents/Ks0_v2_200GeV_ExcludeProtonHBT/Ks0_v2_200GeV_Period6
+CombineAllPeriods:
+(default exclude proton):
+Giant:/home/fengzhao/Documents/Ks0_v2_200GeV_ExcludeProton/Ks0_Run11All
+(include proton, maybe this is useless now):
+Giant:/home/fengzhao/Documents/Ks0_v2_200GeV/Ks0_Run11All
+(exclude proton and HBT):
+Giant:/home/fengzhao/Documents/Ks0_v2_200GeV_ExcludeProtonHBT/Ks0_v2_200GeV/Ks0_Run11All
+
+
+Ks0-proton at 200GeV:
+Period1:
+(default exclude proton):
+Quarf:/home/fengzhao/Documents/Ks0_Proton_200GeV/Ks0_Proton_Period1
+(exclude proton and HBT):
+Quarf:/home/fengzhao/Documents/Ks0_Proton_200GeV_ExcludeHBT/Ks0_Proton_Period1
+Period5:
+(default exclude proton):
+Giant:/home/fengzhao/Documents/Ks0_Proton_200GeV/Ks0_Proton_Period5
+(exclude proton and HBT):
+Giant:/home/fengzhao/Documents/Ks0_Proton_200GeV_ExcludeHBT/Ks0_Proton_Period5
+Period6:
+(default exclude proton):
+Quarf:/home/fengzhao/Documents/Ks0_Proton_200GeV/Ks0_Proton_Period6
+(exclude proton and HBT):
+Quarf:/home/fengzhao/Documents/Ks0_Proton_200GeV_ExcludeHBT/Ks0_Proton_Period6
+CombineAllPeriods:
+(default exclude proton):
+Giant:/home/fengzhao/Documents/Ks0_Proton_200GeV/Run11_AllPeriod
+(exclude proton and HBT):
+Giant:/home/fengzhao/Documents/Ks0_Proton_200GeV_ExcludeHBT/Run11_AllPeriod
+
+
+(Anti)Lambda-ChargedHadron at 200GeV:
+Period1:
+(default exclude proton):
+Quarf:/home/fengzhao/Documents/Lambda_v2_200GeV/(Anti)Lambda_Period1
+(exclude proton and HBT):
+Quarf:/home/fengzhao/Documents/Lambda_v2_200GeV_ExcludeHBT/(Anti)Lambda_Period1
+Period5:
+(default exclude proton):
+Giant:/home/fengzhao/Documents/Lambda_v2_200GeV/(Anti)Lambda
+(exclude proton and HBT):
+Giant:/home/fengzhao/Documents/Lambda_v2_200GeV_ExcludeHBT/(Anti)Lambda
+Period6:
+(default exclude proton):
+Quarf:/home/fengzhao/Documents/Lambda_v2_200GeV/(Anti)Lambda
+(exclude proton and HBT):
+Quarf:/home/fengzhao/Documents/Lambda_v2_200GeV_ExcludeHBT/(Anti)Lambda
+CombineAllPeriods:
+(default exclude proton):
+Giant:/home/fengzhao/Documents/Lambda_v2_200GeV/(Anti)Lambda_Run11All
+(exclude proton and HBT):
+Giant:/home/fengzhao/Documents/Lambda_v2_200GeV_ExcludeHBT/(Anti)Lambda_Run11All
+
+
+(Anti)Lambda-proton at 200GeV:
+Period1:
+(default exclude proton):
+Quarf:/home/fengzhao/Documents/Lambda_Proton_200GeV/HBT_NotExcluded/(Anti)Lambda_Period1
+(exclude proton and HBT):
+Quarf:/home/fengzhao/Documents/Lambda_Proton_200GeV/HBT_Excluded/(Anti)Lambda_Period1
+Period5:
+(default exclude proton):
+Giant:/home/fengzhao/Documents/Lambda_Proton_200GeV/HBT_NotExcluded/(Anti)Lambda
+(exclude proton and HBT):
+Giant:/home/fengzhao/Documents/Lambda_Proton_200GeV/HBT_Excluded/(Anti)Lambda
+Period6:
+(default exclude proton):
+Quarf:/home/fengzhao/Documents/Lambda_Proton_200GeV/HBT_NotExcluded/(Anti)Lambda
+(exclude proton and HBT):
+Quarf:/home/fengzhao/Documents/Lambda_Proton_200GeV/HBT_Excluded/(Anti)Lambda
+CombineAllPeriods:
+(default exclude proton):
+Giant:/home/fengzhao/Documents/Lambda_Proton_200GeV/HBT_NotExcluded/(Anti)Lambda_Run11All
+(exclude proton and HBT):
+Giant:/home/fengzhao/Documents/Lambda_Proton_200GeV/HBT_Excluded/(Anti)Lambda_Run11All
+
+
+
+The analysis code “Parity.C” should be run four times to reconstruct event plane, and to calculate the correlator. For the first three times, the correlation part (Second Loop) is commended out to save running time. For the last time run, the strange V0 angle distribution filling part is commended out (Last tens of Lines).
+Use command:
+root –b –q Parity.C++\(i\)
+to run the program for i-th centrality.

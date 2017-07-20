@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8"> 
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Liwen Wen" />
+        <meta name="copyright" content="Liwen Wen" />
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content=", misc, " />
+
+<meta property="og:title" content="Machine Learning System Design "/>
+<meta property="og:url" content="http://localhost:18000/ml-sys-design.html" />
+<meta property="og:description" content="Machine Learning System Design¶ Priotirizing what to work on(eg. email spam system) How to spend time to make it have low error Collect lost of data E.g. &#34;honeypot&#34; project Develop sophisticated features based on email routning info. Email body. (discounts/discount, deal/Dealer, punctuation) Mispelling Error Analysis Implement …" />
+<meta property="og:site_name" content="DataFrenzy" />
+<meta property="og:article:author" content="Liwen Wen" />
+<meta property="og:article:published_time" content="2016-05-23T13:13:00-07:00" />
+<meta name="twitter:title" content="Machine Learning System Design ">
+<meta name="twitter:description" content="Machine Learning System Design¶ Priotirizing what to work on(eg. email spam system) How to spend time to make it have low error Collect lost of data E.g. &#34;honeypot&#34; project Develop sophisticated features based on email routning info. Email body. (discounts/discount, deal/Dealer, punctuation) Mispelling Error Analysis Implement …">
+
+        <title>Machine Learning System Design  · DataFrenzy
+</title>
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="http://localhost:18000/theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="http://localhost:18000/theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="http://localhost:18000/theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="http://localhost:18000/theme/css/custom.css" media="screen">
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="http://localhost:18000/"><span class=site-name>DataFrenzy</span></a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav pull-right top-menu">
+                            <li ><a href="http://localhost:18000">Home</a></li>
+                            <li ><a href="http://localhost:18000/pages/about.html">About</a></li>
+                            <li ><a href="http://localhost:18000/pages/bookshelf.html">Books Collection</a></li>
+                            <li ><a href="http://localhost:18000/pages/task-magnagement.html">Task Management</a></li>
+                            <li ><a href="http://localhost:18000/pages/mis.html">Miscellaneous</a></li>
+                            <li ><a href="http://localhost:18000/pages/research.html">Research</a></li>
+                            <li ><a href="http://localhost:18000/categories.html">Categories</a></li>
+                            <li ><a href="http://localhost:18000/tags.html">Tags</a></li>
+                            <li ><a href="http://localhost:18000/archives.html">Archives</a></li>
+                            <li><form class="navbar-search" action="http://localhost:18000/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span1"></div>
+                <div class="span10">
+<article>
+<div class="row-fluid">
+    <header class="page-header span10 offset2">
+    <h1><a href="http://localhost:18000/ml-sys-design.html"> Machine Learning System Design  </a></h1>
+    </header>
+</div>
+
+<div class="row-fluid">
+        <div class="span8 offset2 article-content">
+
+            
+            <h1 id="machine-learning-system-design">Machine Learning System Design<a class="headerlink" href="#machine-learning-system-design" title="Permanent link">&para;</a></h1>
+<ol>
+<li>Priotirizing what to work on(eg. email spam system)</li>
+<li>
+<p>How to spend time to make it have low error</p>
+<ul>
+<li>Collect lost of data<ul>
+<li>E.g. "honeypot" project</li>
+</ul>
+</li>
+<li>Develop sophisticated features based on email routning info. </li>
+<li>Email body. (discounts/discount, deal/Dealer, punctuation)</li>
+<li>Mispelling</li>
+</ul>
+</li>
+<li>
+<p>Error Analysis</p>
+</li>
+<li>Implement quickly;</li>
+<li>Plot learning curves for training and cv data set , more features? more data? </li>
+<li>Error analysis: look at the eamil misclassified maunally, to design new features;<ul>
+<li>what type of eamil it is(classify them manually)</li>
+<li>what cues you think would have helped?(steal password)</li>
+<li>go through features which is important (appears the most often)</li>
+</ul>
+</li>
+<li>The importance of numerical evaluation<ul>
+<li>stemming software to detect discodunt/discounters/distcounted as the same word;</li>
+<li>without stemming(percentage), with stemming(percentage), error metrics</li>
+</ul>
+</li>
+<li>Error Metrics for Skewed Data</li>
+<li>What a joke!:
+       <img alt="" src="http://i.imgur.com/z9IXsGz.png"></li>
+<li>skewed classes(one class has way larger capacity)</li>
+<li>one of evaluation metrics(one possible solution)===&gt;Precision/Recall:</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>act/pre</th>
+<th>1</th>
+<th>0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>True positive</td>
+<td>False positive</td>
+</tr>
+<tr>
+<td>0</td>
+<td>Flase negative</td>
+<td>True negative</td>
+</tr>
+</tbody>
+</table>
+<p>Definition: </p>
+<div class="math">$$Precision(rare cases) = \frac{\# true\_positives}{\# predicted\_positives}$$</div>
+<p>; </p>
+<div class="math">$$Recall(rare cases) = \frac{\# true\_positives}{\# actual\_positives}$$</div>
+<p>
+   High precision / recall means good classifier.
+   if we cheat using predict all of the patient have no cancer, then the recall will be high.
+   - Tradeoff precision and recall(how to control):
+       - improve hypothesis output threshold(0.5-&gt;0.9): improve precision, decrease the recall
+       - lower threshold,: avoid false negatives
+       - like ROC/ plot precision vs. recall;
+       - how to decide-&gt;</p>
+<div class="math">$$F_1$$</div>
+<p> score: </p>
+<div class="math">$$F_1=2\frac{PR}{P+R}$$</div>
+<p> better test on cv dataset to choose the right one
+4. Data for machine learning：
+   - Large data rationale: 1. use learning algo with many features(, manually look at the data if feature is enouth for human expert.low bias)； 2. and use a very large training set(low variance);</p>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
+            
+            
+            <hr/>
+        </div>
+        <section>
+        <div class="span2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2016-05-23T13:13:00-07:00">May 23, 2016</time>
+            <h4>Category</h4>
+            <a class="category-link" href="http://localhost:18000/categories.html#misc-ref">misc</a>
+<h4>Contact</h4>
+    <a href="http://www.weibo.com/u/1872791672" title="My weibo Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-weibo sidebar-social-links"></i></a>
+    <a href="https://www.facebook.com/liwen.wen.581" title="My facebook Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-facebook sidebar-social-links"></i></a>
+    <a href="https://twitter.com/liwenPhys" title="My twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:wenliwen64@gmail.com" title="My email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="span1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">DataFrenzy</span> - Collection of study notes on programming, statistics, data science and beyond...</li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>            <script src="http://code.jquery.com/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+
+    
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>

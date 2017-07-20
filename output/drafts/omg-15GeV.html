@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8"> 
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Liwen Wen" />
+        <meta name="copyright" content="Liwen Wen" />
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content=", misc, " />
+
+<meta property="og:title" content="Analysis Notes on Omega Yields in AuAu 14.5GeV Collisions "/>
+<meta property="og:url" content="http://localhost:18000/drafts/omg-15GeV.html" />
+<meta property="og:description" content="Data Set¶ Production Detatils¶ Trigger Set: production_15GeV_2014 Collision System and Energy: AuAu 14.5GeV Year of Data Taken: 2014 Production Tag: P14ii Event Cuts¶ Triggers Used: Embedding Analysis¶ Upstream¶ Raw Data Files Location: pdsf$/global/projecta/projectdirs/starprod/embedding/production_15GeV_2014 Make File List: pdsf$python makelist.py omg(omgbar) flat …" />
+<meta property="og:site_name" content="DataFrenzy" />
+<meta property="og:article:author" content="Liwen Wen" />
+<meta property="og:article:published_time" content="2015-11-13T10:47:00-08:00" />
+<meta property="" content="2015-11-13T10:47:00-08:00" />
+<meta name="twitter:title" content="Analysis Notes on Omega Yields in AuAu 14.5GeV Collisions ">
+<meta name="twitter:description" content="Data Set¶ Production Detatils¶ Trigger Set: production_15GeV_2014 Collision System and Energy: AuAu 14.5GeV Year of Data Taken: 2014 Production Tag: P14ii Event Cuts¶ Triggers Used: Embedding Analysis¶ Upstream¶ Raw Data Files Location: pdsf$/global/projecta/projectdirs/starprod/embedding/production_15GeV_2014 Make File List: pdsf$python makelist.py omg(omgbar) flat …">
+
+        <title>Analysis Notes on Omega Yields in AuAu 14.5GeV Collisions  · DataFrenzy
+</title>
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="http://localhost:18000/theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="http://localhost:18000/theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="http://localhost:18000/theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="http://localhost:18000/theme/css/custom.css" media="screen">
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="http://localhost:18000/"><span class=site-name>DataFrenzy</span></a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav pull-right top-menu">
+                            <li ><a href="http://localhost:18000">Home</a></li>
+                            <li ><a href="http://localhost:18000/pages/about.html">About</a></li>
+                            <li ><a href="http://localhost:18000/pages/bookshelf.html">Books Collection</a></li>
+                            <li ><a href="http://localhost:18000/pages/task-magnagement.html">Task Management</a></li>
+                            <li ><a href="http://localhost:18000/pages/mis.html">Miscellaneous</a></li>
+                            <li ><a href="http://localhost:18000/pages/research.html">Research</a></li>
+                            <li ><a href="http://localhost:18000/categories.html">Categories</a></li>
+                            <li ><a href="http://localhost:18000/tags.html">Tags</a></li>
+                            <li ><a href="http://localhost:18000/archives.html">Archives</a></li>
+                            <li><form class="navbar-search" action="http://localhost:18000/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span1"></div>
+                <div class="span10">
+<article>
+<div class="row-fluid">
+    <header class="page-header span10 offset2">
+    <h1><a href="http://localhost:18000/drafts/omg-15GeV.html"> Analysis Notes on Omega Yields in AuAu 14.5GeV Collisions  </a></h1>
+    </header>
+</div>
+
+<div class="row-fluid">
+    <div class="span2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div class="toc">
+<ul>
+<li><a href="#data-set">Data Set</a><ul>
+<li><a href="#production-detatils">Production Detatils</a></li>
+<li><a href="#event-cuts">Event Cuts</a></li>
+</ul>
+</li>
+<li><a href="#embedding-analysis">Embedding Analysis</a><ul>
+<li><a href="#upstream">Upstream</a></li>
+<li><a href="#mid-downstream">Mid-Downstream</a><ul>
+<li><a href="#omega">Omega</a></li>
+<li><a href="#antiomega">AntiOmega</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#data-analysis">Data Analysis</a><ul>
+<li><a href="#upstream_1">Upstream</a><ul>
+<li><a href="#omegaantiomega">Omega(AntiOmega)</a></li>
+</ul>
+</li>
+<li><a href="#mid-stream">Mid-stream</a><ul>
+<li><a href="#omegaantiomega_1">Omega(AntiOmega)</a></li>
+<li><a href="#event-counting">Event Counting</a></li>
+<li><a href="#rot-bg">Rot. Bg.</a></li>
+</ul>
+</li>
+<li><a href="#downstream">Downstream</a><ul>
+<li><a href="#omega_1">Omega</a></li>
+<li><a href="#antiomega_1">AntiOmega</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#todo-list">TODO List</a></li>
+<li><a href="#logs">Logs</a></li>
+</ul>
+</div>
+        </nav>
+    </div>
+    <div class="span8 article-content">
+
+            
+            
+<h2 id="data-set">Data Set<a class="headerlink" href="#data-set" title="Permanent link">¶</a></h2>
+<hr>
+<h3 id="production-detatils">Production Detatils<a class="headerlink" href="#production-detatils" title="Permanent link">¶</a></h3>
+<hr>
+<ul>
+<li>Trigger Set: <a href="http://www.star.bnl.gov/public/comp/prod/prodsum/production_15GeV_2014.P14id.html">production_15GeV_2014</a> </li>
+<li>Collision System and Energy: AuAu 14.5GeV </li>
+<li>Year of Data Taken: 2014</li>
+<li>Production Tag: P14ii</li>
+</ul>
+<h3 id="event-cuts">Event Cuts<a class="headerlink" href="#event-cuts" title="Permanent link">¶</a></h3>
+<hr>
+<ul>
+<li>Triggers Used:</li>
+</ul>
+<h2 id="embedding-analysis">Embedding Analysis<a class="headerlink" href="#embedding-analysis" title="Permanent link">¶</a></h2>
+<hr>
+<h3 id="upstream">Upstream<a class="headerlink" href="#upstream" title="Permanent link">¶</a></h3>
+<hr>
+<ul>
+<li>
+<p>Raw Data Files Location: </p>
+<p><code>pdsf$/global/projecta/projectdirs/starprod/embedding/production_15GeV_2014</code> </p>
+</li>
+<li>
+<p>Make File List: <code>pdsf$python makelist.py omg(omgbar) flat(exp)</code></p>
+</li>
+<li>How to Configure the Run:<ol>
+<li>Scripts from low to high: <code>run.sh</code> -&gt; <code>run2.sh</code> -&gt; <code>submit_omg.sh</code> -&gt; <code>qsub_script_omg.sh</code>;</li>
+<li>Change the library version in <code>run.sh</code>; </li>
+<li>Change the filelist in <code>run.sh</code> if you want to run different dataset;</li>
+<li>Change the <code>1-503</code> in <code>qsub_script_omg.sh</code> so that <code>10*503</code> is bigger enough than the total number of input files.</li>
+</ol>
+</li>
+<li>How to Run It:<ol>
+<li><code>pdsf$./qsub_script_omg.sh</code></li>
+</ol>
+</li>
+</ul>
+<h3 id="mid-downstream">Mid-Downstream<a class="headerlink" href="#mid-downstream" title="Permanent link">¶</a></h3>
+<hr>
+<h4 id="omega">Omega<a class="headerlink" href="#omega" title="Permanent link">¶</a></h4>
+<hr>
+<ul>
+<li>Location: <code>/Users/lwen/Documents/Omg_Phi_15GeV/Omega/embedding/analysis</code></li>
+<li>Input Files: <code>mc_exp_omg_15GeV.picodst.root</code> and <code>mc_fp_omg_15GeV.picodst.root</code>, which are hadd files of the <code>StRoot</code> output on pdsf</li>
+<li>Code Files: <code>cuts_omg_manyptbinseff.C</code></li>
+<li>How to Run It: <code>$./run_cuts_many_omg.sh exp/flat</code> or <code>$./run_cuts_many_omgbar.sh exp/flat</code></li>
+<li>Output: <code>mcomg_exp.manyeff.histo.root</code> or <code>mcomg_fp.manyeff.histo.root</code>, these two files will be used as input in downstream analysis in <code>../../StrAnalyMaker/</code></li>
+<li>Results: <ul>
+<li><a href="http://localhost:18000/plots/omg_efferr_comparison.pdf">Omg Eff. Comparison</a></li>
+<li><a href="{filename}/plots/antiomg_efferr_comparison.pdf">AntiOmg Eff. Comparison</a></li>
+</ul>
+</li>
+</ul>
+<h4 id="antiomega">AntiOmega<a class="headerlink" href="#antiomega" title="Permanent link">¶</a></h4>
+<hr>
+<ul>
+<li>Location: /Users/lwen/Documents/Omg_Phi_15GeV/AntiOmega/embedding/analysis</li>
+<li>Input Files: <code>mc_exp_omgbar_15GeV.picodst.root</code> and <code>mc_fp_omgbar_15GeV.picodst.root</code> which are hadd files of the <code>StRoot</code> output on pdsf</li>
+<li>Codes Files: <code>cuts_omgbar_manyptbinseff.C</code></li>
+<li>How to Run it: <code>$./run_cuts_many_omgbar.sh exp/flat</code> </li>
+<li>Output: <code>mcomgbar_exp.manyeff.histo.root</code> or <code>mcomgbar_fp.manyeff.histo.root</code>, these two files will be used as input in downstream analysis in <code>../../StrAnalyMaker/</code></li>
+</ul>
+<h2 id="data-analysis">Data Analysis<a class="headerlink" href="#data-analysis" title="Permanent link">¶</a></h2>
+<hr>
+<h3 id="upstream_1">Upstream<a class="headerlink" href="#upstream_1" title="Permanent link">¶</a></h3>
+<hr>
+<h4 id="omegaantiomega">Omega(AntiOmega)<a class="headerlink" href="#omegaantiomega" title="Permanent link">¶</a></h4>
+<hr>
+<ul>
+<li>Location: <code>rcf$/star/u/lwen1990/ucla/Code_Omega</code></li>
+<li>How to Compile: <ol>
+<li><code>$starver SL14i</code>;</li>
+<li><code>$cons EXTRA_CPPFLAGS=-fpermissive</code>;</li>
+<li>back the original version of <code>StRoot</code> to <code>StRoot.bak</code>, current <code>StRoot</code> is used to generate rotational background with different angles;  </li>
+</ol>
+</li>
+<li>How to Run:<ol>
+<li><code>$cd batchjobs</code></li>
+<li><code>$./submit_15GeV_strangeness.sh 0901 01 15GeV omg</code> which will generate data/hists files under <code>realoutput</code> directory and the name is like <code>0901_15GeV_omg_data</code>. The <code>01</code> is the test number.</li>
+<li>If you run command like this, you will gnerate rotational files as well if you activate the relevant function in <code>reconstruct_v0.C</code></li>
+</ol>
+</li>
+</ul>
+<h3 id="mid-stream">Mid-stream<a class="headerlink" href="#mid-stream" title="Permanent link">¶</a></h3>
+<hr>
+<h4 id="omegaantiomega_1">Omega(AntiOmega)<a class="headerlink" href="#omegaantiomega_1" title="Permanent link">¶</a></h4>
+<hr>
+<ul>
+<li>Location: <code>rcf$/star/u/lwen1990/ucla/Code_Omega/local_analysis_code</code></li>
+<li>Main File: <code>rcf$/star/u/lwen1990/ucla/Code_Omega/local_analysis_code/omg_mid_analysis.C</code> and <code>rcf$/star/u/lwen1990/ucla/Code_Omega/local_analysis_code/plot_overview.C</code>(for overview event number counting and QA purpose)</li>
+<li>How to Run It: <ol>
+<li><code>$root -l</code>; </li>
+<li><code>root[0].L StRefMultCorr.cxx++</code>;</li>
+<li>To run data analysis: <code>root[1].x omg_mid_analysis.C++("0819_all_omg_list","0820_2015_omg")</code> or <code>root[1].x omg_mid_analysis.C++("0819_all_antiomg_list","0820_2015_antiomg")</code>;</li>
+<li>To run overview: <code>root[1].x plot_overview.C++</code>;</li>
+</ol>
+</li>
+</ul>
+<p>Or:
+       1. <code>$root -l run_mid_analysis.C</code>(this is a quick runner, quite conviniently!) </p>
+<ul>
+<li>Results:
+TODO: to convert the omg_mid_analysis.C to a "non-parametric" function so that we can compile it in ALic, and write a runner to load it and run it. </li>
+</ul>
+<h4 id="event-counting">Event Counting<a class="headerlink" href="#event-counting" title="Permanent link">¶</a></h4>
+<hr>
+<ul>
+<li>Location: <code>/star/u/lwen1990/ucla/Code_Omega/local_analysis_code</code></li>
+<li>Main File: <code>plot_overview.C</code></li>
+<li>Configuration: change the output filename in <code>plot_overvew.C</code></li>
+<li>How to Compile and Run It: <code>root -l</code> + <code>root[0].x plot_overview.C++</code></li>
+<li>Results: Like <code>0820_overview.histo.root</code> will be generated. </li>
+</ul>
+<h4 id="rot-bg">Rot. Bg.<a class="headerlink" href="#rot-bg" title="Permanent link">¶</a></h4>
+<hr>
+<ul>
+<li>Location: <code>rcf$/star/u/lwen1990/ucla/Code_Omega/local_analysis_code</code></li>
+<li>Main File: <code>rcf$/star/u/lwen1990/ucla/Code_Omega/local_analysis_code/omg_mid_analysis.C</code>(for applying tighter cuts)</li>
+<li>How to Run It: <ol>
+<li><code>$root -l</code>; </li>
+<li><code>root[0].L StRefMultCorr.cxx++</code>;</li>
+<li><code>root[1].x omg_mid_analysis.C++("0819_all_omgrot_list","0820_2015_omgrot")</code> or <code>root[1].x omg_mid_analysis.C++("0819_all_antiomgrot_list","0820_2015_antiomgrot")</code> (The arguments within parenthese are the for demostration only);</li>
+</ol>
+</li>
+<li>Results: root files like <code>0820_2015_omgrot.mid_analysis.root</code>;</li>
+</ul>
+<h3 id="downstream">Downstream<a class="headerlink" href="#downstream" title="Permanent link">¶</a></h3>
+<hr>
+<h4 id="omega_1">Omega<a class="headerlink" href="#omega_1" title="Permanent link">¶</a></h4>
+<hr>
+<ul>
+<li>Location: <code>/Users/lwen/Documents/Omg_Phi_15GeV/Omega/StrAnalyMaker</code></li>
+<li>Main File: <code>/Users/lwen/Documents/Omg_Phi_15GeV/Omega/StrAnalyMaker/StrAnalyMaker.cc</code></li>
+<li>Compilation: <code>$root -l</code> + <code>root[0].L StrAnalyMaker.cc++</code></li>
+<li>How to Run It: <ol>
+<li>configuration: <ul>
+<li>overvewfile -&gt; event number</li>
+<li>datfile -&gt; real data</li>
+<li>rotfile -&gt; rotational background</li>
+<li>fpefffile -&gt; flat distributed pt efficiency(fine pt bin) </li>
+<li>expefffile -&gt; exponentially distributed pt efficiency(fine pt bin)</li>
+</ul>
+</li>
+<li>run command: <code>$root -l run_spectra.C</code></li>
+</ol>
+</li>
+<li>Reults:<ol>
+<li><a href="http://localhost:18000/plots/omg_rawspectra.pdf">Raw Spectra</a> (<a href="{filename}/data/omg_rawspectra.txt">data</a>)</li>
+<li><a href="http://localhost:18000/plots/omg_finalCorrSpectra.pdf">Corrected Spectra</a> (<a href="{filename}/data/omg_finalCorrSpectra.txt">data</a>)</li>
+<li><a href="http://localhost:18000/plots/compare11GeV_omg.pdf">Comparison</a> (<a href="{filename}/data/compare11GeV_omg.txt">data</a>)</li>
+</ol>
+</li>
+</ul>
+<h4 id="antiomega_1">AntiOmega<a class="headerlink" href="#antiomega_1" title="Permanent link">¶</a></h4>
+<hr>
+<ul>
+<li>Location: <code>/Users/lwen/Documents/Omg_Phi_15GeV/AntiOmega/StrAnalyMaker</code></li>
+<li>Main File: <code>/Users/lwen/Documents/Omg_Phi_15GeV/AntiOmega/StrAnalyMaker/StrAnalyMaker.cc</code></li>
+<li>Compilation: <code>$root -l</code> + <code>root[0].L StrAnalyMaker.cc++</code></li>
+<li>How to Run It:<ol>
+<li>configuration: check Omega case</li>
+<li>run command: <code>$root -l run_spectra.C</code></li>
+</ol>
+</li>
+<li>Reults:<ol>
+<li><a href="http://localhost:18000/plots/omgbar_rawspectra.pdf">Raw Spectra</a> (<a href="{filename}/data/omgbar_rawspectra.txt">data</a>)</li>
+<li><a href="http://localhost:18000/plots/finalCorrSpectra_omgbar.pdf">Corrected Spectra</a> (<a href="{filename}/data/omgbar_rawspectra.txt">data</a>)</li>
+<li><a href="http://localhost:18000/plots/compare11GeV_omgbar.pdf">Comparison</a> (<a href="{filename}/data/compare11GeV_omgbar.txt">data</a>)</li>
+</ol>
+</li>
+</ul>
+<h2 id="todo-list">TODO List<a class="headerlink" href="#todo-list" title="Permanent link">¶</a></h2>
+<ul>
+<li>Elaborate how to get overview root file</li>
+<li>rcf codes have been moved to <code>/star/u/lwen1990/gpfs</code>, I have to rewrite some path variable in some codes.</li>
+<li>The 5 data sets of rotational backgrounds on rcf:</li>
+<li>1130 -&gt; <span class="math">\(2\pi/5\)</span></li>
+<li>1201 -&gt; <span class="math">\(2\cdot2\pi/5\)</span> </li>
+</ul>
+<h2 id="logs">Logs<a class="headerlink" href="#logs" title="Permanent link">¶</a></h2>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script></hr></hr></hr></hr></hr></hr></hr></hr></hr></hr></hr></hr></hr></hr></hr></hr></hr></hr>
+            
+            
+            <hr/>
+        </div>
+        <section>
+        <div class="span2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2015-11-13T10:47:00-08:00">Nov 13, 2015</time>
+
+<h4>Last Updated</h4>
+<time datetime="2015-11-13T10:47:00-08:00">Nov 13, 2015</time>
+
+            <h4>Category</h4>
+            <a class="category-link" href="http://localhost:18000/categories.html#misc-ref">misc</a>
+<h4>Contact</h4>
+    <a href="http://www.weibo.com/u/1872791672" title="My weibo Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-weibo sidebar-social-links"></i></a>
+    <a href="https://www.facebook.com/liwen.wen.581" title="My facebook Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-facebook sidebar-social-links"></i></a>
+    <a href="https://twitter.com/liwenPhys" title="My twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:wenliwen64@gmail.com" title="My email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="span1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">DataFrenzy</span> - Collection of study notes on programming, statistics, data science and beyond...</li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>            <script src="http://code.jquery.com/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+
+    
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>

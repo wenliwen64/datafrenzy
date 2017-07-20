@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8"> 
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Liwen Wen" />
+        <meta name="copyright" content="Liwen Wen" />
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content=", misc, " />
+
+<meta property="og:title" content="Clustering and PCA "/>
+<meta property="og:url" content="http://localhost:18000/clustering-pca.html" />
+<meta property="og:description" content="Clustering¶ Unsupervised learning¶ unlabeled training set: Training Set := \(\{x^1, x^2, x^3, x^4...\}\) market segmentationm social network analysis organize computing clusters anstronomical data analysis K-Means Algorithms(most famous algo of clustering)¶ cluster centroids(randomly initialized) if you want to split it into 2 groups(two centroids) and …" />
+<meta property="og:site_name" content="DataFrenzy" />
+<meta property="og:article:author" content="Liwen Wen" />
+<meta property="og:article:published_time" content="2015-12-21T17:30:00-08:00" />
+<meta name="twitter:title" content="Clustering and PCA ">
+<meta name="twitter:description" content="Clustering¶ Unsupervised learning¶ unlabeled training set: Training Set := \(\{x^1, x^2, x^3, x^4...\}\) market segmentationm social network analysis organize computing clusters anstronomical data analysis K-Means Algorithms(most famous algo of clustering)¶ cluster centroids(randomly initialized) if you want to split it into 2 groups(two centroids) and …">
+
+        <title>Clustering and PCA  · DataFrenzy
+</title>
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="http://localhost:18000/theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="http://localhost:18000/theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="http://localhost:18000/theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="http://localhost:18000/theme/css/custom.css" media="screen">
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="http://localhost:18000/"><span class=site-name>DataFrenzy</span></a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav pull-right top-menu">
+                            <li ><a href="http://localhost:18000">Home</a></li>
+                            <li ><a href="http://localhost:18000/pages/about.html">About</a></li>
+                            <li ><a href="http://localhost:18000/pages/bookshelf.html">Books Collection</a></li>
+                            <li ><a href="http://localhost:18000/pages/task-magnagement.html">Task Management</a></li>
+                            <li ><a href="http://localhost:18000/pages/mis.html">Miscellaneous</a></li>
+                            <li ><a href="http://localhost:18000/pages/research.html">Research</a></li>
+                            <li ><a href="http://localhost:18000/categories.html">Categories</a></li>
+                            <li ><a href="http://localhost:18000/tags.html">Tags</a></li>
+                            <li ><a href="http://localhost:18000/archives.html">Archives</a></li>
+                            <li><form class="navbar-search" action="http://localhost:18000/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span1"></div>
+                <div class="span10">
+<article>
+<div class="row-fluid">
+    <header class="page-header span10 offset2">
+    <h1><a href="http://localhost:18000/clustering-pca.html"> Clustering and PCA  </a></h1>
+    </header>
+</div>
+
+<div class="row-fluid">
+    <div class="span2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div class="toc">
+<ul>
+<li><a href="#clustering">Clustering</a><ul>
+<li><a href="#unsupervised-learning">Unsupervised learning</a></li>
+<li><a href="#k-means-algorithmsmost-famous-algo-of-clustering">K-Means Algorithms(most famous algo of clustering)</a></li>
+<li><a href="#how-to-intialize-k-means">How to intialize K-means?</a></li>
+<li><a href="#how-to-choose-the-number-of-clusters">How to choose the number of Clusters</a></li>
+</ul>
+</li>
+<li><a href="#principal-component-analysispca">Principal Component Analysis(PCA)</a><ul>
+<li><a href="#ul-motivation-i-data-compression">UL Motivation I: Data compression</a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </nav>
+    </div>
+    <div class="span8 article-content">
+
+            
+            
+<h1 id="clustering">Clustering<a class="headerlink" href="#clustering" title="Permanent link">¶</a></h1>
+<hr>
+<h2 id="unsupervised-learning">Unsupervised learning<a class="headerlink" href="#unsupervised-learning" title="Permanent link">¶</a></h2>
+<ul>
+<li>unlabeled training set: Training Set := <span class="math">\(\{x^1, x^2, x^3, x^4...\}\)</span><ul>
+<li>market segmentationm</li>
+<li>social network analysis</li>
+<li>organize computing clusters</li>
+<li>anstronomical data analysis</li>
+</ul>
+</li>
+</ul>
+<h2 id="k-means-algorithmsmost-famous-algo-of-clustering">K-Means Algorithms(most famous algo of clustering)<a class="headerlink" href="#k-means-algorithmsmost-famous-algo-of-clustering" title="Permanent link">¶</a></h2>
+<ul>
+<li>
+<p>cluster centroids(randomly initialized)</p>
+<ul>
+<li>if you want to split it into 2 groups(two centroids) and computer the distance from those centroids;</li>
+<li>move centroids to means in each group;</li>
+<li>Definition:</li>
+<li>Input: k(number of clusters); training set <span class="math">\({x^1, x^2, x^3, ...}\)</span></li>
+<li>Randomly initialize K cluster centroids <span class="math">\(\mu_1, \mu_2,...\in\mathbb{R}^n\)</span> where n is the dimension of each data point(ignore the <span class="math">\(x_0^i = 1\)</span>)</li>
+<li>
+<p>Repeat</p>
+<div class="highlight"><pre><span></span>  :::matlab
+  % puseudocode
+  for i = 1:m
+      c(i) =  index(from 1 to K) of centroids closeset to x(i)
+  end
+  for k = 1:K
+      mu(k) = means(points in cluster k)% |x-x|^2
+  end
+</pre></div>
+</li>
+<li>
+<p>K-means for non-separated clusters(Tshirt size: height/weight, cluster data to determine the population of each size)</p>
+<ul>
+<li>Optimization objective:</li>
+<li><span class="math">\(c^i\)</span> = index of cluster to which example <span class="math">\(x^i\)</span> is currently assigned;</li>
+<li><span class="math">\(\mu_k\)</span> = cluster centroid k(<span class="math">\(\mu_k\in\mathbb{R}^n\)</span>);</li>
+<li><span class="math">\(\mu_{c^i}\)</span> = cluster centroid of cluster to which example <span class="math">\(x^i\)</span> has been assigned</li>
+<li>Cost function: <span class="math">\(J(c^1, c^2...c^m, \mu_1, \mu_2...\mu_K) = \frac{1}{m}\sum\limits_{i=1}^{m}||x^i - \mu_{c^i}||^2\)</span> will always decrease with increasing iteration loops.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="how-to-intialize-k-means">How to intialize K-means?<a class="headerlink" href="#how-to-intialize-k-means" title="Permanent link">¶</a></h2>
+<ul>
+<li>Should have K &lt; m;</li>
+<li>Randomly pick K training examples;</li>
+<li>Set <div class="math">$$\mu_1, ....\mu_K$$</div> equal to these K examples, randomize the indices;</li>
+<li>Local optima issue;</li>
+<li>Random initialization:<div class="highlight"><pre><span></span>  :::matlab
+  for i = 1: 100
+      randomly initializae K-means
+      run K-means, get c(1), c(2)..., c(m), mu(1), mu(2)...,mu(k)
+      compute cost function
+  end
+  pick the clustering that gave you the minimum cost function
+</pre></div>
+</li>
+</ul>
+<h2 id="how-to-choose-the-number-of-clusters">How to choose the number of Clusters<a class="headerlink" href="#how-to-choose-the-number-of-clusters" title="Permanent link">¶</a></h2>
+<ul>
+<li>What is the right value of K?<ul>
+<li>Elbow method: J vs. K(no. of clusters) -&gt; choose the elbow point; sometimes its hard to distinguish the elbow point</li>
+<li>Based on a metric for how well it performs for that later purpose(like tshirt sizes, small, medium, large, OR xs, s, m, l, xl);</li>
+</ul>
+</li>
+</ul>
+<h1 id="principal-component-analysispca"><em>P</em>rincipal <em>C</em>omponent <em>A</em>nalysis(PCA)<a class="headerlink" href="#principal-component-analysispca" title="Permanent link">¶</a></h1>
+<hr>
+<h2 id="ul-motivation-i-data-compression">UL Motivation I: Data compression<a class="headerlink" href="#ul-motivation-i-data-compression" title="Permanent link">¶</a></h2>
+<ul>
+<li>Reduce data from 2D to 1D: x1 and x2 is very linear, project the data points to fitting straight lines(z1):<div class="math">$$x^1\in\mathbb{R}^2 \rightarrow z^1 \in\mathbb{R}...$$</div>, make learning more quickly;</li>
+<li>Reduce data from 3D to 2D(1000D -&gt;100D): <div class="math">$$x^i\in\mathbb{R}^3$$</div> project these data to a plane and assign them z1 and z2 from the coordinates from thsi projected plane;</li>
+<li>UL Motivation II: Data Visularization<ul>
+<li>2D/3D</li>
+</ul>
+</li>
+<li>Principle Component Analysis:<ul>
+<li>Problem Formulation: Reduce from 2D to 1D: find a direction onto which to project the data so as to minimize the projection error //</li>
+<li>Reduce from nD to kD :...... to minimize the projection error;= lower dimensional surface;</li>
+<li>Difference from linear regression: vertical distance or distance from that straight line</li>
+</ul>
+</li>
+<li>PCA Algorithm:<ul>
+<li>Data preprocessing: 1. mean normalization; </li>
+<li>Compute "covariance matrix": <div class="math">$$\Sigma = \frac{1}{m}\sum\limits_{i=1}^{m}(x^i)(x^i)^T$$</div>(x is n by 1 vector)</li>
+<li>cmopute "eigenvectors" of matrix <div class="math">$$\Sigma$$</div>:<code>[U, S, V] = svd(Sigma)</code>, singular value decomposition to find the eigenvalues, more computationally stable, sigma is a n by n matrix(n is original data dimension), U is a n by n, what we want;</li>
+<li>take first k column from U to from a new matrix <div class="math">$$U_{reduce}$$</div>:
+ <div class="math">$$z^i = U_{reduce}^Tx^i $$</div>
+<img alt="" src="http://i.imgur.com/DWwRfhw.png"/></li>
+</ul>
+</li>
+<li>Reconstruction from Compressed Representation<ul>
+<li>
+<div class="math">$$x_{approx} = U_{reduce}z$$</div>
+</li>
+</ul>
+</li>
+<li>Choose proper k of principal components:<ul>
+<li>Average squared projection error: <div class="math">$$\frac{1}{m}\sum\limits_{i=1}^n||x^i - x^i_{approx}||^2$$</div>
+</li>
+<li>Total variation in the data: <div class="math">$$\frac{\frac{1}{m}\sum_{i=1}^m ||x^i - x^i_{approx}||^2}{\frac{1}{m}\sum_{i=1}^m ||x^i ||^2} \leq 0.01$$</div> called: 99%(95%/90%) of variance is retained;</li>
+<li>ALgorithm: try pca with k = 1, compute the percentage of variance(&lt;= 0.01); repeat and increase k, until you get the 99% variance is retained.</li>
+<li><code>[U, S, V] = svd(Sigma)</code>, the S matrix, for given k, the percentage of variance can be computed by <div class="math">$$1-\frac{\sum^k_{i=1} S_{ii}}{\sum^n_{i=1} S_{ii}} \leq 0.01$$</div>
+</li>
+<li>why we need to retain the variance??</li>
+</ul>
+</li>
+<li>Advice for applying PCA<ul>
+<li>supervised learning speedup:
+<div class="math">$$(x^1, y^1), (x^2, y^2)...(x^m, y^m)$$</div>, extract dataset: <div class="math">$$x^1, x^2...x^m\in\mathbb{R}^{10000}$$</div> to <div class="math">$$z^1, z^2...z^m\in\mathbb{R}^{1000}$$</div>; new dataset <div class="math">$$(z^1, y^1)...$$</div>
+</li>
+<li>Applications of PCA:</li>
+<li>Compression: 1. reduce memory/disk needed to store data; 2. speed up learning algo;</li>
+<li>Visualization:</li>
+<li>To prevent overfitting(bad), you should use regularization!</li>
+<li>Bad Practice:
+   <img alt="" src="http://i.imgur.com/yyKSPjW.png">
+   we should do the whole thing without using PCA, try raw daat with whatever you want to , only if theat doesnt do what you want, then implement PCA and consider using <div class="math">$$z^i$$</div>
+</img></li>
+</ul>
+</li>
+</ul>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script></hr></hr>
+            
+            
+            <hr/>
+        </div>
+        <section>
+        <div class="span2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2015-12-21T17:30:00-08:00">Dec 21, 2015</time>
+            <h4>Category</h4>
+            <a class="category-link" href="http://localhost:18000/categories.html#misc-ref">misc</a>
+<h4>Contact</h4>
+    <a href="http://www.weibo.com/u/1872791672" title="My weibo Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-weibo sidebar-social-links"></i></a>
+    <a href="https://www.facebook.com/liwen.wen.581" title="My facebook Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-facebook sidebar-social-links"></i></a>
+    <a href="https://twitter.com/liwenPhys" title="My twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:wenliwen64@gmail.com" title="My email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="span1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">DataFrenzy</span> - Collection of study notes on programming, statistics, data science and beyond...</li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>            <script src="http://code.jquery.com/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+
+    
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>

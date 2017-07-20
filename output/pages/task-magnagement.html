@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8"> 
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Liwen Wen" />
+        <meta name="copyright" content="Liwen Wen" />
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+
+<meta property="og:title" content="Task Management "/>
+<meta property="og:url" content="http://localhost:18000/pages/task-magnagement.html" />
+<meta property="og:description" content="Questions to Answer:¶ How to handle exceptions in C++ and python? (link) How to design good/reusable software? (design patterns) How to properly use const key word in C++? 2016-03-20: In class definition, if you want this function not to change any data member, you should declare this function like …" />
+<meta property="og:site_name" content="DataFrenzy" />
+<meta property="og:article:author" content="Liwen Wen" />
+<meta property="og:article:published_time" content="2015-12-01T19:26:00-08:00" />
+<meta name="twitter:title" content="Task Management ">
+<meta name="twitter:description" content="Questions to Answer:¶ How to handle exceptions in C++ and python? (link) How to design good/reusable software? (design patterns) How to properly use const key word in C++? 2016-03-20: In class definition, if you want this function not to change any data member, you should declare this function like …">
+
+        <title>Task Management  · DataFrenzy
+</title>
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="http://localhost:18000/theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="http://localhost:18000/theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="http://localhost:18000/theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="http://localhost:18000/theme/css/custom.css" media="screen">
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="http://localhost:18000/"><span class=site-name>DataFrenzy</span></a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav pull-right top-menu">
+                            <li ><a href="http://localhost:18000">Home</a></li>
+                            <li ><a href="http://localhost:18000/pages/about.html">About</a></li>
+                            <li ><a href="http://localhost:18000/pages/bookshelf.html">Books Collection</a></li>
+                            <li  class="active"><a href="http://localhost:18000/pages/task-magnagement.html">Task Management</a></li>
+                            <li ><a href="http://localhost:18000/pages/mis.html">Miscellaneous</a></li>
+                            <li ><a href="http://localhost:18000/pages/research.html">Research</a></li>
+                            <li ><a href="http://localhost:18000/categories.html">Categories</a></li>
+                            <li ><a href="http://localhost:18000/tags.html">Tags</a></li>
+                            <li ><a href="http://localhost:18000/archives.html">Archives</a></li>
+                            <li><form class="navbar-search" action="http://localhost:18000/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span1"></div>
+                <div class="span10">
+<article>
+<div class="row-fluid">
+    <header class="page-header span10 offset2">
+    <h1><a href="http://localhost:18000/pages/task-magnagement.html"> Task Management  </a></h1>
+    </header>
+</div>
+
+<div class="row-fluid">
+    <div class="span2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div class="toc">
+<ul>
+<li><a href="#questions-to-answer">Questions to Answer:</a></li>
+<li><a href="#skills-to-develop">Skills to develop:</a><ul>
+<li><a href="#coding">Coding:</a></li>
+<li><a href="#machine-learning">Machine Learning:</a></li>
+</ul>
+</li>
+<li><a href="#books-to-read">Books to read:</a></li>
+<li><a href="#courses-to-take">Courses to take:</a></li>
+<li><a href="#logs">Logs:</a></li>
+</ul>
+</div>
+        </nav>
+    </div>
+    <div class="span8 article-content">
+
+            
+<h1 id="questions-to-answer">Questions to Answer:<a class="headerlink" href="#questions-to-answer" title="Permanent link">¶</a></h1>
+<hr>
+<ol>
+<li>
+<p>How to handle exceptions in C++ and python? (<a href="https://www.youtube.com/watch?v=P_Kx0i7yXhU&amp;list=PLfVsf4Bjg79Cx42Myce8bIg1nVBVSFKyx">link</a>)</p>
+</li>
+<li>
+<p>How to design good/reusable software? (design patterns)</p>
+</li>
+<li>
+<p>How to properly use <code>const</code> key word in C++? </p>
+<ul>
+<li>
+<p>2016-03-20:</p>
+<ol>
+<li>
+<p>In class definition, if you want this function not to change any data member, you should declare this function like <code>bool function(int i, int j) const;</code> </p>
+</li>
+<li>
+<p>In function declaration, <code>const string&amp;</code> will enable you to pass in not only a regular string variable but also the string literal. If you dont add <code>const</code> before <code>string</code>, it implicitly tells the compiler that the value will be changed so temporal object cannot be accepted(changes cannot be strored anywhere).  </p>
+</li>
+<li>
+<p>If you want a local variable not to be changed by any way.</p>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>
+<p>Flow-related questions.(why 2nd order event plane can only be used for even correlation)</p>
+</li>
+<li>
+<p>Chiral symmetry broken?</p>
+</li>
+<li>
+<p>How to write a solver(analysis pipline and kaggle solver)</p>
+</li>
+<li>
+<p>How to exercise my database skills(SQL)? </p>
+</li>
+<li>
+<p>Figure out how SU(3) is related to QCD, etc. </p>
+</li>
+</ol>
+<h1 id="skills-to-develop">Skills to develop:<a class="headerlink" href="#skills-to-develop" title="Permanent link">¶</a></h1>
+<hr>
+<h2 id="coding">Coding:<a class="headerlink" href="#coding" title="Permanent link">¶</a></h2>
+<hr>
+<ol>
+<li>
+<p>Data analysis in python.pandas?? (work through Python for data analysis exercise, 45 mins every day)</p>
+<ul>
+<li>2016-03-20: will do in next quater with Kaggle examples.</li>
+</ul>
+</li>
+<li>
+<p>C++ development knowledge?(work through the thinking in C++ exercise, 45 mins every day)</p>
+<ul>
+<li>2016-03-20: no need. Just pick some time to read it through. Finished CS32, which is great, check out some notes of that course on this site.</li>
+</ul>
+</li>
+<li>
+<p>Develop Algorithms understanding, and start coding leet code.</p>
+<ul>
+<li>2016-03-20: need to check algorithm course on coursera(Prof. Roughgarden, Standford), but we still can go through old videos.       </li>
+</ul>
+</li>
+<li>
+<p>Develop my own bash shell script cheatsheet.(shell_script_cheatsheet.md)  </p>
+</li>
+<li>
+<p>Develop a database server for chiral effects data points. </p>
+</li>
+<li>
+<p>How to do parallel computing in sckit-learn? Multithreaded?</p>
+<ul>
+<li>2016-03-20: need to look into it soon.</li>
+</ul>
+</li>
+<li>
+<p>Read through XGB python test framework and <a href="http://docs.python-guide.org/en/latest/writing/tests/">this</a></p>
+</li>
+<li>
+<p>Dynamic programming and greedy algorithms?(Take notes and practice)(MIT CS6.006 videos 4 lectrues on dynamic programming)</p>
+</li>
+<li>
+<p>How to develop unit-test code in Python and C++. Need examples and practice and interview questions.</p>
+</li>
+<li>
+<p>Know the fundamental concepts in Computer Operating Systems.</p>
+</li>
+</ol>
+<h2 id="machine-learning">Machine Learning:<a class="headerlink" href="#machine-learning" title="Permanent link">¶</a></h2>
+<hr>
+<ol>
+<li>
+<p>Reading book in physics machine learning, and write notes about the examples. (odd weekday, 45 mins before bed) </p>
+</li>
+<li>
+<p>Review and reformat the previous notes on Introduction to Machine Learning. (Fridays, 1 hr)</p>
+</li>
+<li>
+<p>Long term goal is to read through the Elements of Statistical Learning / Pattern Reconigtion, take notes() </p>
+</li>
+<li>
+<p>Learn to use KDE,</p>
+</li>
+<li>
+<p><code>itemgetter()</code></p>
+</li>
+<li>
+<p><code>sklearn.GridSearchCV(clf, param_grid, nfold = 20); grid_search.fit; grid_search.grid_scores_</code> can be used for grid search. But, random search may result in same result(60 times).: The moral of the story is: if the close-to-optimal region of hyperparameters occupies at least 5% of the grid surface, then random search with 60 trials will find that region with high probability. </p>
+</li>
+<li>
+<p>Learn to use <code>os</code> module</p>
+</li>
+<li>
+<p>write note on how to install sklearn-neuralnetwork</p>
+</li>
+<li>
+<p>How to use OneHotEncoder in practice</p>
+</li>
+<li>
+<p>How to use multi-thread feature of scikit-learn</p>
+</li>
+<li>
+<p>xgb early stopping</p>
+</li>
+<li>
+<p>Pearson correlation</p>
+</li>
+<li>
+<p>Randomize predictor selection to see the effect*</p>
+</li>
+<li>
+<p>Center and normalize your data</p>
+</li>
+<li>
+<p>Left-out-one encoding</p>
+</li>
+<li>
+<p>When to use standardlization</p>
+</li>
+<li>
+<p>Keras/Theano/Lasagne/FM algorithm/</p>
+</li>
+<li>
+<p>Regularized greedy tree.(Tong Zhang's)</p>
+</li>
+<li>
+<p>Two talks on data science: Owen Zhang's Linkedin and Jeon-yoon Lee's Kaggler.com</p>
+</li>
+<li>
+<p>Feature importance selection</p>
+</li>
+<li>
+<p>VM usage</p>
+</li>
+<li>
+<p>Visulization.</p>
+</li>
+</ol>
+<h1 id="books-to-read">Books to read:<a class="headerlink" href="#books-to-read" title="Permanent link">¶</a></h1>
+<hr>
+<ol>
+<li>
+<p>Quick view: Data Science from scratch</p>
+</li>
+<li>
+<p>Machine learning in python(*)</p>
+</li>
+<li>
+<p><a href="https://drive.google.com/file/d/0B3ZmSZ7JPYZ6RGtCa0hSSnRuVWc/view?usp=sharing">Heads up design pattern(for interview preparation)</a></p>
+</li>
+<li>
+<p>Cracking the code interview</p>
+</li>
+<li>
+<p>[Beauty of coding])(https://drive.google.com/file/d/0B3ZmSZ7JPYZ6anBjM2ZjU0ZLdGs/view?usp=sharing)</p>
+</li>
+<li>
+<p><a href="https://drive.google.com/file/d/0B3ZmSZ7JPYZ6LWxTUGY3X0JkVUk/view?usp=sharing">Data structure and algorithms in C++</a></p>
+</li>
+</ol>
+<h1 id="courses-to-take">Courses to take:<a class="headerlink" href="#courses-to-take" title="Permanent link">¶</a></h1>
+<hr>
+<ol>
+<li>
+<p>CS32: Introduction to Computer ScienceII(project3/4 could be put on resume; webpages needed)</p>
+</li>
+<li>
+<p><del>Stochastic Process. Math171(2017 Spring)</del>Stochastic Process Math275C(2016 Spring)</p>
+</li>
+<li>
+<p>CS33: Introduction to computer system(Open every quarter?)</p>
+</li>
+<li>
+<p>Stat231: Machine Learning(2016-1017 Fall)(could be put on resume)</p>
+</li>
+<li>
+<p>Stat202C: Monte Carlo for Optimization.(2017 Spring)(could be put on resume)</p>
+</li>
+<li>
+<p>U. of Washington Specialization in Data Science. (2017 Spring to Summer, 6 courses)(could be put on resume)</p>
+</li>
+<li>
+<p>C183: Statistical models in finance(2017 Spring)</p>
+</li>
+</ol>
+<h1 id="logs">Logs:<a class="headerlink" href="#logs" title="Permanent link">¶</a></h1>
+<hr>
+<ul>
+<li>
+<p>2016-03-25: I want to learn(by the end of April): unitest in python for my framework; document my kaggle pipline; Greedy Algorithms(<a href="https://www.youtube.com/watch?v=cu7TMYj0dBg">a quick view</a>); Dynamic Programming...  </p>
+</li>
+<li>
+<p>2016-03-27: Add code to normalize our feature data; how to organize the categorical data in svm application, normalization, like embark location in Titanic(1, 2, 3 for south ampton, ...)?</p>
+</li>
+<li>
+<p>2016-04-04: Furbished my resume for two versions(quant/SE/DS).</p>
+</li>
+<li>
+<p>2016-05-20: <a href="http://coolshell.cn/articles/12052.html">blog</a>; Backtracing(videos); On wechat, I saved a bookmark which tells about howto improve your python step by step.</p>
+</li>
+</ul></hr></hr></hr></hr></hr></hr></hr>
+            
+        </div>
+        <section>
+        <div class="span2" style="float:right;font-size:0.9em;">
+<h4>Contact</h4>
+    <a href="http://www.weibo.com/u/1872791672" title="My weibo Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-weibo sidebar-social-links"></i></a>
+    <a href="https://www.facebook.com/liwen.wen.581" title="My facebook Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-facebook sidebar-social-links"></i></a>
+    <a href="https://twitter.com/liwenPhys" title="My twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:wenliwen64@gmail.com" title="My email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+        </div>
+        </section>
+    </div>
+    </article>
+                </div>
+                <div class="span1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">DataFrenzy</span> - Collection of study notes on programming, statistics, data science and beyond...</li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>            <script src="http://code.jquery.com/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+
+    
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>

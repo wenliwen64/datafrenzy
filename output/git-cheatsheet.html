@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8"> 
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Liwen Wen" />
+        <meta name="copyright" content="Liwen Wen" />
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="git, cheatsheet, Programming, " />
+
+<meta property="og:title" content="Git Cheatsheet "/>
+<meta property="og:url" content="http://localhost:18000/git-cheatsheet.html" />
+<meta property="og:description" content="This article is for people who already get familiar with git to certain extent but still need some quick reference at work. Some Key Concepts¶ SHA-1 value or so-called checksum is used for reference to commit; master branch is the main branch you are working on; HEAD is the tip …" />
+<meta property="og:site_name" content="DataFrenzy" />
+<meta property="og:article:author" content="Liwen Wen" />
+<meta property="og:article:published_time" content="2015-11-02T14:15:00-08:00" />
+<meta property="" content="2015-11-02T14:15:00-08:00" />
+<meta name="twitter:title" content="Git Cheatsheet ">
+<meta name="twitter:description" content="This article is for people who already get familiar with git to certain extent but still need some quick reference at work. Some Key Concepts¶ SHA-1 value or so-called checksum is used for reference to commit; master branch is the main branch you are working on; HEAD is the tip …">
+
+        <title>Git Cheatsheet  · DataFrenzy
+</title>
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="http://localhost:18000/theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="http://localhost:18000/theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="http://localhost:18000/theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="http://localhost:18000/theme/css/custom.css" media="screen">
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="http://localhost:18000/"><span class=site-name>DataFrenzy</span></a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav pull-right top-menu">
+                            <li ><a href="http://localhost:18000">Home</a></li>
+                            <li ><a href="http://localhost:18000/pages/about.html">About</a></li>
+                            <li ><a href="http://localhost:18000/pages/bookshelf.html">Books Collection</a></li>
+                            <li ><a href="http://localhost:18000/pages/task-magnagement.html">Task Management</a></li>
+                            <li ><a href="http://localhost:18000/pages/mis.html">Miscellaneous</a></li>
+                            <li ><a href="http://localhost:18000/pages/research.html">Research</a></li>
+                            <li ><a href="http://localhost:18000/categories.html">Categories</a></li>
+                            <li ><a href="http://localhost:18000/tags.html">Tags</a></li>
+                            <li ><a href="http://localhost:18000/archives.html">Archives</a></li>
+                            <li><form class="navbar-search" action="http://localhost:18000/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span1"></div>
+                <div class="span10">
+<article>
+<div class="row-fluid">
+    <header class="page-header span10 offset2">
+    <h1><a href="http://localhost:18000/git-cheatsheet.html"> Git Cheatsheet  </a></h1>
+    </header>
+</div>
+
+<div class="row-fluid">
+    <div class="span2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div class="toc">
+<ul>
+<li><a href="#some-key-concepts">Some Key Concepts</a></li>
+<li><a href="#handy-commands">Handy Commands</a></li>
+<li><a href="#integrated-collaboration-workflow">Integrated Collaboration Workflow</a></li>
+<li><a href="#some-awkward-scenarios-to-deal-with">Some Awkward Scenarios to Deal with</a></li>
+<li><a href="#undoing-things">Undoing Things</a><ul>
+<li><a href="#uncommit-things">Uncommit things:</a></li>
+<li><a href="#unstage-things">Unstage things:</a></li>
+<li><a href="#unmodifying-a-modified-file">Unmodifying a Modified File</a></li>
+<li><a href="#usage-of-git-stash">Usage of git-stash</a></li>
+</ul>
+</li>
+<li><a href="#git-submodules">Git Submodules</a></li>
+<li><a href="#git-conflict-resolution">Git conflict resolution</a></li>
+</ul>
+</div>
+        </nav>
+    </div>
+    <div class="span8 article-content">
+
+            
+            
+<p>This article is for people who already get familiar with git to certain extent but still need some quick reference at work. </p>
+<h2 id="some-key-concepts">Some Key Concepts<a class="headerlink" href="#some-key-concepts" title="Permanent link">¶</a></h2>
+<hr>
+<ol>
+<li>
+<p>SHA-1 value or so-called checksum is used for reference to commit;</p>
+</li>
+<li>
+<p>master branch is the main branch you are working on;</p>
+</li>
+<li>
+<p>HEAD is the tip of current branch(we may have multiple branches at same time). We can move HEAD around and then start recording. So remember, before you move HEAD pointer, you have to store the <code>git log master</code> information properly. Because you will not be able to find them out when you move your HEAD back, i.e., you can find information at HEAD and before HEAD. Maybe you can find the information.? Yes, <code>git reflog</code> will give all of the information you need(mainly the SHA-1 value) to do <code>git reset HEAD SHA-1</code></p>
+</li>
+<li>
+<p>Snapshots instead of Changes: Git is storing the snapshots of projects status in different commit instead of the changes regarding each files. So if one file stays unchanged from last commit, git will only store the pointer pointing to it in last commit. Not like other version control system which will only record the difference of each file in each commit.</p>
+</li>
+<li>
+<p>The three states: There are three main sections in a git projects: the Git directory, the working directory, and the staging area: 1. Git directory: place for Git to store the metadata and object database for your project. Basically you copy this directory when you are cloning a repository; 2. Working directory: this is a single checkout of one version of the project. You can add or modify files whatever your want; 3. Staging area: staging area is a file where stored winofrmation about what will go into your next commit. It is sometimes referred to as "Index"</p>
+</li>
+<li>
+<p>Basic Git workflow: 1. You modify files in your working directory; 2. You stage the files, adding snapshots of them to your staging area; 3. Commit those changes, which takes the files as they are in the staing area and stores that snapshot permanently to your git direcitory</p>
+</li>
+<li>
+<p>Some terms: 1. <code>committed</code>: a particular version of a file is in the Git directory; 2. <code>staged</code>: the modified file is added into the staging area; 3. <code>modified</code>: If a file was changed since it was checked out but has not be staged, it is called modified</p>
+</li>
+</ol>
+<h2 id="handy-commands">Handy Commands<a class="headerlink" href="#handy-commands" title="Permanent link">¶</a></h2>
+<hr>
+<ol>
+<li>
+<p>To show the changes between working directory and staged changes:
+   <code>$git diff</code> is working vs. cached(staged);
+   <code>$git diff -cached commit_sha</code> is staged vs. commit;
+   <code>$git diff commit_sha</code> is working vs. commit.</p>
+</li>
+<li>
+<p>In <code>git diff</code>: <code>---</code> and <code>+++</code> mean old version and new version</p>
+</li>
+<li>
+<p>Use <code>git rm</code> and <code>git mv</code> to delete and rename files. Because if you only use <code>/bin/rm</code>, you will also have to <code>git add</code> these files. <code>git rm</code> does this in one step.</p>
+</li>
+<li>
+<p><code>git checkout -- index.html</code> ???</p>
+</li>
+<li>
+<p><code>git reset HEAD file.txt</code> is to rest the file.txt(staged) back to HEAD state, this doesnt affect the working directory.</p>
+</li>
+<li>
+<p>??? <code>git checkout SHA-1 -- filename</code></p>
+</li>
+<li>
+<p><code>git revert HEAD-3</code> is to apply opposite changes and commit a new commit.</p>
+</li>
+<li>
+<p>Use <code>merging</code> instead of <code>revert</code></p>
+</li>
+<li>
+<p><code>git reset --soft SHA-1</code> just changes the HEAD position;</p>
+</li>
+<li>
+<p><code>git reset --mixed SHA-1</code> is taking something to staged directory.</p>
+</li>
+<li>
+<p><code>git reset --hard SHA-1</code> is taking something to staged directory and working direcotry.</p>
+</li>
+<li>
+<p>Add <code>!index.html</code> to eliminate the file from ignore file list.</p>
+</li>
+<li>
+<p><code>git log -p SHA-1</code> is to see the difference</p>
+</li>
+<li>
+<p><code>git dif sha..sha</code> is to compare the two commits.</p>
+</li>
+<li>
+<p><code>git merge branch1</code> is to merge branch1 into master.</p>
+</li>
+<li>
+<p><code>git branch -m branch_old branch_new</code> is to rename and <code>git branch -d branch_to_delete</code>  is to delete the branch.</p>
+</li>
+<li>
+<p><code>git merge --abort</code> is to abor the merge. If not, you have to fix the conficts and do the commit to finish merging.</p>
+</li>
+<li>
+<p><code>git remote add origin https://.......</code> is to add the remote repository with alias <code>origin</code>.</p>
+</li>
+<li>
+<p><code>git push -u origin master</code> is to push the <code>master</code> branch to remote repository and keep tracking it. "keep tracking" means when other ppl do fetch they can see this branch.</p>
+</li>
+<li>
+<p><code>git branch -r</code> is to show the remote branches; <code>git branch -a</code> is to show all branches. </p>
+</li>
+<li>
+<p><code>git clone</code> is to copy the repository like when you are going to contribute to open source project.</p>
+</li>
+<li>
+<p><code>git pull</code> = <code>git fetch</code> + <code>git merge origin/master</code> is to merge the remote HEAD to your current branch. </p>
+</li>
+<li>
+<p><code>git push origin non_tracking:non_tracking</code> is to rename the branch name; so <code>git push origin :non_tracking</code> will delete the <code>non_tracking</code> branch;</p>
+</li>
+<li>
+<p><code>git log -p feedback..origin/feedback</code> is to compare the remote and local repository</p>
+</li>
+<li>
+<p><code>git rm --cached filename</code> is to remove file from index.</p>
+</li>
+</ol>
+<h2 id="integrated-collaboration-workflow">Integrated Collaboration Workflow<a class="headerlink" href="#integrated-collaboration-workflow" title="Permanent link">¶</a></h2>
+<hr>
+<p>Sometime we can use this workflow between different machines we are working on...</p>
+<p>Me:</p>
+<div class="highlight"><pre><span></span>&gt; git checkout master
+&gt; git fetch
+&gt; git merge origin/master 
+&gt; git checkout -b feedback_form
+...do some stuff
+&gt; git commit -am <span class="s2">"Add customer feedback form"</span>
+&gt; git fetch
+&gt; git push -u origin feedback_form   <span class="c1"># -u is for the first time</span>
+</pre></div>
+<p>Lynda:</p>
+<div class="highlight"><pre><span></span>&gt; git checkout master
+&gt; git fetch
+&gt; git merge origin/master 
+&gt; git checkout -b feedback_form origin/feed_back
+&gt; git log
+&gt; git show 84b6adf0
+...do some stuff
+&gt; git commit -am <span class="s2">"Add tour sector to feedback form"</span>
+&gt; git fetch
+&gt; git push
+</pre></div>
+<p>Me:</p>
+<div class="highlight"><pre><span></span>&gt; git fetch
+&gt; git log -p feedback_form..origin/feedback_form
+&gt; git merge origin/feedback_form
+&gt; git checkout master 
+&gt; git fetch
+&gt; git merge origin/master
+&gt; git merge feedback_form
+&gt; git push
+</pre></div>
+<h2 id="some-awkward-scenarios-to-deal-with">Some Awkward Scenarios to Deal with<a class="headerlink" href="#some-awkward-scenarios-to-deal-with" title="Permanent link">¶</a></h2>
+<hr>
+<ol>
+<li>
+<p>If you mistakenly commit a big file, what you can do to fix it?</p>
+<p>:::sh</p>
+<blockquote>
+<p>git </p>
+</blockquote>
+</li>
+<li>
+<p>How to move or remove files?</p>
+</li>
+</ol>
+<h2 id="undoing-things">Undoing Things<a class="headerlink" href="#undoing-things" title="Permanent link">¶</a></h2>
+<hr>
+<h3 id="uncommit-things">Uncommit things:<a class="headerlink" href="#uncommit-things" title="Permanent link">¶</a></h3>
+<p><em>Scenario 1</em>: You committed something too early and possibly forgot to add some files, or you messed up your commit message:</p>
+<div class="highlight"><pre><span></span>&gt; git commit -m <span class="s1">'initial commit'</span>
+&gt; git add forgotten_file
+&gt; git commit --amend
+</pre></div>
+<p>These commands will make you end up with a single commit which contains all of the changes and the second commit will overwrite the previous one.</p>
+<h3 id="unstage-things">Unstage things:<a class="headerlink" href="#unstage-things" title="Permanent link">¶</a></h3>
+<p><em>Scenario 2</em>: You changed two files and want to commit them separately. But you accidently type <code>git add *</code> and stage them both. So how to unstage them?</p>
+<div class="highlight"><pre><span></span>&gt; git add * 
+&gt; git status
+On branch master
+Changes to be committed:
+<span class="o">(</span>use <span class="s2">"git reset HEAD &amp;lt;file&amp;gt;..."</span> to unstage<span class="o">)</span>
+
+renamed:    README.md -&gt; README
+modified:   CONTRIBUTING.md
+reset the CONTRIBUTING.md file
+&gt; git reset HEAD CONTRIBUTING.md
+Unstaged changes after reset:
+M   CONTRIBUTING.md
+&gt; git status
+On branch master
+
+Changes to be committed:
+<span class="o">(</span>use <span class="s2">"git reset HEAD &lt;file&gt;..."</span> to unstage<span class="o">)</span>
+
+renamed:    README.md -&gt; README
+
+Changes not staged <span class="k">for</span> commit:
+<span class="o">(</span>use <span class="s2">"git add &lt;file&gt;..."</span> to update what will be committed<span class="o">)</span>
+<span class="o">(</span>use <span class="s2">"git checkout -- &lt;file&gt;..."</span> to discard changes in working directory<span class="o">)</span>
+
+modified:   CONTRIBUTING.md
+</pre></div>
+<h3 id="unmodifying-a-modified-file">Unmodifying a Modified File<a class="headerlink" href="#unmodifying-a-modified-file" title="Permanent link">¶</a></h3>
+<p><em>Scenario 3</em>: What if you realize that you don't want to keep your changes to the CONTRIBUTING.md file? Or you just easily revert it back to what it look when you last commit?</p>
+<div class="highlight"><pre><span></span>&gt; git checkout -- CONTRIBUTING.md
+&gt; git status
+On branch master
+Changes to be committed:
+<span class="o">(</span>use <span class="s2">"git reset HEAD &amp;lt;file&amp;gt;..."</span> to unstage<span class="o">)</span>
+
+renamed:    README.md -<span class="p">&amp;</span>gt<span class="p">;</span> README
+</pre></div>
+<p>Note: this is kinda dangerous since it will discard anything changed. </p>
+<h3 id="usage-of-git-stash">Usage of git-stash<a class="headerlink" href="#usage-of-git-stash" title="Permanent link">¶</a></h3>
+<p><em>Scenario 4</em>: When you have been working on part of your project, things are in messy state but you want to switch branches for a bit to work on something else.You dont want to do a commit. </p>
+<div class="highlight"><pre><span></span>&gt; git status
+Changes to be committed:
+<span class="o">(</span>use <span class="s2">"git reset HEAD &amp;lt;file&amp;gt;..."</span> to unstage<span class="o">)</span>
+
+modified:   index.html
+
+Changes not staged <span class="k">for</span> commit:
+<span class="o">(</span>use <span class="s2">"git add &amp;lt;file&amp;gt;..."</span> to update what will be committed<span class="o">)</span>
+<span class="o">(</span>use <span class="s2">"git checkout -- &amp;lt;file&amp;gt;..."</span> to discard changes in working directory<span class="o">)</span>
+
+modified:   lib/simplegit.rb
+</pre></div>
+<p>So next step is to issue the <code>git stash</code> command</p>
+<div class="highlight"><pre><span></span>&gt; git stash
+Saved working directory and index state
+<span class="s2">"WIP on master: 049d078 added the index file"</span>
+HEAD is now at 049d078 added the index file
+<span class="o">(</span>To restore them <span class="nb">type</span> <span class="s2">"git stash apply"</span><span class="o">)</span>
+</pre></div>
+<p>Now the working directory is clean, i.e., you can switch branches:</p>
+<div class="highlight"><pre><span></span>&gt; git status
+<span class="c1"># On branch master</span>
+nothing to commit, working directory clean
+</pre></div>
+<p>Check the stash list:</p>
+<div class="highlight"><pre><span></span>$ git stash list
+stash@<span class="o">{</span><span class="m">0</span><span class="o">}</span>: WIP on master: 049d078 added the index file
+stash@<span class="o">{</span><span class="m">1</span><span class="o">}</span>: WIP on master: c264051 Revert <span class="s2">"added file_size"</span>
+stash@<span class="o">{</span><span class="m">2</span><span class="o">}</span>: WIP on master: 21d80a5 added number to log
+</pre></div>
+<p>Come back to previous state(<code>git stash apply stash@{2}</code>): </p>
+<div class="highlight"><pre><span></span>$ git stash apply
+<span class="c1"># On branch master</span>
+<span class="c1"># Changed but not updated:</span>
+<span class="c1">#   (use "git add &amp;lt;file&amp;gt;..." to update what will be committed)</span>
+<span class="c1">#</span>
+<span class="c1">#      modified:   index.html</span>
+<span class="c1">#      modified:   lib/simplegit.rb</span>
+<span class="c1">#</span>
+</pre></div>
+<h2 id="git-submodules">Git Submodules<a class="headerlink" href="#git-submodules" title="Permanent link">¶</a></h2>
+<hr>
+<p>Usually, we need external library to be included in your working project. Otherwise customer of your software would need to download the shared lib you used. In this site, I have two separate subdirectories(pelican-themes, pelican-plugins) to be submodules. The workflow is like below:</p>
+<ol>
+<li>
+<p>Fork the <code>getpelican/pelican-themes</code> and <code>getpelican/pelican-plugins</code>;</p>
+</li>
+<li>
+<p>In your working directory or parent directory, <code>git submodule add git@github.com:wenliwen64/pelican-themes</code> and <code>git submodule add git@github.com:wenliwen64/pelican-plugins</code>;</p>
+</li>
+<li>
+<p>You can check the file <code>.gitmodules</code> where store the information about where is the remote repository for the submodule;</p>
+</li>
+<li>
+<p>Go into your submodule directory, apply commands <code>git submodule init</code> + <code>git submodule update</code>;</p>
+</li>
+<li>
+<p>Change directory to parent directory and <code>git push origin master --recurse-submodules==on-demand</code>;</p>
+</li>
+<li>
+<p>On another machine, do <code>git clone git@github.com:wenliwen64/pelican_site.git --recurse</code>;</p>
+</li>
+<li>
+<p>If you want to make change to the themes you have to fork it on github first. </p>
+</li>
+</ol>
+<h2 id="git-conflict-resolution">Git conflict resolution<a class="headerlink" href="#git-conflict-resolution" title="Permanent link">¶</a></h2>
+<hr/></hr></hr></hr></hr></hr></hr>
+            
+            
+            <hr/>
+        </div>
+        <section>
+        <div class="span2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2015-11-02T14:15:00-08:00">Nov 2, 2015</time>
+
+<h4>Last Updated</h4>
+<time datetime="2015-11-02T14:15:00-08:00">Nov 2, 2015</time>
+
+            <h4>Category</h4>
+            <a class="category-link" href="http://localhost:18000/categories.html#programming-ref">Programming</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="http://localhost:18000/tags.html#cheatsheet-ref">cheatsheet
+                    <span>1</span>
+</a></li>
+                <li><a href="http://localhost:18000/tags.html#git-ref">git
+                    <span>1</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="http://www.weibo.com/u/1872791672" title="My weibo Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-weibo sidebar-social-links"></i></a>
+    <a href="https://www.facebook.com/liwen.wen.581" title="My facebook Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-facebook sidebar-social-links"></i></a>
+    <a href="https://twitter.com/liwenPhys" title="My twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:wenliwen64@gmail.com" title="My email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="span1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">DataFrenzy</span> - Collection of study notes on programming, statistics, data science and beyond...</li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>            <script src="http://code.jquery.com/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+
+    
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>

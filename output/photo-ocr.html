@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8"> 
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Liwen Wen" />
+        <meta name="copyright" content="Liwen Wen" />
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content=", misc, " />
+
+<meta property="og:title" content="Photo OCR "/>
+<meta property="og:url" content="http://localhost:18000/photo-ocr.html" />
+<meta property="og:description" content="Photo OCR¶ Problem Description and Pipeline: optical character recognition(read text from an image) photo ocr pipeline: image -&gt; Text detection -&gt; Character segmentation -&gt; Character classification(A, B, C.....), we can use some modules to apply on our data Sliding Windows: sliding window classifier: aspect ratio = length/width ratio Geting lost of …" />
+<meta property="og:site_name" content="DataFrenzy" />
+<meta property="og:article:author" content="Liwen Wen" />
+<meta property="og:article:published_time" content="2016-05-23T13:13:00-07:00" />
+<meta name="twitter:title" content="Photo OCR ">
+<meta name="twitter:description" content="Photo OCR¶ Problem Description and Pipeline: optical character recognition(read text from an image) photo ocr pipeline: image -&gt; Text detection -&gt; Character segmentation -&gt; Character classification(A, B, C.....), we can use some modules to apply on our data Sliding Windows: sliding window classifier: aspect ratio = length/width ratio Geting lost of …">
+
+        <title>Photo OCR  · DataFrenzy
+</title>
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="http://localhost:18000/theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="http://localhost:18000/theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="http://localhost:18000/theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="http://localhost:18000/theme/css/custom.css" media="screen">
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="http://localhost:18000/"><span class=site-name>DataFrenzy</span></a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav pull-right top-menu">
+                            <li ><a href="http://localhost:18000">Home</a></li>
+                            <li ><a href="http://localhost:18000/pages/about.html">About</a></li>
+                            <li ><a href="http://localhost:18000/pages/bookshelf.html">Books Collection</a></li>
+                            <li ><a href="http://localhost:18000/pages/task-magnagement.html">Task Management</a></li>
+                            <li ><a href="http://localhost:18000/pages/mis.html">Miscellaneous</a></li>
+                            <li ><a href="http://localhost:18000/pages/research.html">Research</a></li>
+                            <li ><a href="http://localhost:18000/categories.html">Categories</a></li>
+                            <li ><a href="http://localhost:18000/tags.html">Tags</a></li>
+                            <li ><a href="http://localhost:18000/archives.html">Archives</a></li>
+                            <li><form class="navbar-search" action="http://localhost:18000/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span1"></div>
+                <div class="span10">
+<article>
+<div class="row-fluid">
+    <header class="page-header span10 offset2">
+    <h1><a href="http://localhost:18000/photo-ocr.html"> Photo OCR  </a></h1>
+    </header>
+</div>
+
+<div class="row-fluid">
+        <div class="span8 offset2 article-content">
+
+            
+            <h1 id="photo-ocr">Photo OCR<a class="headerlink" href="#photo-ocr" title="Permanent link">&para;</a></h1>
+<ol>
+<li>Problem Description and Pipeline:<ul>
+<li>optical character recognition(read text from an image)</li>
+<li>photo ocr pipeline: image -&gt; Text detection -&gt; Character segmentation -&gt; Character classification(A, B, C.....), we can use some modules to apply on our data</li>
+</ul>
+</li>
+<li>Sliding Windows:<ul>
+<li>sliding window classifier: aspect ratio = length/width ratio</li>
+</ul>
+</li>
+<li>
+<p>Geting lost of data and artificial data</p>
+<ul>
+<li>artificial data synthesis for photo ocr(distortion, blurring)- character recoginition;</li>
+<li>distortion introduced should be representation of the type of noise and distortion in the test set;</li>
+<li>Discussion on getting more data:<ul>
+<li>Make sure you have low classifier before expending the effort(plot learning curves. e.g. keep increasing the number of features/number of hidden units in neural network until you have a low bias classifier)</li>
+<li>How much work would it be to get 10x as much data as we currently have. Much better performance<ul>
+<li>artificial data synthesis</li>
+<li>Collect/label it yourself.(#hours, may not that much, could be a hero)</li>
+<li>Crowd source(e.g. amazon mechanical turk) websites hire people to label data</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Ceiling analysis: what part of the pipeline to work on next?</p>
+<ul>
+<li>what part of the pipeline should you spend the most time trying to improve;</li>
+<li>over all system accuracy: 72%; text detection accuracy: 89%; character segmentation: 90%; character recognition: 100%, upper bound of accuracy:<ul>
+<li>face recognition from images: camera -&gt; prepreocess(remove bg) -&gt; facedetection -&gt; eyes segmentation -&gt; nose segmentation -&gt; mouth segmentation -&gt; logistics regression -&gt; label</li>
+<li>ceiling analysis: overall 85%,  preprocess 85.1%(using gound-truth labels, to see the final accuracy), face detection 91%... compute the improvement. No gut feeling.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+            
+            
+            <hr/>
+        </div>
+        <section>
+        <div class="span2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2016-05-23T13:13:00-07:00">May 23, 2016</time>
+            <h4>Category</h4>
+            <a class="category-link" href="http://localhost:18000/categories.html#misc-ref">misc</a>
+<h4>Contact</h4>
+    <a href="http://www.weibo.com/u/1872791672" title="My weibo Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-weibo sidebar-social-links"></i></a>
+    <a href="https://www.facebook.com/liwen.wen.581" title="My facebook Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-facebook sidebar-social-links"></i></a>
+    <a href="https://twitter.com/liwenPhys" title="My twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:wenliwen64@gmail.com" title="My email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="span1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">DataFrenzy</span> - Collection of study notes on programming, statistics, data science and beyond...</li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>            <script src="http://code.jquery.com/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+
+    
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>

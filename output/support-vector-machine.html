@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8"> 
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Liwen Wen" />
+        <meta name="copyright" content="Liwen Wen" />
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content=", misc, " />
+
+<meta property="og:title" content="Support Vector Machine "/>
+<meta property="og:url" content="http://localhost:18000/support-vector-machine.html" />
+<meta property="og:description" content="Overview¶ Hypothesis: $$h_\theta(x) = 1 \text{ if } \theta^Tx\geq 0; 0 \text{ otherwise}$$ Two new functions: Optimization Objective: $$\min\limits_{\theta}C\sum\limits_{i=1}^{m}[y^i\text{cost1}(\theta^Tx)+(1-y^i)\text{cost0}(\theta^Tx)] + \frac{1}{2}\sum\limits_{i=1}^{n}\theta_i …" />
+<meta property="og:site_name" content="DataFrenzy" />
+<meta property="og:article:author" content="Liwen Wen" />
+<meta property="og:article:published_time" content="2015-12-25T17:38:00-08:00" />
+<meta name="twitter:title" content="Support Vector Machine ">
+<meta name="twitter:description" content="Overview¶ Hypothesis: $$h_\theta(x) = 1 \text{ if } \theta^Tx\geq 0; 0 \text{ otherwise}$$ Two new functions: Optimization Objective: $$\min\limits_{\theta}C\sum\limits_{i=1}^{m}[y^i\text{cost1}(\theta^Tx)+(1-y^i)\text{cost0}(\theta^Tx)] + \frac{1}{2}\sum\limits_{i=1}^{n}\theta_i …">
+
+        <title>Support Vector Machine  · DataFrenzy
+</title>
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="http://localhost:18000/theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="http://localhost:18000/theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="http://localhost:18000/theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="http://localhost:18000/theme/css/custom.css" media="screen">
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="http://localhost:18000/"><span class=site-name>DataFrenzy</span></a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav pull-right top-menu">
+                            <li ><a href="http://localhost:18000">Home</a></li>
+                            <li ><a href="http://localhost:18000/pages/about.html">About</a></li>
+                            <li ><a href="http://localhost:18000/pages/bookshelf.html">Books Collection</a></li>
+                            <li ><a href="http://localhost:18000/pages/task-magnagement.html">Task Management</a></li>
+                            <li ><a href="http://localhost:18000/pages/mis.html">Miscellaneous</a></li>
+                            <li ><a href="http://localhost:18000/pages/research.html">Research</a></li>
+                            <li ><a href="http://localhost:18000/categories.html">Categories</a></li>
+                            <li ><a href="http://localhost:18000/tags.html">Tags</a></li>
+                            <li ><a href="http://localhost:18000/archives.html">Archives</a></li>
+                            <li><form class="navbar-search" action="http://localhost:18000/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span1"></div>
+                <div class="span10">
+<article>
+<div class="row-fluid">
+    <header class="page-header span10 offset2">
+    <h1><a href="http://localhost:18000/support-vector-machine.html"> Support Vector Machine  </a></h1>
+    </header>
+</div>
+
+<div class="row-fluid">
+    <div class="span2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div class="toc">
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#svm-with-kernels">SVM with Kernels</a></li>
+<li><a href="#svcsupport-vector-classifier-in-scikit-learn">SVC(Support Vector Classifier) in scikit-learn</a></li>
+<li><a href="#math-behind-tlarge-margin-classification">MATH behind tlarge margin classification</a></li>
+<li><a href="#kernels-i">Kernels I</a></li>
+<li><a href="#kernel-with-svm">Kernel with SVM</a></li>
+<li><a href="#using-an-svm">Using an svm</a></li>
+</ul>
+</div>
+        </nav>
+    </div>
+    <div class="span8 article-content">
+
+            
+            
+<h1 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">¶</a></h1>
+<hr>
+<ol>
+<li>
+<p>Hypothesis: 
+    <div class="math">$$h_\theta(x) = 1 \text{ if } \theta^Tx\geq 0; 0 \text{ otherwise}$$</div>
+</p>
+</li>
+<li>
+<p>Two new functions:</p>
+</li>
+</ol>
+<p><img alt="" src="http://i.imgur.com/zT5H5pv.png"/></p>
+<ol>
+<li>
+<p>Optimization Objective:</p>
+<p>
+<div class="math">$$\min\limits_{\theta}C\sum\limits_{i=1}^{m}[y^i\text{cost1}(\theta^Tx)+(1-y^i)\text{cost0}(\theta^Tx)] + \frac{1}{2}\sum\limits_{i=1}^{n}\theta_i^2$$</div>
+</p>
+</li>
+</ol>
+<h1 id="svm-with-kernels">SVM with Kernels<a class="headerlink" href="#svm-with-kernels" title="Permanent link">¶</a></h1>
+<hr>
+<p>Usually we choose Gaussian kernel and use training data points as landmarks to compute feature <span class="math">\(f_i = e^{-\frac{||x-l_i||}{2\sigma^2}}\)</span>(i = 1...m samples, we use training samples as landmarks <span class="math">\(l_i\)</span>)</p>
+<ul>
+<li>
+<p>Hypothesis: Given x, compute features <span class="math">\(f \in R^{m+1}\)</span>, predict <span class="math">\(y_i=1\)</span> if <span class="math">\(\theta^Tf \geq0\)</span></p>
+</li>
+<li>
+<p>Loss Function: </p>
+</li>
+</ul>
+<div class="math">$$\min\limits_{\theta}C\sum\limits_{i=1}^{m}[y^i\text{cost1}(\theta^Tf)+(1-y^i)\text{cost0}(\theta^Tf)] + \frac{1}{2}\sum\limits_{i=1}^{m}\theta_i^2$$</div>
+<ul>
+<li>
+<p>Poly kernel： <span class="math">\(k(x, l) = (x^Tl+constant)^{degree}\)</span> so two parameters.</p>
+</li>
+<li>
+<p>More kernels: String kernel(string classification), chi-square kernel, chi-square kernel, histogram intersection kernel chi-square kernel, histogram intersection kernel...</p>
+</li>
+</ul>
+<h1 id="svcsupport-vector-classifier-in-scikit-learn">SVC(Support Vector Classifier) in scikit-learn<a class="headerlink" href="#svcsupport-vector-classifier-in-scikit-learn" title="Permanent link">¶</a></h1>
+<hr>
+<p>Usage Example: <code>clf = SVC(C=1, kernel='rbf', gamma='auto')</code></p>
+<p>Take-home message:</p>
+<ul>
+<li>
+<p>Tune gamma(if <code>'rbf'</code> kernel(<span class="math">\(\text{exp}(-\gamma||x-x^{\prime}||^2)\)</span>) is set);</p>
+</li>
+<li>
+<p>Tune C, the regularization term;</p>
+</li>
+<li>
+<p>Preprocessing your data to [0, 1] or [-1, 1] or {<span class="math">\(\mu\)</span>: 0, <span class="math">\(\sigma\)</span>: 1} </p>
+</li>
+<li>
+<p>'class_weight'(SVC only): used for unbalanced data(way more positives than negatives)</p>
+</li>
+<li>
+<p>Large Margin Classifier(SVM)(C is very large, emphasize the first term in cost function, may overfit for outlier)</p>
+</li>
+<li>
+<p>Before passing your data to SVC, make sure your array is C-ordered contiguous by <code>nparray.types</code></p>
+</li>
+<li>
+<p>For the return values by the <code>clf.predict</code>, it is ordered by the integer labels so the first one is the label with samllest integer, if y is continuous, an error will be raised.</p>
+</li>
+<li>
+<p>decision_function: default is 'ovr' = one-vs-rest.</p>
+<ul>
+<li>how to represent the decision boundary on two features plots(linearly separatable)</li>
+</ul>
+<p><img alt="" src="http://i.imgur.com/k172HG8.png"/></p>
+<ul>
+<li>why this optimization leads to large margin classifier?</li>
+</ul>
+</li>
+</ul>
+<h1 id="math-behind-tlarge-margin-classification">MATH behind tlarge margin classification<a class="headerlink" href="#math-behind-tlarge-margin-classification" title="Permanent link">¶</a></h1>
+<hr>
+<ul>
+<li>vector inner product:</li>
+<li>imagine, if C is large(less likely to be biased, but high variance), the optimization is becoming obj = <span class="math">\(\min\limits_{\theta}\frac{1}{2}\sum\limits_{j=1}^n\theta_j^2 = \frac{1}{2}||\theta||\)</span>, s.t. <span class="math">\(\theta^Tx^i\geq1, if y^i=1\)</span> and <span class="math">\(\theta^Tx^i\leq-1 if y^i = 0\)</span>, i means the condition should be satisfied by each data point(x, y), see how svm choose decision boundary</li>
+<li>how svm choose decision boundary:</li>
+</ul>
+<p><img alt="" src="http://i.imgur.com/eskggHA.png"/></p>
+<h1 id="kernels-i">Kernels I<a class="headerlink" href="#kernels-i" title="Permanent link">¶</a></h1>
+<hr>
+<ul>
+<li>Non-linear decision boundary:</li>
+<li>Kernel: given x, compute new feature depending on proximity to landmarks(<span class="math">\(l^1, l^2, l^3\)</span>):</li>
+</ul>
+<p>Given x: <span class="math">\(f_1 = exp(-\frac{||x-l^1||^2}{2\sigma^2})\)</span>....similarity function, kernel(k(x, <span class="math">\(l^i\)</span>)), Gaussian kernels</p>
+<p>Example: <img alt="" src="http://i.imgur.com/R4m0zTX.png"/></p>
+<h1 id="kernel-with-svm">Kernel with SVM<a class="headerlink" href="#kernel-with-svm" title="Permanent link">¶</a></h1>
+<hr>
+<ul>
+<li>use training point as landmarks,</li>
+<li>for each training data point , get a new set of coordinates(<span class="math">\(\vec{f}\)</span>)
+  <img alt="" src="http://i.imgur.com/36gqgFW.png"/></li>
+<li>Hypothesis: Given x, compute features f(m+1 dimensions), predict positive if <div class="math">$$\theta^Tf\geq0$$</div>$\</li>
+<li>Training: <span class="math">\(\min\limits_{\theta}C\sum\limits_{i=1}^{m}y^icost_1(\theta^Tf^i)+(1-y^i)cost_0(\theta^Tf^i) + \frac{1}{2}\sum\limits_{i=1}^{m}\theta_i^2\)</span></li>
+<li>kernels for logitics regression lack tricks in SVM</li>
+<li>SVM parameters:<ul>
+<li>C(1/lambda): large C-low bias and high variance; small C-higher bias, low variance</li>
+<li><span class="math">\(\sigma^2\)</span>: large-vary more smoothly, higher bias, lowervariance and verse visa</li>
+</ul>
+</li>
+</ul>
+<h1 id="using-an-svm">Using an svm<a class="headerlink" href="#using-an-svm" title="Permanent link">¶</a></h1>
+<hr>
+<ul>
+<li>need to specify: choice of parameterC; choice of kernel(no kernel = linear kernel, n large, m small, nolinear may overfit):<ul>
+<li>if Gaussian kernel, you should choose sigma squre(n small, m large): do perform feature scaling before using the Gaussian kernel;</li>
+<li>other choice of kernel: need to satisfy called Mercer's Theorem to make SVM packages' optimizations run correctly;</li>
+<li>very rare to use other kernels: polynomial kernal(<span class="math">\(k(x, l) = (x^Tl+c)^n\)</span>, two parameters, c and n, only when x, l non-negative); more esoteric(string kernel, chi-square, histogram intersection kernel)</li>
+</ul>
+</li>
+<li>Multi-class classification: many svm packages already have built-in mc classification functionality, otherwise, use one-vs.-all, pick classi with larges <span class="math">\((\theta^i)^Tx\)</span></li>
+<li>Logistic regression vs. SVMs:<ul>
+<li>n= no. of features, m = no. of training examples:</li>
+<li>n is small, m is intermediate, use svm with Gaussian kernel(up to 50000), if n is small, m is large, /add more features , then use l-r or svm or svm with linear kernel(convex optimization for all svm but not for neural network)</li>
+<li>otherwise(n is large) neural network works in most settings, but slow</li>
+</ul>
+</li>
+</ul>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script></hr></hr></hr></hr></hr></hr></hr>
+            
+            
+            <hr/>
+        </div>
+        <section>
+        <div class="span2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2015-12-25T17:38:00-08:00">Dec 25, 2015</time>
+            <h4>Category</h4>
+            <a class="category-link" href="http://localhost:18000/categories.html#misc-ref">misc</a>
+<h4>Contact</h4>
+    <a href="http://www.weibo.com/u/1872791672" title="My weibo Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-weibo sidebar-social-links"></i></a>
+    <a href="https://www.facebook.com/liwen.wen.581" title="My facebook Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-facebook sidebar-social-links"></i></a>
+    <a href="https://twitter.com/liwenPhys" title="My twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:wenliwen64@gmail.com" title="My email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="span1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">DataFrenzy</span> - Collection of study notes on programming, statistics, data science and beyond...</li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>            <script src="http://code.jquery.com/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+
+    
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>

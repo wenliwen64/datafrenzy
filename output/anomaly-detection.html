@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8"> 
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Liwen Wen" />
+        <meta name="copyright" content="Liwen Wen" />
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content=", misc, " />
+
+<meta property="og:title" content="Anomaly Detection "/>
+<meta property="og:url" content="http://localhost:18000/anomaly-detection.html" />
+<meta property="og:description" content="Density Estimation:¶ Anomaly detection: Problem Motivation: Aircraft engine features example \({x^1, x^2, x^3....}\), Is \(x_{test}\) ok or not? Or fraud detection, \(x_i\) = features of user i; s activities. Model p(x)(probability) from data, identify unusual users by checking which has \(p(x) &lt; \epsilon\); Monitoring computers …" />
+<meta property="og:site_name" content="DataFrenzy" />
+<meta property="og:article:author" content="Liwen Wen" />
+<meta property="og:article:published_time" content="2015-12-21T17:01:00-08:00" />
+<meta name="twitter:title" content="Anomaly Detection ">
+<meta name="twitter:description" content="Density Estimation:¶ Anomaly detection: Problem Motivation: Aircraft engine features example \({x^1, x^2, x^3....}\), Is \(x_{test}\) ok or not? Or fraud detection, \(x_i\) = features of user i; s activities. Model p(x)(probability) from data, identify unusual users by checking which has \(p(x) &lt; \epsilon\); Monitoring computers …">
+
+        <title>Anomaly Detection  · DataFrenzy
+</title>
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="http://localhost:18000/theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="http://localhost:18000/theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="http://localhost:18000/theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="http://localhost:18000/theme/css/custom.css" media="screen">
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="http://localhost:18000/"><span class=site-name>DataFrenzy</span></a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav pull-right top-menu">
+                            <li ><a href="http://localhost:18000">Home</a></li>
+                            <li ><a href="http://localhost:18000/pages/about.html">About</a></li>
+                            <li ><a href="http://localhost:18000/pages/bookshelf.html">Books Collection</a></li>
+                            <li ><a href="http://localhost:18000/pages/task-magnagement.html">Task Management</a></li>
+                            <li ><a href="http://localhost:18000/pages/mis.html">Miscellaneous</a></li>
+                            <li ><a href="http://localhost:18000/pages/research.html">Research</a></li>
+                            <li ><a href="http://localhost:18000/categories.html">Categories</a></li>
+                            <li ><a href="http://localhost:18000/tags.html">Tags</a></li>
+                            <li ><a href="http://localhost:18000/archives.html">Archives</a></li>
+                            <li><form class="navbar-search" action="http://localhost:18000/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span1"></div>
+                <div class="span10">
+<article>
+<div class="row-fluid">
+    <header class="page-header span10 offset2">
+    <h1><a href="http://localhost:18000/anomaly-detection.html"> Anomaly Detection  </a></h1>
+    </header>
+</div>
+
+<div class="row-fluid">
+    <div class="span2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div class="toc">
+<ul>
+<li><a href="#density-estimation">Density Estimation:</a></li>
+<li><a href="#develope-and-evaluate-an-anomaly-detection-system">Develope and evaluate an anomaly detection system:</a></li>
+<li><a href="#anomaly-detection-vs-supervised-learning">Anomaly Detection vs. Supervised Learning</a></li>
+<li><a href="#choosing-what-features-to-use">Choosing what features to use:</a></li>
+<li><a href="#multi-variate-gaussian-distribution">Multi-variate Gaussian Distribution</a></li>
+<li><a href="#anomaly-detection-using-the-multivariate-gaussian-distribution">Anomaly Detection using the Multivariate Gaussian Distribution</a></li>
+</ul>
+</div>
+        </nav>
+    </div>
+    <div class="span8 article-content">
+
+            
+            
+<h2 id="density-estimation">Density Estimation:<a class="headerlink" href="#density-estimation" title="Permanent link">¶</a></h2>
+<ul>
+<li>Anomaly detection:</li>
+<li>Problem Motivation: Aircraft engine features example <span class="math">\({x^1, x^2, x^3....}\)</span>, Is <span class="math">\(x_{test}\)</span> ok or not? Or fraud detection, <span class="math">\(x_i\)</span> = features of user i; s activities. Model p(x)(probability) from data, identify unusual users by checking which has <span class="math">\(p(x) &lt; \epsilon\)</span>; Monitoring computers in a data center: memory use, CPU load, CPUload/network_traffic, number of disk accesses/sec; Manufacturing</li>
+<li>Gaussian Distribution: <span class="math">\(x\sim N(\mu, \sigma^2)\)</span>, <span class="math">\(p(x;\mu, \sigma^2)=\frac{2}{\sqrt{2\pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})\)</span><ul>
+<li>Anomaly Detection Algorithms:</li>
+<li>Training set: <span class="math">\({x^1, x^2,....x^m}, x^i\in\mathbb{R}^n\)</span></li>
+<li><span class="math">\(P(x_1, x_2, ...) = p(x_1; \mu_1, \sigma^2_1)p(x_2...)=\prod p(x_i;\mu_i,\sigma_i^2)\)</span> those parameters can be estimated by <span class="math">\(\mu_j = \frac{1}{m}\sum\limits_{i=1}^m x_j^i, \sigma_j^2=\frac{1}{m}\sum\limits_{i=1}^m (x^i_j-\mu_j)^2\)</span></li>
+<li>It is a anomaly if <span class="math">\(P(x)&lt;\epsilon\)</span>;</li>
+</ul>
+</li>
+</ul>
+<h2 id="develope-and-evaluate-an-anomaly-detection-system">Develope and evaluate an anomaly detection system:<a class="headerlink" href="#develope-and-evaluate-an-anomaly-detection-system" title="Permanent link">¶</a></h2>
+<ul>
+<li>Assume we have some labeled data, of anomalous and non-anomalous examples(y = 0 if normal, y = 1 if anomalous)</li>
+<li>Training set: <span class="math">\(x^1, x^2, x^3...\)</span></li>
+<li>cross validation set: </li>
+<li>test set:</li>
+<li>example: 10000 good engines, 20 flawed engines, training set: 6000 good engines, cv: 2000 good 10 flawed, test: 2000 good 10 flawed; data is very skewed</li>
+<li>algo evaluation: 1.fit p(x); 2.on a cv test example, predict based on <span class="math">\(\epsilon\)</span></li>
+</ul>
+<h2 id="anomaly-detection-vs-supervised-learning">Anomaly Detection vs. Supervised Learning<a class="headerlink" href="#anomaly-detection-vs-supervised-learning" title="Permanent link">¶</a></h2>
+<ul>
+<li>very small number of positive examples(y=1), large number of negatives -&gt; anomaly detection -&gt; many different types of anomalies, hard  for any algorithms to learn from positive examples, future anomalies look nothing like any of the anomalous examples</li>
+<li>large number of positive <strong>AND</strong> negative examples, enough positive examples for algo to get a sense of what postive examples are like: email spam claasification, weather prediction, cancer classification</li>
+</ul>
+<h2 id="choosing-what-features-to-use">Choosing what features to use:<a class="headerlink" href="#choosing-what-features-to-use" title="Permanent link">¶</a></h2>
+<ul>
+<li>non-gaussian features - transform it</li>
+<li>error analysis for anomaly detection:</li>
+<li>monitoring computers in a data center:<ul>
+<li><span class="math">\(x1 = memory\_use\)</span>, <span class="math">\(x2 = number\_of\_disk\_accesses/sec\)</span>, <span class="math">\(x3 = cpu\_load\)</span>, <span class="math">\(x4 = network\_traffic\)</span>, <span class="math">\(x5 = cpu\_/network\)</span>, <span class="math">\(x6 = cpu^2/network\)</span>...</li>
+</ul>
+</li>
+</ul>
+<h2 id="multi-variate-gaussian-distribution">Multi-variate Gaussian Distribution<a class="headerlink" href="#multi-variate-gaussian-distribution" title="Permanent link">¶</a></h2>
+<ul>
+<li>Formulation: <span class="math">\(x\in\mathbb{R}^n\)</span>, don't model p(x_1), p(x_2)...separately,  model p(x) all in one go. <div class="math">$$P(x;\mu,\Sigma) = \frac{1}{\sqrt{2\pi}^{n/2}|\Sigma|^{1/2}}exp(-\frac{1}{2}(x-\mu)^T\Sigma^{-1}(x-\mu))$$</div>
+</li>
+<li>positive or negative correlation observed from sigma matrix(off-diagonal elements)</li>
+</ul>
+<h2 id="anomaly-detection-using-the-multivariate-gaussian-distribution">Anomaly Detection using the Multivariate Gaussian Distribution<a class="headerlink" href="#anomaly-detection-using-the-multivariate-gaussian-distribution" title="Permanent link">¶</a></h2>
+<p><img alt="" src="http://i.imgur.com/lR6fVUA.png"/></p>
+<ul>
+<li>
+<p>original model corresponds to a special case of multivariate gaussian distribution where off diagonal elements are zero is sigma matrix</p>
+</li>
+<li>
+<p>so multivariate gaussian can automatically capture the correlations between features. but original is computationally cheaper(n = 10000),must have m &gt; n , or else sigma is non-invertible. original one has no this restriction. Redundant features may make sigma non-invertible. 2 solutions to non-invertible sigma(a. m &gt;= 10n, b.find redundant features) </p>
+</li>
+</ul>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
+            
+            
+            <hr/>
+        </div>
+        <section>
+        <div class="span2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2015-12-21T17:01:00-08:00">Dec 21, 2015</time>
+            <h4>Category</h4>
+            <a class="category-link" href="http://localhost:18000/categories.html#misc-ref">misc</a>
+<h4>Contact</h4>
+    <a href="http://www.weibo.com/u/1872791672" title="My weibo Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-weibo sidebar-social-links"></i></a>
+    <a href="https://www.facebook.com/liwen.wen.581" title="My facebook Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-facebook sidebar-social-links"></i></a>
+    <a href="https://twitter.com/liwenPhys" title="My twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:wenliwen64@gmail.com" title="My email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="span1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">DataFrenzy</span> - Collection of study notes on programming, statistics, data science and beyond...</li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>            <script src="http://code.jquery.com/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+
+    
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>

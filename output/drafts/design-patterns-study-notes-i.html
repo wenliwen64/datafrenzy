@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8"> 
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Liwen Wen" />
+        <meta name="copyright" content="Liwen Wen" />
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content=", misc, " />
+
+<meta property="og:title" content="Design Patterns Study Notes I "/>
+<meta property="og:url" content="http://localhost:18000/drafts/design-patterns-study-notes-i.html" />
+<meta property="og:description" content="Chapter 1: Introduction¶ Differences between experienced software designer and novice: Do not to solve every problem from first principles; A pattern has four essential elements: Pattern name; The problems describing when to apply the pattern; The solution describing the elements that make up the design, relationships, responsibilities and collaborations The …" />
+<meta property="og:site_name" content="DataFrenzy" />
+<meta property="og:article:author" content="Liwen Wen" />
+<meta property="og:article:published_time" content="2015-11-27T21:22:00-08:00" />
+<meta property="" content="2015-11-27T21:22:00-08:00" />
+<meta name="twitter:title" content="Design Patterns Study Notes I ">
+<meta name="twitter:description" content="Chapter 1: Introduction¶ Differences between experienced software designer and novice: Do not to solve every problem from first principles; A pattern has four essential elements: Pattern name; The problems describing when to apply the pattern; The solution describing the elements that make up the design, relationships, responsibilities and collaborations The …">
+
+        <title>Design Patterns Study Notes I  · DataFrenzy
+</title>
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="http://localhost:18000/theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="http://localhost:18000/theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="http://localhost:18000/theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="http://localhost:18000/theme/css/custom.css" media="screen">
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="http://localhost:18000/"><span class=site-name>DataFrenzy</span></a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav pull-right top-menu">
+                            <li ><a href="http://localhost:18000">Home</a></li>
+                            <li ><a href="http://localhost:18000/pages/about.html">About</a></li>
+                            <li ><a href="http://localhost:18000/pages/bookshelf.html">Books Collection</a></li>
+                            <li ><a href="http://localhost:18000/pages/task-magnagement.html">Task Management</a></li>
+                            <li ><a href="http://localhost:18000/pages/mis.html">Miscellaneous</a></li>
+                            <li ><a href="http://localhost:18000/pages/research.html">Research</a></li>
+                            <li ><a href="http://localhost:18000/categories.html">Categories</a></li>
+                            <li ><a href="http://localhost:18000/tags.html">Tags</a></li>
+                            <li ><a href="http://localhost:18000/archives.html">Archives</a></li>
+                            <li><form class="navbar-search" action="http://localhost:18000/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span1"></div>
+                <div class="span10">
+<article>
+<div class="row-fluid">
+    <header class="page-header span10 offset2">
+    <h1><a href="http://localhost:18000/drafts/design-patterns-study-notes-i.html"> Design Patterns Study Notes I  </a></h1>
+    </header>
+</div>
+
+<div class="row-fluid">
+    <div class="span2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div class="toc">
+<ul>
+<li><a href="#chapter-1-introduction">Chapter 1: Introduction</a></li>
+<li><a href="#headsup-design-pattern">Headsup design pattern:</a></li>
+</ul>
+</div>
+        </nav>
+    </div>
+    <div class="span8 article-content">
+
+            
+            
+<h1 id="chapter-1-introduction">Chapter 1: Introduction<a class="headerlink" href="#chapter-1-introduction" title="Permanent link">¶</a></h1>
+<ul>
+<li>
+<p>Differences between experienced software designer and novice:</p>
+<ol>
+<li>Do not to solve every problem from first principles;</li>
+<li></li>
+</ol>
+</li>
+<li>
+<p>A pattern has four essential elements:</p>
+</li>
+<li>
+<p>Pattern name;</p>
+</li>
+<li>
+<p>The problems describing when to apply the pattern;</p>
+</li>
+<li>
+<p>The solution describing the elements that make up the design, relationships, responsibilities and collaborations</p>
+</li>
+<li>
+<p>The consequences(a system's flexibility, extensibility or portability) are the results and trade-offs of applying the pattern. </p>
+</li>
+<li>
+<p>Design pattern definition in this book: descriptions of communicating objects and classes that are customized to solve a general design problems in a particular context. </p>
+</li>
+<li>
+<p>Model/View/Controller(MVC) pattern</p>
+</li>
+<li>
+<p>Dynamic binding: the run-time association of a request to an object and one of its operations</p>
+</li>
+<li>
+<p>Polymorphism: it lets a client object make few assumptions about other objects beyond supporting a particular interface. </p>
+</li>
+<li>
+<p>Principles in object-oriented design: </p>
+</li>
+<li>
+<p>Program to an interface , not an implementation;</p>
+</li>
+<li>
+<p>Favor object composition over class inheritance;</p>
+</li>
+</ul>
+<p>notes: interface: what users see; implementation: all the dirty work you do. </p>
+<h1 id="headsup-design-pattern">Headsup design pattern:<a class="headerlink" href="#headsup-design-pattern" title="Permanent link">¶</a></h1>
+<ol>
+<li>
+<p>Design principle I: identify aspects of your application that vary and separate them from what stays the same.(Pull duck behaviour(quak and fly) out of duck classes, so basically you define interface variables in your base class and instantiate or initialize the specific one in your subclasses, here, <code>FlyBehaviour</code> and <code>QuackBehaviour</code> are interface not implementation).</p>
+</li>
+<li>
+<p>Design principle II: program to an interface, not an implementation.</p>
+</li>
+<li>
+<p>Design principle III: favor composition more than inheritance. </p>
+</li>
+<li>
+<p>Page 32 for summary of Chapter 1;</p>
+</li>
+</ol>
+<p>Chapter II: Observer pattern</p>
+<p>Chapter III: Decorating your objects(decoration pattern)</p>
+<p>Chapter IV: Factory method pattern and abstract factory pattern(create pizza method for only one object and ingredient factory class for a set of objects)</p>
+<p>Chapter V: Command pattern(abstract a command and let cutstomer implement concrete command for execution)</p>
+<p>Chapter VI: Adapter pattern(create an adapter object to do the job); Facade pattern(Just like our StMaker class, encapsulate all of other classes' operations)</p>
+<p>Chapter VII: Algorithm template </p>
+<p>Chapter VIII: Create state objects' interface;</p>
+<p>Chapter IX: Singleton Pattern(how to maintain one instance)</p>
+<p>Chapter X: Iterator and composite, about the collectives  </p>
+<p>Chapter XI: Proxy pattern.(icon, imageproxy to derive from it and plot thing)</p>
+            
+            
+            <hr/>
+        </div>
+        <section>
+        <div class="span2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2015-11-27T21:22:00-08:00">Nov 27, 2015</time>
+
+<h4>Last Updated</h4>
+<time datetime="2015-11-27T21:22:00-08:00">Nov 27, 2015</time>
+
+            <h4>Category</h4>
+            <a class="category-link" href="http://localhost:18000/categories.html#misc-ref">misc</a>
+<h4>Contact</h4>
+    <a href="http://www.weibo.com/u/1872791672" title="My weibo Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-weibo sidebar-social-links"></i></a>
+    <a href="https://www.facebook.com/liwen.wen.581" title="My facebook Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-facebook sidebar-social-links"></i></a>
+    <a href="https://twitter.com/liwenPhys" title="My twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="mailto:wenliwen64@gmail.com" title="My email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="span1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">DataFrenzy</span> - Collection of study notes on programming, statistics, data science and beyond...</li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>            <script src="http://code.jquery.com/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+
+    
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>
