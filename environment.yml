@@ -1,0 +1,8 @@
+name: datafrenzy
+dependencies:
+- python=2
+- anaconda
+- pip
+- pip:
+    - pelican
+    - markdown

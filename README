@@ -1,1 +1,5 @@
-`source activate pelican` before `make devserver`
+###After repository clone
+`conda env create -f environment.yml`
+
+###Initialization
+`source activate datafrenzy` before `make devserver`

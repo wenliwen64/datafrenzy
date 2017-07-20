@@ -39,7 +39,7 @@ This note is based on Python For Data Analysis written by Wes McKinney
 
 2. Retrieve rows/columns: `row = df.ix['a']` or ``
 
-3. For code like `df[df['Name'] == 'Bob', 'Sex'] = 1` we can understand in python.pandas referencing element can exploit boolean array like `{False, True, True...}`.
+3. For code like `df.loc[df['Name'] == 'Bob', 'Sex'] = 1`, we can understand this in python.pandas to reference elements. can exploit boolean array like `{False, True, True...}`.
 
 4. Apply function and mapping: 
 

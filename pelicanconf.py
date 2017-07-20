@@ -37,7 +37,6 @@ DEFAULT_PAGINATION = 10
 
 THEME = '../pelican-themes/elegant'
 PLUGIN_PATHS = ['../pelican-plugins']
-
 # elegant theme configuration items
 PLUGINS = ['sitemap', 'extract_toc', 'tipue_search', 'render_math']
 #MD_EXTENSIONS = ['toc', 'codehilite(css_class=highlight)', 'extra', 'headerid']

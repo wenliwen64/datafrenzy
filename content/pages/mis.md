@@ -42,10 +42,15 @@ Authors: Liwen Wen
 * [StEvent documentation](https://drive.google.com/file/d/0B3ZmSZ7JPYZ6WDQ3TGpxZkw5MDg/view?usp=sharing)
 * [StMcEvent documentation](https://drive.google.com/file/d/0B3ZmSZ7JPYZ6b1dlaDlWcmtmYkk/view?usp=sharing)
 * [StAssociationMaker documentation](https://drive.google.com/file/d/0B3ZmSZ7JPYZ6RnhNX0VWYXlhNDQ/view?usp=sharing)
-* [CPP cheat sheet](https://drive.google.com/file/d/0B3ZmSZ7JPYZ6QnRMeVFKR3JLbEk/view?usp=sharing)
-* [CPP template notes](https://drive.google.com/file/d/0B3ZmSZ7JPYZ6R0puS1NCZ0E1d0E/view?usp=sharing) or [Carey's notes](https://drive.google.com/drive/folders/0B3ZmSZ7JPYZ6TFI0UWI4Q09sLWc)
+* [C++ cheat sheet](https://drive.google.com/file/d/0B3ZmSZ7JPYZ6QnRMeVFKR3JLbEk/view?usp=sharing)
+* [C++ template notes](https://drive.google.com/file/d/0B3ZmSZ7JPYZ6R0puS1NCZ0E1d0E/view?usp=sharing) or [Carey's notes](https://drive.google.com/drive/folders/0B3ZmSZ7JPYZ6TFI0UWI4Q09sLWc)
 * [C++/C static keyword]()
 * [Python Cheatsheet]({filename}/programming/python_cheatsheet.md)
+* [Stanford Database notes](https://drive.google.com/file/d/0B3ZmSZ7JPYZ6bVgxcVRVcWFReTQ/view?usp=sharing)
+* Java Notes for C++ Programmers (location: google drive)
+* C++ Review Notes (location: desktop, google drive)
+* Operating System Notes (location: desktop, google drive)
+* Database Notes (location: desktop, google drive)
 
 # Book notes:
 - - -
