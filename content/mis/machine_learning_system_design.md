@@ -1,3 +1,8 @@
+Title: Machine Learning System Design 
+Date: 2016-05-23 13:13
+Slug: ml-sys-design
+Authors: Liwen Wen
+
 # Machine Learning System Design
 
 1. Priotirizing what to work on(eg. email spam system)

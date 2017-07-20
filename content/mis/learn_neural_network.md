@@ -1,3 +1,9 @@
+Title: Learn Neural Network 
+Date: 2016-05-23 13:13
+Slug: learn-neural-network
+Authors: Liwen Wen
+
+
 #Learn Neural Network(for classification problems)
 
 1. Cost function:

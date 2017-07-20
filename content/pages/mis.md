@@ -45,6 +45,7 @@ Authors: Liwen Wen
 * [CPP cheat sheet](https://drive.google.com/file/d/0B3ZmSZ7JPYZ6QnRMeVFKR3JLbEk/view?usp=sharing)
 * [CPP template notes](https://drive.google.com/file/d/0B3ZmSZ7JPYZ6R0puS1NCZ0E1d0E/view?usp=sharing) or [Carey's notes](https://drive.google.com/drive/folders/0B3ZmSZ7JPYZ6TFI0UWI4Q09sLWc)
 * [C++/C static keyword]()
+* [Python Cheatsheet]({filename}/programming/python_cheatsheet.md)
 
 # Book notes:
 - - -
@@ -58,3 +59,5 @@ Authors: Liwen Wen
 # Life Management
 - - -
 * [Travel Checklist]({filename}/mis/travel_checklist.md)
+* My United Mileage Plus ID: WW151698
+* My AA Advantage Number: 01A0BB8

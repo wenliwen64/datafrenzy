@@ -1,4 +1,4 @@
-Titie: Algorithms Comparison 
+Title: Algorithms Comparison 
 Date: 2015-12-19 16:03
 Slug: algorithms-comparison
 Authors: Liwen Wen

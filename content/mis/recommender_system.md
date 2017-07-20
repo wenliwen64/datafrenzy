@@ -1,3 +1,8 @@
+Title: Recommend System
+Date: 2016-05-23 13:13
+Slug: recommend-system
+Authors: Liwen Wen
+
 # Recommend System
 1. Problem Formulation:
     - Examples: Predicting movie ratings: $$n_u$$ = no. of users, $$n_m$$= no. of movies, $$r(i, j) = 1$$ if user j rated movie i. $$y(i,j)$$=rating given by user j to movie i(only if $$r_{ij} = 1$$) ;predict unrated score for each movie by each user.

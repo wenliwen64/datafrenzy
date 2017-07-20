@@ -1,4 +1,4 @@
-Titile: Unix Server Maintenance
+Title: Unix Server Maintenance
 Date: 2016-02-05 11:36
 Slug: unix-server-maintenance
 Authors: Liwen Wen

@@ -1,3 +1,8 @@
+Title: Large Scale Machine Learning 
+Date: 2016-05-23 13:13
+Slug: large-scale-ml
+Authors: Liwen Wen
+
 # Large scale machine learning
 1. It is not who has the best algorithm that wins, it is who has the most data.
 2. Learning with large datasets: plot error vs. training set size(J_train, J_cv)

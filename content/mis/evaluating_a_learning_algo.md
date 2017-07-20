@@ -1,3 +1,10 @@
+Title: Evaluating a Learning Algorithm
+Date: 2017-07-19 18:37 
+Slug: eval-algo
+Authors: Liwen Wen
+
+[TOC]
+
 # Evaluating a Learning Algorithm
 
 0. What is variance-bias tradeoff?

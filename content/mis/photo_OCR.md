@@ -1,3 +1,8 @@
+Title: Photo OCR 
+Date: 2016-05-23 13:13
+Slug: photo-ocr
+Authors: Liwen Wen
+
 # Photo OCR
 1. Problem Description and Pipeline:
     - optical character recognition(read text from an image)

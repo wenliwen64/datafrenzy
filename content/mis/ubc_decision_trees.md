@@ -1,3 +1,8 @@
+Title: Decision Tree 
+Date: 2016-05-23 13:13
+Slug: ubc-decision-tree
+Authors: Liwen Wen
+
 # Decision Trees(UBC courses on youtube)
 1. Decision trees(forest)
     - a general tree structure: root node, internal node(split node), terminal node(leaf node)

@@ -1,3 +1,8 @@
+Title: Neural Network 
+Date: 2016-05-23 13:13
+Slug: neural-network
+Authors: Liwen Wen
+
 #Neural Network
 
 1. Hypothesis Representation / Non-linear hypothesis

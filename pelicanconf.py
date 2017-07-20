@@ -35,12 +35,21 @@ SOCIAL = (
 
 DEFAULT_PAGINATION = 10
 
-THEME = 'pelican-themes/elegant'
-PLUGIN_PATHS = ['pelican-plugins']
+THEME = '../pelican-themes/elegant'
+PLUGIN_PATHS = ['../pelican-plugins']
 
 # elegant theme configuration items
 PLUGINS = ['sitemap', 'extract_toc', 'tipue_search', 'render_math']
-MD_EXTENSIONS = ['codehilite(css_class=highlight)', 'extra', 'headerid', 'toc']
+#MD_EXTENSIONS = ['toc', 'codehilite(css_class=highlight)', 'extra', 'headerid']
+MARKDOWN = {
+        'extension_configs': {
+            'markdown.extensions.codehilite': {'css_class': 'highlight'},
+            'markdown.extensions.extra': {},
+            'markdown.extensions.meta': {},
+            'markdown.extensions.toc' :{'permalink' : 'true'},
+            },
+        'output_format': 'html5',
+        }
 DIRECT_TEMPLATES = (('index', 'tags', 'categories','archives', 'search', '404'))
 STATIC_PATHS = ['theme/images', 'images', 'plots', 'data', ]
 TAG_SAVE_AS = ''
